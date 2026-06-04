@@ -1,0 +1,231 @@
+/* =========================
+ICONOS
+========================= */
+.paw-icon{
+    color: rgb(160, 230, 225);
+    font-size: 2rem;
+}
+
+.dog-icon{
+    color: rgb(160, 230, 225);
+    font-size: 2rem;
+}
+
+.location-icon{
+    color: rgb(160, 230, 225);
+    font-size: 2rem;
+} 
+
+.heart-icon{
+    color: rgb(160, 230, 225);
+    font-size: 2rem;
+}
+
+.calendar-icon{
+    color: rgb(160, 230, 225);;
+    font-size: 2rem;
+}
+
+.clock-icon{
+    color: rgb(160, 230, 225);;
+    font-size: 2rem;
+}
+
+.briefcase-medical-icon{
+    color: rgb(160, 230, 225);;
+    font-size: 2rem;
+}
+
+.stethoscope-icon{
+    color: rgb(160, 230, 225);;
+    font-size: 2rem;
+}
+
+.baseball-icon{
+    color: rgb(160, 230, 225);;
+    font-size: 2rem;
+}
+
+.facebook-icon{
+    color: rgb(121, 85, 72);
+    font-size: 1rem;
+}
+
+.instagram-icon{
+    color: rgb(121, 85, 72);
+    font-size: 1rem;
+}
+
+.youtube-icon{
+    color: rgb(121, 85, 72);
+    font-size: 1rem;
+}
+
+/* =========================
+CSS BASE
+Reglas generales del sitio
+========================= */
+/* Elimina márgenes y espacios automáticos del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración general del documento */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* Estilo general del sitio */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(23, 23, 30);
+    color: whitesmoke;
+    line-height: 1.6;
+
+     /* *** Espacio para que el header fixed no tape el contenido */
+     padding-top: 88px;
+}
+
+/* Multimedia adaptable */
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+/* Evita deformación y espacios inferiores */
+img {
+    height: auto;
+    display: block;
+}
+
+/* Enlaces sin subrayado */
+a {
+    text-decoration: none;
+}
+
+/* Viñetas dentro del bloque */
+ul {
+    list-style-position: inside;
+}
+
+/* =========================
+UTILIDADES GENERALES
+========================= */
+
+/* Contenedor centrado reutilizable */
+.container {
+    width: min(90%, 1100px);
+    margin: 0 auto;
+}
+
+/* Separación general entre secciones */
+section,
+aside {
+    padding: 48px 0;
+}
+
+/* Estilo base para títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* Separación entre párrafos */
+p {
+    margin-bottom: 15px;
+}
+
+/* =========================
+HEADER Y NAVEGACIÓN
+========================= */
+
+/* Caja principal oscura */
+main {
+    background: linear-gradient(135deg, #111827, #0f172a);
+    color: white;
+}
+
+/* Header fijo superior */
+.site-header {
+    background-color: #2A5A46;
+    color: white;
+    padding: 18px 0;
+    border-bottom: 4px solid #93CFA7;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+}
+
+/* *** Flexbox alinea logo, menú y botón hamburguesa */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Logo del sitio */
+.logo {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    white-space: nonwrap;
+}
+
+/* *** Checkbox oculto usado para abrir/cerrar menú */
+.menu-toggle {
+    display: none;
+}
+
+/* *** Botón hamburguesa oculto en escritorio */
+.menu-button {
+    display: none;
+    width: 38px;
+    height: 32px;
+    cursor: pointer;
+}
+
+/* *** Líneas del botón hamburguesa */
+.menu-button span {
+    display: block;
+    height: 4px;
+    margin-bottom: 6px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+/* Menú principal */
+.main-nav ul {
+    list-style: none;
+
+    /* *** Flexbox organiza enlaces en fila */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Enlaces del menú */
+.main-nav a {
+    color: white;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Cambio visual al pasar el mouse */
+.main-nav a:hover {
+    background-color: #A0E6E1;
+}
