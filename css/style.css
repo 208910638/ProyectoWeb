@@ -121,7 +121,7 @@ a {
 
 /* Viñetas dentro del bloque */
 ul {
-    list-style-position: inside;
+    list-style-position: none;
 }
 
 /* =========================
@@ -340,4 +340,18 @@ TARJETAS DE CIFRAS (CUADRITOS FLEXBOX)
     margin-bottom: 0;
     color: #e2e8f0;
     font-size: 1rem;
+}
+
+#contacto {
+    background-color: #2A5A46;
+    color: white;
+    padding: 18px 0;
+    border-top: 4px solid #93CFA7;
+    font-size: 1.0rem;
+    flex-direction: column;
+    text-align: center;
+
+
+
+
 }
