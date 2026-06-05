@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MatchPet CR es un sitio web informativo y de adopción de mascotas que conecta animales en busca de un hogar con personas interesadas en adoptarlos.">
+    <meta name="keywords" content="adopción de mascotas, perros, gatos, refugios, bienestar animal, adopción responsable, Costa Rica">
+    <meta name="author" content="MatchPet CR">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>MatchPet CR | Inicio</title>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-content">
+            <p class="logo"><strong>MatchPet CR</strong></p> 
+
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle"> 
+
+
+            <label for="menu-toggle" class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Mascotas</a></li>
+                    <li><a href="formulario.html">Unirse / Postular</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <main>
+    <section id="inicio" class="hero-section">
+        
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="source/videos/perritoanimado.mp4" type="video/mp4">
+        </video>
+            
+        <div class="content-overlay">
+            <div class="container inicio-content">
+                <h1>Adoptar es Salvar una Vida</h1>
+                <p>
+                    El propósito de <strong>MatchPet CR</strong> es conectar corazones, brindando una segunda oportunidad
+                    a animales en estado de abandono a través de una plataforma segura y consciente.
+                </p>
+
+                <h2>El impacto de la adopción en cifras</h2>
+                
+                <!-- /*Agregamos la clase "cifras-container" para que las tarjetas se muestren en una fila */ -->
+                <div class="cifras-container"> 
+                    
+                    <!-- La clase "card" define el estilo de cada tarjeta individual, 
+                        hay que llamarla cada que creas una tarjeta -->
+                    <div class="card"> 
+                        <div class="card-icons">
+                            <i class="fa-solid fa-dog dog-icon"></i> 
+                            <i class="fa-solid fa-location-dot location-icon"></i>
+                            <span class="number">10k+</span>
+                        </div>
+                        <p>Mascotas actualmente en situación de calle esperando un hogar.</p>
+                    </div>
+
+                    <!-- Aqui es lo mismo -->
+                    <div class="card">
+                        <div class="card-icons">
+                            <i class="fa-solid fa-paw paw-icon"></i>
+                            <i class="fa-solid fa-heart heart-icon"></i>
+                            <span class="number">85%</span>
+                        </div>
+                        <p>De los animales adoptados mejoran significativamente la calidad de vida de sus dueños.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Otra seccion, aqui hay un contenedor con la clase "responsable-content" 
+    para darle un estilo específico a esta sección, y dentro de este contenedor hay un título y 
+    otro contenedor con las clases "caracteristicas-container" y "cifras-container" 
+    para mostrar las características de la adopción responsable en tarjetas. Cada tarjeta 
+    tiene la clase "caracteristicas-info" y "card" para darle un estilo uniforme, y 
+    dentro de cada tarjeta hay un contenedor para los íconos y el texto descriptivo. -->
+
+    <section id="adopcion-responsable" class="adopcion-responsable">
+    <div class="container responsable-content">
+        <h2>¿Qué implica una adopción responsable?</h2>
+        
+        <div class="caracteristicas-container cifras-container">
+
+            <div class="caracteristicas-info card">
+                <div class="card-icons">
+                    <i class="fa-solid fa-calendar-days calendar-icon"></i>
+                    <i class="fa-solid fa-clock clock-icon"></i>
+                </div>
+                <p>
+                    <strong>Compromiso a largo plazo: </strong>
+                    Una mascota te acompañará entre 10 y 15 años.
+                </p>
+            </div>
+
+            <!-- Aqui es lo mismo, solo cambia el contenido y los iconos -->
+            <div class="caracteristicas-info card"> 
+                <div class="card-icons">
+                    <i class="fa-solid fa-briefcase-medical briefcase-medical-icon"></i>
+                    <i class="fa-solid fa-stethoscope stethoscope-icon"></i>
+                </div>
+                <p>
+                    <strong>Atención veterinaria: </strong>
+                    Vacunas, castración y chequeos periódicos.
+                </p>
+            </div>
+
+            <div class="caracteristicas-info card">
+                <div class="card-icons">
+                    <i class="fa-solid fa-baseball baseball-icon"></i>
+                </div>
+                <p>
+                    <strong>Espacio y tiempo: </strong>
+                    Brindarles el ejercicio y la atención afectiva que requieren.
+                </p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+                    
+                </div>
+            </div>
+
+        </section>
+
+        <hr>
+
+        <aside></aside>
+
+    </main>
+
+
+    <footer id="contacto">
+        <ul>
+            <li><i class="fa-brands fa-facebook facebook-icon"></i></li>
+            <li><i class="fa-brands fa-square-instagram instagram-icon"></i></li>
+            <li><i class="fa-brands fa-youtube youtube-icon"></i></li>
+        </ul>
+        <p>
+            <small>&copy; 2026 MatchPet CR. Todos los derechos reservados.</small>
+        </p>
+    </footer>
+
+</body>
+
+</html>
