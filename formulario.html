@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formulario de postulación para la adopción responsable de mascotas en MatchPet CR.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>MatchPet CR | Formulario de Adopción</title>
+</head>
+
+<body>
+    <!-- Header idéntico al de lapágina de inicio -->
+    <header class="site-header">
+        <div class="container header-content">
+            <p class="logo"><strong>MatchPet CR</strong></p> 
+
+            <input type="checkbox" id="menu-toggle" class="menu-toggle"> 
+
+            <label for="menu-toggle" class="menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Mascotas</a></li>
+                    <li><a href="formulario.html">Unirse / Postular</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección del Formulario -->
+        <section id="formulario-adopcion" class="formulario-section">
+            <div class="container form-container">
+                
+                <div class="form-header">
+                    <h1>Formulario de Postulación</h1>
+                    <p>Completa tus datos con honestidad para iniciar el proceso de match con tu futuro compañero.</p>
+                </div>
+
+                <!-- Formulario Principal -->
+                <form action="#" method="POST" class="adoption-form">
+                    
+                    <!---Datos Personales -->
+                    <fieldset class="form-group">
+                        <legend><i class="fa-solid fa-user card-icons"></i> Datos Personales</legend>
+                        
+                        <div class="input-box">
+                            <label for="nombre">Nombre Completo:</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="telefono">Número de Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 8888-8888" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="provincia">Provincia de residencia (Costa Rica):</label>
+                            <select id="provincia" name="provincia" required>
+                                <option value="" disabled selected>Selecciona tu provincia</option>
+                                <option value="sanjose">San José</option>
+                                <option value="alajuela">Alajuela</option>
+                                <option value="cartago">Cartago</option>
+                                <option value="heredia">Heredia</option>
+                                <option value="guanacaste">Guanacaste</option>
+                                <option value="puntarenas">Puntarenas</option>
+                                <option value="limon">Limón</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Preferencias de Adopción -->
+                    <fieldset class="form-group">
+                        <legend><i class="fa-solid fa-heart card-icons"></i> Preferencias de Adopción</legend>
+                        
+                        <div class="input-box">
+                            <label for="tipo-mascota">¿Qué tipo de mascota te interesa adoptar?</label>
+                            <select id="tipo-mascota" name="tipo-mascota" required>
+                                <option value="" disabled selected>Selecciona una opción</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="indiferente">Cualquiera (Indiferente)</option>
+                            </select>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="edad-mascota">Preferencia de edad:</label>
+                            <select id="edad-mascota" name="edad-mascota">
+                                <option value="cachorro">Cachorro (Menos de 1 año)</option>
+                                <option value="joven">Joven (1 a 3 años)</option>
+                                <option value="adulto">Adulto (Más de 3 años)</option>
+                                <option value="indiferente" selected>Sin preferencia</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- SECCIÓN 3: Entorno y Responsabilidad -->
+                    <fieldset class="form-group">
+                        <legend><i class="fa-solid fa-house-chimney card-icons"></i> Hogar y Estilo de Vida</legend>
+                        
+                        <div class="input-box radio-group">
+                            <label>¿Tienes patio o espacio cerrado en tu hogar?</label>
+                            <div class="options">
+                                <label><input type="radio" name="patio" value="si" required> Sí</label>
+                                <label><input type="radio" name="patio" value="no"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="input-box radio-group">
+                            <label>¿Convives actualmente con otras mascotas?</label>
+                            <div class="options">
+                                <label><input type="radio" name="otras-mascotas" value="si" required> Sí</label>
+                                <label><input type="radio" name="otras-mascotas" value="no"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="input-box">
+                            <label for="motivo">¿Por qué deseas adoptar a esta mascota?</label>
+                            <textarea id="motivo" name="motivo" rows="4" placeholder="Cuéntanos un poco sobre tu motivación y el tiempo que planeas dedicarle..." required></textarea>
+                        </div>
+                    </fieldset>
+
+                    <!-- Botón de Envío -->
+                    <div class="form-submit">
+                        <button type="submit" class="btn-submit">Enviar Solicitud de Adopción</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer-->
+    <footer id="contacto">
+        <ul>
+            <li><i class="fa-brands fa-facebook facebook-icon"></i></li>
+            <li><i class="fa-brands fa-square-instagram instagram-icon"></i></li>
+            <li><i class="fa-brands fa-youtube youtube-icon"></i></li>
+        </ul>
+        <p>
+            <small>&copy; 2026 MatchPet CR. Todos los derechos reservados.</small>
+        </p>
+    </footer>
+</body>
+</html>
