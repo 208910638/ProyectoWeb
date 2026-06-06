@@ -49,15 +49,15 @@
             <div class="container form-container">
 
                 <div class="form-header">
-                    <h2>Completa la información solicitada para ayudar a crear el match perfecto entre mascotas que buscan un hogar y personas que desean adoptar</h2>
+                    <h1>¡Completa la información solicitada para ayudar a crear el match perfecto entre mascotas que buscan un hogar y personas que desean adoptar!</h1>
                 </div>
                 
                 <!-- Formulario Adopción -->
-                <h3>Formulario de Postulación</h3>
+                <h2>Formulario de Postulación</h2>
                 <form action="#" method="POST" class="adoption-form">
                     <!---Datos Personales -->
                     <fieldset class="form-group">
-                        <legend><i class="fa-solid fa-user"></i> Datos Personales</legend>
+                        <legend><i class="fa-solid fa-user card-icons"></i> Datos Personales</legend>
 
                         <div class="input-box">
                             <label for="nombre-form-adopcion">Nombre Completo:</label>
@@ -91,7 +91,7 @@
 
                     <!-- Preferencias de Adopción -->
                     <fieldset class="form-group">
-                        <legend><i class="fa-solid fa-heart"></i> Preferencias de Adopción</legend>
+                        <legend><i class="fa-solid fa-heart card-icons"></i> Preferencias de Adopción</legend>
 
                         <div class="input-box">
                             <label for="id-mascota-form-adopcion">Mascota seleccionada:</label>
@@ -130,7 +130,7 @@
 
                     <!-- Entorno y Responsabilidad -->
                     <fieldset class="form-group">
-                        <legend><i class="fa-solid fa-house-chimney"></i> Hogar y Estilo de Vida</legend>
+                        <legend><i class="fa-solid fa-house-chimney card-icons"></i> Hogar y Estilo de Vida</legend>
                         
                         <div class="input-box radio-group">
                             <label>¿Tiene patio o espacio cerrado en su hogar?</label>
@@ -155,19 +155,19 @@
                     </fieldset>
 
                     <!-- Botón de Envío -->
-                    <div class="form-submit">
-                        <button type="submit" class="btn-submit">Enviar Solicitud de Adopción</button>
+                    <div class="btn-submit">
+                        <button type="submit" class="btn-enviar">Enviar Solicitud de Adopción</button>
                     </div>
                 </form>
 
                 <br> <br> <!-- Borrador de momento antes de aplicar CSS -->
 
                 <!-- Formulario Refugio  -->
-                <h3>Formulario de Refugio</h3>
+                <h2>Formulario de Refugio</h2>
                 <form action="#" method="POST" class="adoption-form">
                     <!---Datos del Publicador -->
                     <fieldset class="form-group">
-                        <legend><i class="fa-solid fa-user"></i>Datos del Publicador</legend>
+                        <legend><i class="fa-solid fa-user card-icons"></i>Datos del Publicador</legend>
 
                         <div class="input-box">
                             <label for="nombre-form-refugio">Nombre Completo:</label>
@@ -201,33 +201,35 @@
 
                     <!-- Datos de la Mascota -->
                     <fieldset class="form-group">
-                        <legend><i class="fa-solid fa-heart"></i>Datos de la Mascota</legend>
+                        <legend><i class="fa-solid fa-heart card-icons"></i>Datos de la Mascota</legend>
 
                         <div class="input-box">
                             <label for="nombre-mascota-refugio">Nombre de la mascota:</label>
                             <input type="text" id="nombre-mascota-refugio" name="nombre_mascota_refugio" placeholder="Ej. Suki" required>
                         </div>
 
-                        <span>Especie</span>
-                        <div class="input-box input-box-checkbox">
-                            <input type="checkbox" id="especie-perro" name="especies" value="perro" required>
-                            <label for="especie-perro">Perro</label>
-                        </div>
+                        <div class="checkbox-group">
+                            <span>Especie</span>
+                            <div class="input-box input-box-checkbox">
+                                <input type="checkbox" id="especie-perro" name="especies" value="perro" required>
+                                <label for="especie-perro">Perro</label>
+                            </div>
 
-                        <div class="input-box input-box-checkbox">
-                            <input type="checkbox" id="especie-gato" name="especies" value="gato" required>
-                            <label for="especie-gato">Gato</label>
-                        </div>
+                            <div class="input-box input-box-checkbox">
+                                <input type="checkbox" id="especie-gato" name="especies" value="gato" required>
+                                <label for="especie-gato">Gato</label>
+                            </div>
 
-                        <span>Sexo</span>
-                        <div class="input-box input-box-checkbox">
-                            <input type="checkbox" id="sexo-macho" name="sexo_form_refugio" value="macho" required>
-                            <label for="sexo-macho">Macho</label>
-                        </div>
+                            <span>Sexo</span>
+                            <div class="input-box">
+                                <input type="checkbox" id="sexo-macho" name="sexo_form_refugio" value="macho" required>
+                                <label for="sexo-macho">Macho</label>
+                            </div>
 
-                        <div class="input-box input-box-checkbox">
-                            <input type="checkbox" id="sexo-hembra" name="sexo_form_refugio" value="hembra" required>
-                            <label for="sexo-hembra">Hembra</label>
+                            <div class="input-box input-box-checkbox">
+                                <input type="checkbox" id="sexo-hembra" name="sexo_form_refugio" value="hembra" required>
+                                <label for="sexo-hembra">Hembra</label>
+                            </div>
                         </div>
 
                         <div class="input-box">
@@ -274,20 +276,22 @@
 
                     <!-- Información Adicional -->
                     <fieldset class="form-group">
-                        <legend><i class="fa-solid fa-clipboard"></i>Información Adicional</legend>
+                        <legend><i class="fa-solid fa-clipboard card-icons"></i>Información Adicional</legend>
                         
                         <div class="input-box">
                             <label for="motivo">Descripción</label>
-                            <textarea id="motivo" name="motivo" rows="4"></textarea>
+                            <textarea id="motivo" name="motivo" rows="4" placeholder="Agregue aquí la descripción que desea darle a la mascota."></textarea>
                         </div>
 
-                        <label for="foto-mascota">Suba aquí la foto de la mascota:</label>
-                        <input type="file" id="foto-mascota" name="foto_mascota" accept="image/*" required>
+                        <div class="input-box">
+                            <label for="foto-mascota">Suba aquí la foto de la mascota:</label>
+                            <input type="file" id="foto-mascota" name="foto_mascota" accept="image/*" required>
+                        </div>
                     </fieldset>
 
                     <!-- Botón de Envío -->
-                    <div class="form-submit">
-                        <button type="submit" class="btn-submit">Enviar Solicitud de Postulación</button>
+                    <div class="btn-submit">
+                        <button type="submit" class="btn-enviar">Enviar Solicitud de Postulación</button>
                     </div>
                 </form>
             </div>

@@ -58,3 +58,16 @@ HEADER Y NAVEGACIÓN
 .main-nav a:hover {
     background-color: #A0E6E1;
 }
+
+.content-overlay h1, h2 {
+    font-family: 'Dancing Script', cursive;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-header h1, h2 {
+    font-family: 'Dancing Script', cursive;
+}

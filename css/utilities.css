@@ -35,3 +35,70 @@ main {
     background: linear-gradient(135deg, #111827, #0f172a);
     color: white;
 }
+
+.adoption-form {
+    background-color: whitesmoke;
+    border-radius: 0.2rem;
+}
+
+.adoption-form legend {
+    color: grey;
+    font-weight: 500;
+    padding: 1rem;
+}
+
+.adoption-form label {
+    color: black;
+    font-weight: 350;
+    padding: 1rem;
+}
+
+.input-box {
+    padding: 7px;
+}
+
+.adoption-form input {
+    color: #e0e0e0;
+}
+
+.checkbox-group span {
+    color: black;
+    font-weight: 350;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1 rem;
+    padding: 1rem;
+}
+
+.adoption-form textarea {
+    display: flex;
+    background-color: whitesmoke;
+    width: 50%;
+    border: 1px solid grey;
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-submit {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.btn-enviar {
+    background-color: #795548;
+    color: white;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: bold;
+    border-radius: 10px; 
+    padding: 9px;
+    margin: 0.5rem;
+}
+
+.btn-enviar:hover {
+    transform: scale(1.05); /* Un micro-movimiento juguetón al pasar el cursor */
+}
