@@ -1,0 +1,62 @@
+/* =========================
+FUENTES EXTERNAS
+========================= */
+
+@font-face {
+    font-family: 'MiFuenteCustom';
+    src: url('../source/fonts/LilitaOne-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================
+CSS BASE
+Reglas generales del sitio
+========================= */
+
+/* Elimina márgenes y espacios automáticos del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración general del documento */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* Estilo general del sitio */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(23, 23, 30);
+    color: whitesmoke;
+    line-height: 1.6;
+
+    /*Espacio para que el header fixed no tape el contenido */
+    padding-top: 88px;
+}
+
+/* Multimedia adaptable */
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+/* Evita deformación y espacios inferiores */
+img {
+    height: auto;
+    display: block;
+}
+
+/* Enlaces sin subrayado */
+a {
+    text-decoration: none;
+}
+
+/* Viñetas dentro del bloque */
+ul {
+    list-style-position: none;
+}

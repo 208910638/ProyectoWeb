@@ -1,0 +1,65 @@
+/* =========================
+HEADER Y NAVEGACIÓN
+========================= */
+
+/* Header fijo superior */
+.site-header {
+    background-color: #2A5A46;
+    color: white;
+    padding: 18px 0;
+    border-bottom: 4px solid #93CFA7;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 1000;
+}
+
+/* Flexbox alinea logo, menú y botón hamburguesa */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 1.2rem;
+}
+
+/* Logo del sitio */
+.logo {
+    font-size: 2.0rem;
+    letter-spacing: 1.0px;
+    margin: 0;
+    white-space: nowrap;
+    font-family: 'MiFuenteCustom', Arial, sans-serif;
+}
+
+/* Checkbox oculto usado para abrir/cerrar menú */
+.menu-toggle {
+    display: none;
+}
+
+/* Menú principal */
+.main-nav ul {
+    list-style: none;
+
+    /* Flexbox organiza enlaces en fila */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Enlaces del menú */
+.main-nav a {
+    color: white;
+    font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Cambio visual al pasar el mouse */
+.main-nav a:hover {
+    background-color: #A0E6E1;
+}

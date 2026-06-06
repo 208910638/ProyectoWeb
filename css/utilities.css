@@ -1,0 +1,37 @@
+/* =========================
+UTILIDADES GENERALES
+========================= */
+
+/* Contenedor centrado reutilizable */
+.container {
+    width: min(90%, 1100px);
+    margin: 0 auto;
+}
+
+/* Separación general entre secciones */
+section,
+aside {
+    padding: 48px 0;
+}
+
+/* Estilo base para títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* Separación entre párrafos */
+p {
+    margin-bottom: 15px;
+}
+
+/* Caja principal oscura */
+main {
+    background: linear-gradient(135deg, #111827, #0f172a);
+    color: white;
+}

@@ -10,26 +10,30 @@
     <meta name="keywords" content="adopción de mascotas, perros, gatos, refugios, bienestar animal, adopción responsable, Costa Rica">
     <meta name="author" content="MatchPet CR">
 
-    <link rel="stylesheet" href="css/style.css">
-
+    <!-- Iconos -->
+    <link rel="stylesheet" href=css/iconos.css>
+    <!-- Base -->
+    <link rel="stylesheet" href=css/base.css>
+    <!-- Utilities -->
+    <link rel="stylesheet" href=css/utilities.css>
+    <!-- Header -->
+    <link rel="stylesheet" href=css/header.css>
+    <!-- Pet -->
+    <link rel="stylesheet" href=css/pet.css>
+    <!-- Cards -->
+    <link rel="stylesheet" href=css/cards.css>
+    <!-- Footer -->
+    <link rel="stylesheet" href=css/footer.css> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
     <title>MatchPet CR | Inicio</title>
 </head>
 
 <body>
+    
     <header class="site-header">
         <div class="container header-content">
             <p class="logo"><strong>MatchPet CR</strong></p> 
-
-
-            <input type="checkbox" id="menu-toggle" class="menu-toggle"> 
-
-
-            <label for="menu-toggle" class="menu-button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
 
             <nav class="main-nav">
                 <ul>
@@ -43,12 +47,11 @@
 
 
     <main>
-    <section id="inicio" class="hero-section">
-        
+    <section id="inicio" class="pet-section">
         <video autoplay muted loop playsinline class="bg-video">
             <source src="source/videos/perritoanimado.mp4" type="video/mp4">
         </video>
-            
+
         <div class="content-overlay">
             <div class="container inicio-content">
                 <h1>Adoptar es Salvar una Vida</h1>
@@ -59,9 +62,8 @@
 
                 <h2>El impacto de la adopción en cifras</h2>
                 
-                <!-- /*Agregamos la clase "cifras-container" para que las tarjetas se muestren en una fila */ -->
+                <!-- Agregamos la clase "cifras-container" para que las tarjetas se muestren en una fila -->
                 <div class="cifras-container"> 
-                    
                     <!-- La clase "card" define el estilo de cada tarjeta individual, 
                         hay que llamarla cada que creas una tarjeta -->
                     <div class="card"> 
@@ -88,12 +90,12 @@
         </div>
     </section>
 
-    <!-- Otra seccion, aqui hay un contenedor con la clase "responsable-content" 
+    <!-- Otra sección, aquí hay un contenedor con la clase "responsable-content" 
     para darle un estilo específico a esta sección, y dentro de este contenedor hay un título y 
     otro contenedor con las clases "caracteristicas-container" y "cifras-container" 
     para mostrar las características de la adopción responsable en tarjetas. Cada tarjeta 
     tiene la clase "caracteristicas-info" y "card" para darle un estilo uniforme, y 
-    dentro de cada tarjeta hay un contenedor para los íconos y el texto descriptivo. -->
+    dentro de cada tarjeta hay un contenedor para los iconos y el texto descriptivo. -->
 
     <section id="adopcion-responsable" class="adopcion-responsable">
     <div class="container responsable-content">
@@ -112,7 +114,7 @@
                 </p>
             </div>
 
-            <!-- Aqui es lo mismo, solo cambia el contenido y los iconos -->
+            <!-- Aqui es lo mismo, sólo cambia el contenido y los iconos -->
             <div class="caracteristicas-info card"> 
                 <div class="card-icons">
                     <i class="fa-solid fa-briefcase-medical briefcase-medical-icon"></i>
@@ -137,19 +139,7 @@
         </div>
     </section>
 
-    <hr>
-                    
-                </div>
-            </div>
-
-        </section>
-
-        <hr>
-
-        <aside></aside>
-
     </main>
-
 
     <footer id="contacto">
         <ul>

@@ -1,0 +1,58 @@
+/* =========================
+SECCIÓN PET (FONDO DE VIDEO ANIMADO)
+========================= */
+
+.pet-section {
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+
+    /* Difumina el final */
+    -webkit-mask-image: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 1) 0%,    
+        rgba(0, 0, 0, 1) 70%,  
+        rgba(0, 0, 0, 0) 100%   
+    );
+
+    mask-image: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) 40%, 
+        rgba(0, 0, 0, 1) 80%, 
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+
+    background: rgba(26, 54, 42, 0.65); 
+}
+
+.inicio-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    padding: 90px;
+    top: 50%;
+    transform: translateY(-50%);
+}
