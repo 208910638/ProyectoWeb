@@ -35,11 +35,6 @@ HEADER Y NAVEGACIÓN
     font-family: 'MiFuenteCustom', Arial, sans-serif;
 }
 
-/* Checkbox oculto usado para abrir/cerrar menú */
-.menu-toggle {
-    display: none;
-}
-
 /* Menú principal */
 .main-nav ul {
     list-style: none;
