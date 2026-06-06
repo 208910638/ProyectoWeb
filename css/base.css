@@ -30,7 +30,7 @@ html {
 /* Estilo general del sitio */
 body {
     font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
+    font-weight: 100;
     background-color: rgb(23, 23, 30);
     color: whitesmoke;
     line-height: 1.6;

@@ -11,3 +11,7 @@ FOOTER
     flex-direction: column;
     text-align: center;
 }
+
+.fa-brands {
+    margin-right: 0.2rem;
+}

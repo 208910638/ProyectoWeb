@@ -26,6 +26,16 @@ HEADER Y NAVEGACIÓN
     font-size: 1.2rem;
 }
 
+.inicio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding-top: 120px;
+    margin-top: 2rem;
+}
+
 /* Logo del sitio */
 .logo {
     font-size: 2.0rem;
@@ -59,8 +69,12 @@ HEADER Y NAVEGACIÓN
     background-color: #A0E6E1;
 }
 
-.content-overlay h1, h2 {
+.content-overlay h1 {
     font-family: 'Dancing Script', cursive;
+}
+
+.content-overlay h2 {
+    font-family: 'Quicksand', sans-serif;;
 }
 
 .form-header {
