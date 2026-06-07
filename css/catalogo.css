@@ -1,0 +1,279 @@
+/* ==========================================================================
+ESTILOS GENERALES DEL CATÁLOGO
+   ========================================================================== */
+
+/* Contenedor principal con espacio para el header fijo */
+.py-40 {
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.catalog-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.catalog-title {
+    font-family: 'Lilita One', sans-serif;
+    color: #93CFA7;
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.catalog-subtitle {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+BARRA DE BÚSQUEDA Y FILTROS INTEGRADOS
+   ========================================================================== */
+
+.filter-container {
+    display: flex;
+    flex-direction: column; /* Apila buscador arriba y filtros abajo */
+    gap: 20px;
+    background-color: #1e293b;
+    padding: 24px;
+    border-radius: 16px;
+    margin-top: 30px;
+    border: 2px solid #2A5A46;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección del buscador */
+.search-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.search-wrapper label {
+    color: #93CFA7;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.search-input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    color: #475569;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.search-input-box input {
+    width: 100%;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1.5px solid #2A5A46;
+    padding: 14px 14px 14px 45px; /* Espacio para que el texto no tape la lupa */
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.search-input-box input:focus {
+    outline: none;
+    border-color: #93CFA7;
+    background-color: #131d35;
+    box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.15);
+}
+
+/* Iluminar lupa al escribir */
+.search-input-box input:focus + .search-icon {
+    color: #93CFA7;
+}
+
+/* Filtros */
+.filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    flex: 1;
+    min-width: 160px; /* Se colapsa de forma limpia en móviles */
+}
+
+.filter-box label {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.filter-box select {
+    width: 100%;
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1.5px solid #2A5A46;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.filter-box select:focus {
+    outline: none;
+    border-color: #93CFA7;
+    box-shadow: 0 0 0 3px rgba(147, 207, 167, 0.1);
+}
+
+/* ==========================================================================
+REJILLA Y TARJETAS DE MASCOTAS (Cards Grid)
+   ========================================================================== */
+
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Estructura de la tarjeta */
+.pet-card {
+    background-color: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid #2A5A46;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+}
+
+.pet-card:hover {
+    transform: translateY(-6px);
+    border-color: #93CFA7;
+}
+
+/* Identificador ID flotante */
+.pet-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #2A5A46;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid #93CFA7;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de imagen */
+.pet-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid #2A5A46;
+}
+
+/* Bloque interno de información */
+.pet-info {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.pet-name {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 1.7rem;
+    color: #ffffff;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Colores para iconos de sexo */
+.text-pink { color: #f472b6; }
+.text-blue { color: #60a5fa; }
+
+.pet-breed {
+    color: #93CFA7;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+/* Lista horizontal de detalles clave */
+.pet-details-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    border-bottom: 1px solid rgba(147, 207, 167, 0.15);
+    padding-bottom: 14px;
+}
+
+.pet-details-list i {
+    color: #93CFA7;
+    margin-right: 5px;
+}
+
+.pet-description {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 22px;
+    flex-grow: 1; /* Empuja el botón al fondo para que todos queden alineados */
+}
+
+/* ==========================================================================
+BOTÓN DE ADOPCIÓN
+   ========================================================================== */
+
+.btn-adoptar {
+    background-color: #2A5A46;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: 2px solid #93CFA7;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-adoptar:hover {
+    background-color: #93CFA7;
+    color: #111827;
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(147, 207, 167, 0.25);
+}
+
+.btn-adoptar:active {
+    transform: scale(0.98);
+}

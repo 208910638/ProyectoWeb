@@ -6,7 +6,9 @@ HEADER Y NAVEGACIÓN
 .site-header {
     background-color: #2A5A46;
     color: white;
-    padding: 18px 0;
+
+
+    padding: 12px 20px; /* Reducimos padding en celulares para no robar pantalla */    
     border-bottom: 4px solid #93CFA7;
 
     position: fixed;
@@ -15,73 +17,147 @@ HEADER Y NAVEGACIÓN
     width: 100%;
 
     z-index: 1000;
+    box-sizing: border-box;
 }
 
-/* Flexbox alinea logo, menú y botón hamburguesa */
+/* Contenedor interno del header */
 .header-content {
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    font-size: 1.2rem;
+    max-width: 1200px; 
 }
 
-.inicio-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    padding-top: 120px;
-    margin-top: 2rem;
-}
 
 /* Logo del sitio */
 .logo {
-    font-size: 2.0rem;
+    font-size: 1.6rem; 
     letter-spacing: 1.0px;
     margin: 0;
     white-space: nowrap;
     font-family: 'MiFuenteCustom', Arial, sans-serif;
 }
 
-/* Menú principal */
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+    display: block; /* Visible solo en celulares */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* MENÚ PRINCIPAL (Estilos para celulares) */
+.main-nav {
+    position: absolute;
+    top: 100%; /* Se despliega debajo del header */
+    left: 0;
+    width: 100%;
+    background-color: #2A5A46;
+    border-bottom: 4px solid #93CFA7;
+
+    
+    /* Efecto ocultar/mostrar */
+    display: none; 
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+/* Cuando el menú esté abierto*/
+.main-nav.open {
+    display: flex;
+}
+
 .main-nav ul {
     list-style: none;
-
-    /* Flexbox organiza enlaces en fila */
+    padding: 0;
+    margin: 0;
     display: flex;
+    flex-direction: column; /* Enlaces uno debajo del otro en celulares */
     align-items: center;
-    gap: 12px;
+    gap: 15px;
+    width: 100%;
 }
 
 /* Enlaces del menú */
 .main-nav a {
     color: white;
     font-weight: bold;
-    padding: 8px 10px;
+    padding: 10px 20px;
     border-radius: 6px;
-    display: inline-block;
+    display: block;
+    width: 80%; 
+    margin: 0 auto; 
+    text-align: center;
 }
 
-/* Cambio visual al pasar el mouse */
+
 .main-nav a:hover {
     background-color: #A0E6E1;
+    color: #2A5A46; 
 }
 
-.content-overlay h1 {
-    font-family: 'Dancing Script', cursive;
+/* =========================
+PANTALLAS GRANDES 
+========================= */
+@media (min-width: 768px) {
+    .site-header {
+        padding: 18px 0px; 
+    }
+
+    .logo {
+        font-size: 2.0rem; 
+    }
+
+    .menu-toggle {
+        display: none; /* Ocultamos el botón hamburguesa en PC */
+    }
+
+    /* Resetear el menú para que se comporte de forma horizontal */
+    .main-nav {
+        position: static; 
+        width: auto;
+        background-color: transparent;
+        border-bottom: none;
+        display: flex !important; /* Asegura que se vea siempre en PC, important significa que tiene prioridad sobre otros estilos */
+        padding: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: row; 
+        gap: 12px;
+    }
+
+    .main-nav a {
+        width: auto;
+        text-align: left;
+    }
 }
 
-.content-overlay h2 {
-    font-family: 'Quicksand', sans-serif;;
-}
-
-.form-header {
+/* Ajuste del espaciado del primer contenido para que el header fijo no lo tape */
+.inicio-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: 2rem;
+    width: 100%;
+    padding-top: 100px;
+    margin-top: 1rem;
 }
 
-.form-header h1, h2 {
-    font-family: 'Dancing Script', cursive;
+@media (min-width: 768px) {
+    .inicio-content {
+        padding-top: 140px; 
+    }
 }
+
+.content-overlay h1 { font-family: 'Dancing Script', cursive; } /*Para que el título del video tenga la fuente personalizada */
+.content-overlay h2 { font-family: 'Quicksand', sans-serif; }
+.form-header { text-align: center; margin-bottom: 2rem; }
+
+.form-header h1, 
+.form-header h2 { 
+    font-family: 'Dancing Script', cursive; 
+    }

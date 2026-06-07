@@ -12,13 +12,16 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
 
 /* Tarjetita individual */ 
 .card { 
-    background-color: #1e293b; 
-    border: 2px solid #2A5A46;
-    border-radius: 12px; 
+    background-color: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(147, 207, 167, 0.6);
+    border-radius: 16px; 
     padding: 24px; 
-    flex: 1; 
-    min-width: 280px; 
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+    /* Cambiado de flex: 1 a flex: 1 1 280px para mejor control de crecimiento/encogimiento */
+    flex: 1 1 280px; 
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35); 
+    backdrop-filter: blur(8px);
+    /* Evita que rellenos grandes rompan el tamaño de la tarjeta */
+    box-sizing: border-box; 
 } 
 
 /* Contenedor de icono + número */ 
@@ -35,6 +38,7 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
     font-weight: bold; 
     color: #93CFA7; 
     font-family: 'MiFuenteCustom', sans-serif; 
+    line-height: 1.2;
 } 
 
 /* Descripción debajo del número */ 
@@ -42,4 +46,25 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
     margin-bottom: 0; 
     color: #e2e8f0; 
     font-size: 1rem; 
+    line-height: 1.5; /* Mejora la legibilidad en pantallas pequeñas */
+}
+
+/* =========================
+RESPONSIVIDAD PARA TARJETAS DE CIFRAS
+========================= */
+
+/* Para pantallas de celular*/
+@media (max-width: 360px) {
+    .cifras-container {
+        gap: 15px;
+    }
+    
+    .card { 
+        padding: 16px; 
+        flex-basis: 100%; 
+    }
+
+    .card-icons .number {
+        font-size: 1.5rem; 
+    }
 }

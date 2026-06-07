@@ -1,0 +1,295 @@
+/* ==========================================================================
+   ESTILOS GENERALES DEL FORMULARIO (MatchPet CR - Premium)
+   ========================================================================== */
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 24px 60px 24px;
+}
+
+/* Encabezado descriptivo tipo tarjeta informativa */
+.form-header h1 {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    font-weight: 400;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, rgba(42, 90, 70, 0.25), rgba(15, 23, 42, 0.2));
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #93CFA7;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos principales de los formularios */
+.form-container h2 {
+    font-family: 'Lilita One', sans-serif;
+    color: #93CFA7;
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   FIELDSETS Y LEGENDS (Estructura Premium)
+   ========================================================================== */
+
+.form-group {
+    border: 2px solid #2A5A46;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 40px;
+    background-color: #1e293b;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s ease;
+}
+
+.form-group:focus-within {
+    border-color: #93CFA7; /* El contenedor brilla levemente cuando se edita dentro */
+}
+
+.form-group legend {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 24px;
+    
+    color: #93CFA7;
+    font-size: 1.35rem;
+    font-weight: bold;
+    font-family: 'Lilita One', Arial, sans-serif;
+    
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 2px solid rgba(147, 207, 167, 0.15);
+    padding-bottom: 12px;
+}
+
+/* Iconos decorativos en los títulos */
+.form-group legend i {
+    font-size: 1.1rem;
+    color: #93CFA7;
+    background-color: rgba(42, 90, 70, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ==========================================================================
+   ELEMENTOS DE ENTRADA (Inputs, Selects, Textareas)
+   ========================================================================== */
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.input-box label {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Resaltar la etiqueta al hacer foco en el input */
+.input-box:focus-within label {
+    color: #93CFA7;
+}
+
+.input-box input[type="text"],
+.input-box input[type="email"],
+.input-box input[type="tel"],
+.input-box input[type="number"],
+.input-box select,
+.input-box textarea {
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1.5px solid #2A5A46;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-box input:focus,
+.input-box select:focus,
+.input-box textarea:focus {
+    outline: none;
+    border-color: #93CFA7;
+    background-color: #131d35;
+    box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.15);
+}
+
+/* Marcadores de posición elegantes (Placeholders) */
+::placeholder {
+    color: #475569;
+    font-size: 0.95rem;
+}
+
+/* Estilo premium e integrado para el cargador de imágenes */
+input[type="file"] {
+    background: #0f172a;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px dashed #2A5A46;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: #93CFA7;
+    background: #1e293b;
+    color: #f8fafc;
+}
+
+/* ==========================================================================
+   RADIOS Y CHECKBOXES ESTILIZADOS COMO CAPSULAS INTERACTIVAS
+   ========================================================================== */
+
+.radio-group .options,
+.checkbox-group .options-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+/* Caja contenedora de la opción interactiva */
+.radio-group .options label,
+.input-box-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #0f172a;
+    border: 1.5px solid #2A5A46;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #e2e8f0;
+    transition: all 0.2s ease;
+    user-select: none;
+    flex: 1;
+    min-width: 120px;
+}
+
+.radio-group .options label:hover,
+.input-box-checkbox:hover {
+    border-color: #93CFA7;
+    background-color: rgba(147, 207, 167, 0.05);
+}
+
+/* Cambia dinámicamente si el elemento nativo interno está seleccionado */
+.radio-group .options label:has(input:checked),
+.input-box-checkbox:has(input:checked) {
+    border-color: #93CFA7;
+    background-color: rgba(42, 90, 70, 0.4);
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(147, 207, 167, 0.1);
+}
+
+/* Estilos de los círculos/cuadrados nativos */
+.radio-group input[type="radio"],
+.input-box-checkbox input[type="checkbox"] {
+    accent-color: #93CFA7;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+/* Grupos informativos del segundo formulario */
+.checkbox-group {
+    margin-bottom: 22px;
+}
+
+.checkbox-group > span {
+    color: #93CFA7;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+BOTÓN DE ENVÍO
+   ========================================================================== */
+
+.btn-submit {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.btn-enviar {
+    background-color: #2A5A46;
+    color: #ffffff;
+    border: 2px solid #93CFA7;
+    padding: 16px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-enviar:hover {
+    background-color: #93CFA7;
+    color: #111827;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(147, 207, 167, 0.3);
+}
+
+.btn-enviar:active {
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+OPTIMIZACIÓN PARA PANTALLAS ESCRITORIO
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    .form-container {
+        padding-top: 140px;
+    }
+    
+    /* Rejilla inteligente en dos columnas */
+    .form-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 24px;
+    }
+
+    /* Elementos que deben ocupar todo el ancho */
+    .form-group legend,
+    .input-box.radio-group,
+    .input-box:has(textarea),
+    .input-box:has(input[type="file"]),
+    .checkbox-group {
+        grid-column: span 2;
+    }
+    
+    /* Estructura para envolver los checkboxes lado a lado */
+    .checkbox-group .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .btn-enviar {
+        width: auto;
+        padding: 16px 60px;
+    }
+}

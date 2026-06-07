@@ -11,7 +11,7 @@ UTILIDADES GENERALES
 /* Separación general entre secciones */
 section,
 aside {
-    padding: 48px 0;
+    padding: 64px 0;
 }
 
 /* Estilo base para títulos */
@@ -36,69 +36,187 @@ main {
     color: white;
 }
 
+.formulario-section {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.form-container {
+    padding: 2rem 0;
+}
+
+.form-header h1 {
+    color: #f8fafc;
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem);
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.formulario-section h2 {
+    color: #e2e8f0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
 .adoption-form {
-    background-color: whitesmoke;
-    border-radius: 0.2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 32px;
+    padding: 2rem;
+    box-shadow: 0 25px 80px rgba(15, 23, 42, 0.18);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    max-width: 1000px;
+    margin: 0 auto 2rem;
 }
 
 .adoption-form legend {
-    color: grey;
-    font-weight: 500;
-    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: #f8fafc;
+    border-radius: 999px;
+    padding: 0.8rem 1.1rem;
+    color: #0f172a;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 12px 22px rgba(15, 23, 42, 0.08);
+    margin-bottom: 1rem;
 }
 
 .adoption-form label {
-    color: black;
-    font-weight: 350;
-    padding: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 0;
 }
 
 .input-box {
-    padding: 7px;
+    margin-bottom: 1.25rem;
 }
 
-.adoption-form input {
-    color: #e0e0e0;
+.adoption-form input,
+.adoption-form select,
+.adoption-form textarea {
+    width: 100%;
+    padding: 1rem 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
 }
 
-.checkbox-group span {
-    color: black;
-    font-weight: 350;
+.adoption-form input:focus,
+.adoption-form select:focus,
+.adoption-form textarea:focus {
+    border-color: #93cfa7;
+    box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.16);
+}
+
+.adoption-form select {
+    appearance: none;
+}
+
+.adoption-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+}
+
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 999px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.radio-group input {
+    margin: 0;
+}
+
+.radio-group input[type="radio"] {
+    accent-color: #2f855a;
 }
 
 .checkbox-group {
     display: flex;
     flex-direction: column;
-    gap: 1 rem;
-    padding: 1rem;
+    gap: 0.9rem;
+    padding: 1rem 0;
 }
 
-.adoption-form textarea {
-    display: flex;
-    background-color: whitesmoke;
-    width: 50%;
-    border: 1px solid grey;
-    padding: 1rem;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+.checkbox-group span {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.adoption-form textarea,
+.adoption-form input,
+.adoption-form select {
+    border-radius: 14px;
 }
 
 .btn-submit {
     display: flex;
     justify-content: center;
-    padding: 0.5rem;
+    margin-top: 1.5rem;
 }
 
 .btn-enviar {
-    background-color: #795548;
+    background: linear-gradient(135deg, #2a8e6b, #57b69e);
     color: white;
     font-family: 'Fredoka', sans-serif;
-    font-weight: bold;
-    border-radius: 10px; 
-    padding: 9px;
-    margin: 0.5rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 1rem 2rem;
+    border: none;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-enviar:hover {
-    transform: scale(1.05); /* Un micro-movimiento juguetón al pasar el cursor */
+    transform: translateY(-2px);
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.24);
 }
+
+@media (max-width: 768px) {
+    .adoption-form {
+        padding: 1.5rem;
+    }
+
+    .form-header h1 {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .adoption-form {
+        padding: 1.25rem;
+    }
+
+    .options {
+        flex-direction: column;
+    }
+}
+
