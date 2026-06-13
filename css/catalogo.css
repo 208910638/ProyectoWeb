@@ -2,15 +2,21 @@
 ESTILOS GENERALES DEL CATÁLOGO
    ========================================================================== */
 
+body {
+    background-color:#111827;
+
+}
 /* Contenedor principal con espacio para el header fijo */
 .py-40 {
-    padding-top: 120px;
+    padding-top: 20px;
     padding-bottom: 60px;
+    background-color: #0f172a;
 }
 
 .catalog-header {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .catalog-title {
@@ -20,12 +26,15 @@ ESTILOS GENERALES DEL CATÁLOGO
     margin-bottom: 10px;
     letter-spacing: 0.5px;
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
 }
 
 .catalog-subtitle {
     color: #cbd5e1;
     font-size: 1.05rem;
     font-weight: 400;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
 }
 
 /* ==========================================================================
@@ -39,9 +48,15 @@ BARRA DE BÚSQUEDA Y FILTROS INTEGRADOS
     background-color: #1e293b;
     padding: 24px;
     border-radius: 16px;
-    margin-top: 30px;
+    margin-top: 18px;
     border: 2px solid #2A5A46;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.filter-box{
+    padding-top: 45px;
+    padding-bottom: 20px;
+
 }
 
 /* Sección del buscador */
@@ -50,6 +65,7 @@ BARRA DE BÚSQUEDA Y FILTROS INTEGRADOS
     flex-direction: column;
     gap: 8px;
     width: 100%;
+    
 }
 
 .search-wrapper label {
@@ -149,7 +165,7 @@ REJILLA Y TARJETAS DE MASCOTAS (Cards Grid)
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 /* Estructura de la tarjeta */
@@ -160,6 +176,8 @@ REJILLA Y TARJETAS DE MASCOTAS (Cards Grid)
     border: 2px solid #2A5A46;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     display: flex;
+    margin-top: 0px;
+    padding-top: 0px;
     flex-direction: column;
     position: relative;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
