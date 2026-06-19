@@ -1,7 +1,6 @@
 /* ==========================================================================
 ESTILOS GENERALES DEL CATÁLOGO
-   ========================================================================== */
-
+========================================================================== */
 body {
     background-color:#111827;
 
@@ -40,7 +39,6 @@ body {
 /* ==========================================================================
 BARRA DE BÚSQUEDA Y FILTROS INTEGRADOS
    ========================================================================== */
-
 .filter-container {
     display: flex;
     flex-direction: column; /* Apila buscador arriba y filtros abajo */
@@ -160,7 +158,6 @@ BARRA DE BÚSQUEDA Y FILTROS INTEGRADOS
 /* ==========================================================================
 REJILLA Y TARJETAS DE MASCOTAS (Cards Grid)
    ========================================================================== */
-
 .pet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -270,7 +267,6 @@ REJILLA Y TARJETAS DE MASCOTAS (Cards Grid)
 /* ==========================================================================
 BOTÓN DE ADOPCIÓN
    ========================================================================== */
-
 .btn-adoptar {
     background-color: #2A5A46;
     color: #ffffff;

@@ -1,7 +1,6 @@
 /* =========================
 FOOTER
 ========================= */
-
 #contacto {
     background-color: #2A5A46;
     color: white;
@@ -24,7 +23,6 @@ FOOTER
     padding: 0;
 }
 
-/* Estilos para los enlaces dentro del footer*/
 #contacto a {
     color: white;
     text-decoration: none;
@@ -44,7 +42,6 @@ FOOTER
 /* =========================
 Responsividad para el footer
 ========================= */
-
 /* Para pantallas grandes */
 @media (min-width: 768px) {
     #contacto {

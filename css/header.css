@@ -1,14 +1,13 @@
 /* =========================
 HEADER Y NAVEGACIÓN
 ========================= */
-
 /* Header fijo superior */
 .site-header {
     background-color: #2A5A46;
     color: white;
 
 
-    padding: 12px 20px; /* Reducimos padding en celulares para no robar pantalla */    
+    padding: 12px 20px;   
     border-bottom: 4px solid #93CFA7;
 
     position: fixed;
@@ -28,7 +27,6 @@ HEADER Y NAVEGACIÓN
     justify-content: space-between;
     max-width: 1200px; 
 }
-
 
 /* Logo del sitio */
 .logo {
@@ -157,7 +155,7 @@ PANTALLAS GRANDES
 .content-overlay h2 { font-family: 'Quicksand', sans-serif; }
 .form-header { text-align: center; margin-bottom: 2rem; }
 
-.form-header h1, 
+
 .form-header h2 { 
     font-family: 'Dancing Script', cursive; 
     }

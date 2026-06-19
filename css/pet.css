@@ -1,7 +1,6 @@
 /* =========================
 SECCIÓN PET 
 ========================= */
-
 .pet-section {
     position: relative;
 
@@ -62,7 +61,6 @@ SECCIÓN PET
 /* =========================
 Responsividad para video
 ========================= */
-
 /* Para tablets en adelante*/
 @media (min-width: 768px) {
     .inicio-content {

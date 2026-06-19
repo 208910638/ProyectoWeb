@@ -1,8 +1,6 @@
 /* =========================
-TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
+TARJETAS DE CIFRAS 
 ========================= */
-
-/* Contenedor de las tarjetas de cifras */ 
 .cifras-container { 
     display: flex; 
     flex-wrap: wrap; 
@@ -10,7 +8,6 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
     margin-top: 25px; 
 } 
 
-/* Tarjetita individual */ 
 .card { 
     background-color: rgba(255, 255, 255, 0.08); 
     border: 1px solid rgba(147, 207, 167, 0.6);
@@ -24,7 +21,6 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
     box-sizing: border-box; 
 } 
 
-/* Contenedor de icono + número */ 
 .card-icons { 
     display: flex; 
     align-items: center; 
@@ -32,7 +28,6 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
     margin-bottom: 15px; 
 } 
 
-/* Número grande */ 
 .card-icons .number { 
     font-size: 1.8rem; 
     font-weight: bold; 
@@ -41,7 +36,6 @@ TARJETAS DE CIFRAS (CUADRITOS DE FLEXBOX)
     line-height: 1.2;
 } 
 
-/* Descripción debajo del número */ 
 .card p { 
     margin-bottom: 0; 
     color: #e2e8f0; 
