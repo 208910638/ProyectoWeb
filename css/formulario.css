@@ -1,15 +1,19 @@
-/* =========================
-GENERAL
-========================= */
+/* ============================================================
+ESTILOS GENERALES 
+============================================================ */
+
+/* Fondo semitransparente para la sección del formulario */
 .formulario-section {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* Contenedor con ancho máximo y padding para el formulario */
 .form-container {
     max-width: 1400px;
     padding: 100px 24px 60px 24px;
 }
 
+/* Encabezado del formulario - texto informativo con borde verde */
 .form-header h1 {
     color: #f8fafc;
     font-size: 1.5rem;
@@ -24,15 +28,19 @@ GENERAL
     font-weight: 400;
 }
 
+/* Títulos secundarios centrados */
 .formulario-section h2 {
     color: #e2e8f0;
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
-/* =========================
-PESTAÑAS (TABS)
-========================= */
+
+/* ============================================================
+PESTAÑAS (TABS) 
+============================================================ */
+
+/* Contenedor de las pestañas en fila horizontal */
 .form-tabs {
     display: flex;
     gap: 12px;
@@ -40,6 +48,7 @@ PESTAÑAS (TABS)
     justify-content: center;
 }
 
+/* Botón de cada pestaña - estilo oscuro con borde */
 .tab-btn {
     flex: 1;
     min-width: 220px;
@@ -61,12 +70,14 @@ PESTAÑAS (TABS)
     transition: all 0.3s ease;
 }
 
+/* Efecto hover en pestañas - resalta el borde */
 .tab-btn:hover {
     border-color: #93CFA7;
     color: #e2e8f0;
     transform: translateY(-2px);
 }
 
+/* Pestaña activa - fondo verde oscuro con borde iluminado */
 .tab-btn.active {
     background: linear-gradient(135deg, #2A5A46, #1a3d2e);
     color: #ffffff;
@@ -74,9 +85,12 @@ PESTAÑAS (TABS)
     box-shadow: 0 6px 20px rgba(147, 207, 167, 0.25);
 }
 
-/* =========================
-FIELDSETS Y FORMULARIO
-========================= */
+
+/* ============================================================
+FIELDSETS Y FORMULARIO 
+============================================================ */
+
+/* Cada grupo de campos - contenedor con borde y sombra */
 .form-group {
     border: 2px solid #2A5A46;
     border-radius: 16px;
@@ -88,10 +102,12 @@ FIELDSETS Y FORMULARIO
     position: relative;
 }
 
+/* Resalta el borde del fieldset cuando se interactúa con él */
 .form-group:focus-within {
     border-color: #93CFA7;
 }
 
+/* Contenedor del formulario - fondo sutil con borde */
 .adoption-form {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 32px;
@@ -102,6 +118,7 @@ FIELDSETS Y FORMULARIO
     margin: 0 auto 2rem;
 }
 
+/* Legend (título del fieldset) - estilo de etiqueta redondeada */
 .adoption-form legend {
     background: rgba(15, 23, 42, 0.8);
     border-radius: 999px;
@@ -115,10 +132,12 @@ FIELDSETS Y FORMULARIO
     transition: border-color 0.3s ease;
 }
 
+/* Efecto hover en el legend */
 .adoption-form legend:hover {
     border-color: #93CFA7;
 }
 
+/* Etiquetas de los campos - color gris claro */
 .adoption-form label {
     display: block;
     margin-bottom: 0.5rem;
@@ -128,6 +147,7 @@ FIELDSETS Y FORMULARIO
     padding: 0;
 }
 
+/* Estilos para inputs, selects y textareas - fondo oscuro */
 .adoption-form input,
 .adoption-form select,
 .adoption-form textarea {
@@ -143,6 +163,7 @@ FIELDSETS Y FORMULARIO
     box-sizing: border-box;
 }
 
+/* Focus en inputs - borde y sombra verde */
 .adoption-form input:focus,
 .adoption-form select:focus,
 .adoption-form textarea:focus {
@@ -150,22 +171,103 @@ FIELDSETS Y FORMULARIO
     box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.16);
 }
 
+/* Select con flecha personalizada - FIX para que no se ponga blanco */
 .adoption-form select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2393CFA7' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1.5rem center;
+    background-color: #0f172a !important; /* FIX: evita que se ponga blanco */
     padding-right: 3.5rem;
+    color: #f8fafc !important; /* FIX: mantiene el color del texto */
 }
 
+/* Textarea con altura mínima y redimensionable */
 .adoption-form textarea {
     min-height: 140px;
     resize: vertical;
 }
 
-/* =========================
-INPUT BOX
-========================= */
+/* Estilos para inputs, selects y textareas - fondo oscuro */
+.adoption-form input,
+.adoption-form select,
+.adoption-form textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 18px;
+    border: 1.5px solid #2A5A46;
+    background: #0f172a;
+    color: #f8fafc;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+}
+
+/* Focus en inputs - borde y sombra verde */
+.adoption-form input:focus,
+.adoption-form select:focus,
+.adoption-form textarea:focus {
+    border-color: #93CFA7;
+    box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.16);
+}
+
+/* 
+Evita que el select se ponga blanco en validación
+Los estados :invalid y :valid del navegador pueden sobrescribir los estilos
+*/
+.adoption-form select,
+.adoption-form select:invalid,
+.adoption-form select:valid {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2393CFA7' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+    background-color: #0f172a !important;
+    padding-right: 3.5rem;
+    color: #f8fafc !important;
+}
+
+/* FIX adicional: para cuando el select está en estado de error */
+.adoption-form select.input-error,
+.adoption-form select.input-error:invalid,
+.adoption-form select.input-error:valid {
+    background-color: rgba(248, 113, 113, 0.06) !important;
+    color: #f8fafc !important;
+}
+
+/* FIX adicional: para cuando el select está en estado de éxito */
+.adoption-form select.input-success,
+.adoption-form select.input-success:invalid,
+.adoption-form select.input-success:valid {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+/* FIX para opciones del select - también deben ser oscuras */
+.adoption-form select option {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+/* FIX para cuando el select está deshabilitado o tiene el atributo disabled */
+.adoption-form select:disabled {
+    background-color: #0f172a !important;
+    color: #94a3b8 !important;
+    opacity: 0.6;
+}
+
+/* Textarea con altura mínima y redimensionable */
+.adoption-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* ============================================================
+INPUT BOX 
+============================================================ */
+
+/* Cada campo con su etiqueta y mensaje de error */
 .input-box {
     display: flex;
     flex-direction: column;
@@ -173,6 +275,7 @@ INPUT BOX
     margin-bottom: 28px;
 }
 
+/* Etiqueta dentro del input-box */
 .input-box label {
     color: #94a3b8;
     font-size: 0.95rem;
@@ -180,10 +283,12 @@ INPUT BOX
     margin-bottom: 4px;
 }
 
+/* Cambia el color de la etiqueta cuando el campo está enfocado */
 .input-box:focus-within label {
     color: #93CFA7;
 }
 
+/* Estilos unificados para inputs dentro de input-box */
 .input-box input[type="text"],
 .input-box input[type="email"],
 .input-box input[type="tel"],
@@ -201,11 +306,13 @@ INPUT BOX
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Placeholder con color gris oscuro */
 ::placeholder {
     color: #475569;
     font-size: 0.95rem;
 }
 
+/* Input de archivo - estilo de borde punteado */
 input[type="file"] {
     background: #0f172a;
     padding: 12px;
@@ -216,27 +323,33 @@ input[type="file"] {
     transition: all 0.3s ease;
 }
 
+/* Hover en input de archivo */
 input[type="file"]:hover {
     border-color: #93CFA7;
     background: #1e293b;
     color: #f8fafc;
 }
 
-/* =========================
-RADIO BUTTONS
-========================= */
+
+/* ============================================================
+RADIO BUTTONS 
+============================================================ */
+
+/* Contenedor principal para radio buttons */
 .radio-group {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
+/* Subgrupo dentro de radio-group (para especie y sexo) */
 .radio-group .subgroup {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
+/* Etiqueta del subgroup - sin estilos adicionales */
 .radio-group .subgroup > label {
     color: #94a3b8;
     font-size: 0.95rem;
@@ -246,12 +359,14 @@ RADIO BUTTONS
     padding: 0 !important;
 }
 
+/* Contenedor de opciones en fila */
 .options {
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
 }
 
+/* Cada opción de radio - estilo de botón */
 .radio-group .options label {
     display: inline-flex;
     align-items: center;
@@ -267,6 +382,7 @@ RADIO BUTTONS
     margin-bottom: 0;
 }
 
+/* Radio button con color personalizado */
 .radio-group input[type="radio"] {
     accent-color: #93CFA7;
     width: 18px;
@@ -274,9 +390,12 @@ RADIO BUTTONS
     margin: 0;
 }
 
-/* =========================
-BOTONES
-========================= */
+
+/* ============================================================
+BOTONES 
+============================================================ */
+
+/* Contenedor de botones de acción */
 .btn-submit {
     display: flex;
     flex-wrap: wrap;
@@ -285,91 +404,112 @@ BOTONES
     margin: 25px 0;
 }
 
+/* Animación base para todos los botones de acción */
+.btn-enviar,
+.btn-limpiar,
+.btn-vaciar {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-radius: 999px;
+    font-weight: 700;
+    font-family: 'Fredoka', sans-serif;
+    border: 2px solid;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* ============================================================
+BOTÓN ENVIAR SOLICITUD 
+============================================================ */
+
 .btn-enviar {
     flex: 2;
     min-width: 220px;
-    background: linear-gradient(135deg, #2A5A46, #1e4a3a);
+    background: #2A5A46;
     color: #ffffff;
-    border: 2px solid #93CFA7;
+    border-color: #93CFA7;
     padding: 16px 36px;
     font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Fredoka', sans-serif;
+    box-shadow: 0 4px 15px rgba(42, 90, 70, 0.25);
 }
 
+/* Hover - fondo verde claro, texto oscuro para contraste */
 .btn-enviar:hover {
-    background: linear-gradient(135deg, #93CFA7, #6abf8a);
-    color: #111827;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(147, 207, 167, 0.3);
+    background: #93CFA7;
+    color: #0f172a;
+    box-shadow: 0 6px 25px rgba(147, 207, 167, 0.35);
 }
 
+/* Efecto de clic - ligera presión */
 .btn-enviar:active {
-    transform: translateY(-1px);
+    transform: scale(0.97);
 }
+
+/* ============================================================
+BOTÓN LIMPIAR 
+============================================================ */
 
 .btn-limpiar {
     flex: 1;
     min-width: 160px;
-    background: linear-gradient(135deg, #1e3a5f, #1a4a7a);
+    background: #1e3a5f;
     color: #ffffff;
-    border: 2px solid #60a5fa;
+    border-color: #60a5fa;
     padding: 16px 28px;
     font-size: 1rem;
-    font-weight: 700;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Fredoka', sans-serif;
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.25);
 }
 
+/* Hover - fondo azul claro, texto blanco o oscuro según contraste */
 .btn-limpiar:hover {
-    background: linear-gradient(135deg, #60a5fa, #3b82f6);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3);
+    background: #60a5fa;
+    color: #0f172a;
+    box-shadow: 0 6px 25px rgba(96, 165, 250, 0.35);
 }
 
+/* Efecto de clic - ligera presión */
 .btn-limpiar:active {
-    transform: translateY(-1px);
+    transform: scale(0.97);
 }
+
+/* ============================================================
+BOTÓN VACIAR HISTORIAL 
+============================================================ */
 
 .btn-vaciar {
-    background: linear-gradient(135deg, #5f1e1e, #7a1a1a);
+    background: #5f1e1e;
     color: #ffffff;
-    border: 2px solid #f87171;
+    border-color: #f87171;
     padding: 12px 28px;
-    border-radius: 999px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Fredoka', sans-serif;
+    font-size: 0.8rem;
+    box-shadow: 0 4px 15px rgba(95, 30, 30, 0.25);
 }
 
+/* Hover - fondo rojo claro, texto oscuro para contraste */
 .btn-vaciar:hover {
-    background: linear-gradient(135deg, #f87171, #ef4444);
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(248, 113, 113, 0.3);
+    background: #f87171;
+    color: #0f172a;
+    box-shadow: 0 6px 25px rgba(248, 113, 113, 0.35);
 }
 
+/* Efecto de clic - ligera presión */
 .btn-vaciar:active {
-    transform: translateY(-1px);
+    transform: scale(0.97);
 }
 
+/* Icono dentro del botón vaciar */
 .btn-vaciar i {
     margin-right: 8px;
 }
 
-/* =========================
-MENSAJES Y VALIDACIÓN
-========================= */
+
+/* ============================================================
+MENSAJES Y VALIDACIÓN 
+============================================================ */
+
+/* Mensaje general del formulario */
 .form-message {
     grid-column: span 2;
     margin-top: 4px;
@@ -380,22 +520,26 @@ MENSAJES Y VALIDACIÓN
     border-left: 5px solid transparent;
 }
 
+/* Ocultar mensaje */
 .form-message[hidden] {
     display: none;
 }
 
+/* Mensaje de éxito - verde */
 .form-message--success {
     background: rgba(147, 207, 167, 0.12);
     border-left-color: #93CFA7;
     color: #d7f3e2;
 }
 
+/* Mensaje de error - rojo */
 .form-message--error {
     background: rgba(248, 113, 113, 0.12);
     border-left-color: #f87171;
     color: #fecaca;
 }
 
+/* Campos con error - borde rojo con sombra */
 .input-box input.input-error,
 .input-box select.input-error,
 .input-box textarea.input-error {
@@ -404,6 +548,7 @@ MENSAJES Y VALIDACIÓN
     box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.12);
 }
 
+/* Campos con éxito - borde verde con sombra */
 .input-box input.input-success,
 .input-box select.input-success,
 .input-box textarea.input-success {
@@ -411,6 +556,7 @@ MENSAJES Y VALIDACIÓN
     box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.12);
 }
 
+/* Mensaje de error pequeño debajo del campo - rojo */
 .form-error {
     display: block;
     min-height: 16px;
@@ -421,23 +567,41 @@ MENSAJES Y VALIDACIÓN
     line-height: 1.3;
 }
 
+
+/* ============================================================
+ERRORES EN RADIO BUTTONS 
+============================================================ */
+
+/* Estilo de error para cualquier contenedor con .options dentro de .grupo-error */
+.grupo-error .options,
 .radio-group.grupo-error .options,
-.subgroup.grupo-error .options-grid {
+.subgroup.grupo-error .options,
+.input-box.radio-group.grupo-error .options {
     outline: 2px solid #f87171;
     outline-offset: 5px;
     border-radius: 10px;
+    background: rgba(248, 113, 113, 0.04);
+    padding: 4px;
 }
 
+/* Estilo de éxito para cualquier contenedor con .options dentro de .grupo-success */
+.grupo-success .options,
 .radio-group.grupo-success .options,
-.subgroup.grupo-success .options-grid {
+.subgroup.grupo-success .options,
+.input-box.radio-group.grupo-success .options {
     outline: 2px solid #93CFA7;
     outline-offset: 5px;
     border-radius: 10px;
+    background: rgba(147, 207, 167, 0.04);
+    padding: 4px;
 }
 
-/* =========================
-FORMULARIO + HISTORIAL LATERAL
-========================= */
+
+/* ============================================================
+FORMULARIO + HISTORIAL 
+============================================================ */
+
+/* Contenedor que alinea el formulario y el historial */
 .form-wrapper {
     display: grid;
     grid-template-columns: 2.5fr 1.2fr;
@@ -447,10 +611,12 @@ FORMULARIO + HISTORIAL LATERAL
     align-items: start;
 }
 
+/* Columna del formulario - ancho mínimo */
 .form-column {
     min-width: 0;
 }
 
+/* Barra lateral del historial - sticky y con scroll */
 .historial-sidebar {
     position: sticky;
     top: 120px;
@@ -464,6 +630,7 @@ FORMULARIO + HISTORIAL LATERAL
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/* Scrollbar personalizado para el historial */
 .historial-sidebar::-webkit-scrollbar {
     width: 6px;
 }
@@ -482,6 +649,7 @@ FORMULARIO + HISTORIAL LATERAL
     background: #93CFA7;
 }
 
+/* Título del historial */
 .historial-sidebar .historial-header h2 {
     font-size: 1.2rem;
     margin-bottom: 4px;
@@ -491,11 +659,13 @@ FORMULARIO + HISTORIAL LATERAL
     font-family: 'Lilita One', sans-serif;
 }
 
+/* Resumen del historial - texto pequeño */
 .historial-sidebar .historial-resumen {
     font-size: 0.8rem;
     color: #64748b;
 }
 
+/* Grid de tarjetas del historial */
 .historial-sidebar .historial-grid {
     display: flex;
     flex-direction: column;
@@ -506,6 +676,7 @@ FORMULARIO + HISTORIAL LATERAL
     padding-right: 4px;
 }
 
+/* Scrollbar del grid del historial */
 .historial-sidebar .historial-grid::-webkit-scrollbar {
     width: 4px;
 }
@@ -520,6 +691,7 @@ FORMULARIO + HISTORIAL LATERAL
     border-radius: 2px;
 }
 
+/* Tarjeta individual del historial */
 .historial-sidebar .historial-card {
     background: #0f172a;
     border: 1.5px solid #2A5A46;
@@ -529,11 +701,13 @@ FORMULARIO + HISTORIAL LATERAL
     cursor: pointer;
 }
 
+/* Hover en tarjeta - se mueve a la derecha */
 .historial-sidebar .historial-card:hover {
     border-color: #93CFA7;
     transform: translateX(4px);
 }
 
+/* Cabecera de la tarjeta con fecha */
 .historial-sidebar .historial-card-header {
     display: flex;
     align-items: center;
@@ -543,11 +717,13 @@ FORMULARIO + HISTORIAL LATERAL
     margin-bottom: 6px;
 }
 
+/* Fecha en la tarjeta */
 .historial-sidebar .historial-card-header time {
     font-size: 0.7rem;
     color: #64748b;
 }
 
+/* Badge de tipo (postulación/refugio) */
 .historial-sidebar .historial-badge {
     font-size: 0.6rem;
     padding: 2px 10px;
@@ -557,22 +733,26 @@ FORMULARIO + HISTORIAL LATERAL
     letter-spacing: 0.5px;
 }
 
+/* Badge de postulación - verde */
 .historial-sidebar .historial-badge--postulacion {
     background-color: rgba(147, 207, 167, 0.18);
     color: #93CFA7;
 }
 
+/* Badge de refugio - amarillo */
 .historial-sidebar .historial-badge--refugio {
     background-color: rgba(250, 204, 21, 0.16);
     color: #facc15;
 }
 
+/* Título de la tarjeta */
 .historial-sidebar .historial-card h3 {
     font-size: 0.95rem;
     margin-bottom: 4px;
     color: #f8fafc;
 }
 
+/* Lista de detalles en la tarjeta */
 .historial-sidebar .historial-detalle {
     list-style: none;
     padding: 0;
@@ -581,21 +761,25 @@ FORMULARIO + HISTORIAL LATERAL
     gap: 2px;
 }
 
+/* Elemento de detalle */
 .historial-sidebar .historial-detalle li {
     font-size: 0.75rem;
     color: #cbd5e1;
 }
 
+/* Icono en detalles */
 .historial-sidebar .historial-detalle li i {
     color: #93CFA7;
     width: 16px;
     margin-right: 4px;
 }
 
+/* Contenedor de acciones de la tarjeta */
 .historial-sidebar .historial-card-acciones {
     text-align: right;
 }
 
+/* Botón eliminar tarjeta */
 .historial-sidebar .btn-eliminar {
     background-color: transparent;
     color: #fca5a5;
@@ -608,22 +792,26 @@ FORMULARIO + HISTORIAL LATERAL
     transition: all 0.25s ease;
 }
 
+/* Hover en botón eliminar */
 .historial-sidebar .btn-eliminar:hover {
     background-color: rgba(248, 113, 113, 0.12);
     border-color: #f87171;
     color: #ffffff;
 }
 
+/* Contenedor de acciones del historial */
 .historial-sidebar .historial-acciones {
     text-align: center;
 }
 
+/* Botón vaciar en el historial - ancho completo */
 .historial-sidebar .historial-acciones .btn-vaciar {
     font-size: 0.8rem;
     padding: 8px 16px;
     width: 100%;
 }
 
+/* Mensaje cuando el historial está vacío */
 .historial-sidebar .historial-vacio {
     grid-column: 1 / -1;
     text-align: center;
@@ -635,36 +823,12 @@ FORMULARIO + HISTORIAL LATERAL
     font-size: 0.9rem;
 }
 
-/* =========================
-RESPONSIVE
-========================= */
 
-/* Tablets grandes */
-@media (max-width: 1200px) {
-    .form-wrapper {
-        grid-template-columns: 2fr 1.2fr;
-        max-width: 1100px;
-    }
-}
+/* ============================================================
+RESPONSIVE 
+============================================================ */
 
-/* Tablets medianas */
-@media (max-width: 992px) {
-    .form-wrapper {
-        grid-template-columns: 1.8fr 1fr;
-        gap: 20px;
-    }
-}
-
-/* Tablets pequeñas */
-@media (min-width: 601px) and (max-width: 768px) {
-    .tab-btn {
-        min-width: 180px;
-        padding: 14px 18px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Móviles y tablets */
+/* Tablets y celulares */
 @media (max-width: 768px) {
     .form-container {
         padding-top: 100px;
@@ -698,21 +862,7 @@ RESPONSIVE
         padding: 1.5rem;
     }
 
-    .btn-submit {
-        flex-direction: column;
-    }
-
-    .btn-enviar {
-        width: 100%;
-    }
-
-    .btn-limpiar {
-        width: 100%;
-    }
-}
-
-/* Móviles pequeños */
-@media (max-width: 600px) {
+    /* Pestañas apiladas verticalmente */
     .form-tabs {
         flex-direction: column;
         align-items: center;
@@ -725,15 +875,20 @@ RESPONSIVE
         font-size: 0.95rem;
     }
 
-    .tab-btn i {
-        font-size: 1rem;
+    .btn-submit {
+        flex-direction: column;
+    }
+
+    .btn-enviar,
+    .btn-limpiar {
+        width: 100%;
     }
 }
 
-/* Móviles muy pequeños */
-@media (max-width: 576px) {
+/* Celulares muy pequeños */
+@media (max-width: 480px) {
     .adoption-form {
-        padding: 1.25rem;
+        padding: 1rem;
     }
 
     .options {
@@ -743,10 +898,19 @@ RESPONSIVE
     .historial-sidebar {
         padding: 16px;
     }
+
+    .tab-btn {
+        padding: 12px 16px;
+        font-size: 0.85rem;
+    }
+
+    .tab-btn i {
+        font-size: 0.9rem;
+    }
 }
 
-/* Escritorio */
-@media (min-width: 768px) {
+/* Escritorio - ajustes para pantallas grandes */
+@media (min-width: 769px) {
     .btn-enviar {
         width: auto;
         padding: 16px 60px;

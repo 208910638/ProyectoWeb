@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/footer.css"> 
     <link rel="stylesheet" href="css/formulario.css"> 
+    <link rel="stylesheet" href="css/formulario-stepper.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/iconos.css">
     <link rel="stylesheet" href="css/utilities.css">
@@ -28,7 +29,7 @@
         <div class="container header-content">
             <p class="logo"><strong>MatchPet CR</strong></p> 
             
-            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <button class="menu-toggle">☰</button>
 
             <nav class="main-nav">
                 <ul>
@@ -110,42 +111,48 @@
          
          
                                 <fieldset class="form-group">
-                                    <legend><i class="fa-solid fa-heart"></i> Preferencias de Adopción</legend>
-         
-                                    <div class="input-box">
-                                        <label for="id-mascota-form-adopcion">Mascota seleccionada (ID):</label>
-                                        <input type="text" id="id-mascota-form-adopcion" name="id_mascota_form_adopcion" placeholder="Ej. PET001">
-                                    </div>
-         
-                                    <div class="input-box">
-                                        <label for="nombre-mascota-form-adopcion">Nombre de la mascota:</label>
-                                        <input type="text" id="nombre-mascota-form-adopcion" name="nombre_mascota_form_adopcion" placeholder="Ej. Suki">
-                                    </div>
-         
-                                    <div class="input-box">
-                                        <label for="tipo-mascota-form-adopcion">Tipo de mascota:</label>
-                                        <select id="tipo-mascota-form-adopcion" name="tipo_mascota_form_adopcion">
-                                            <option value="" disabled selected>Seleccione una especie</option>
-                                            <option value="perro">Perro</option>
-                                            <option value="gato">Gato</option>
-                                        </select>
-                                    </div>
-         
-                                    <div class="input-box">
-                                        <label for="sexo-form-adopcion">Sexo:</label>
-                                        <input type="text" id="sexo-form-adopcion" name="sexo_form_adopcion" placeholder="Macho o Hembra">
-                                    </div>
-         
-                                    <div class="input-box">
-                                        <label for="edad-form-adopcion">Edad aproximada:</label>
-                                        <input type="text" id="edad-form-adopcion" name="edad_form_adopcion" placeholder="Ej. 2 años">
-                                    </div>
-         
-                                    <div class="input-box">
-                                        <label for="peso-form-adopcion">Peso aproximado:</label>
-                                        <input type="text" id="peso-form-adopcion" name="peso_form_adopcion" placeholder="Ej. 10kg">
-                                    </div>
-                                </fieldset>
+                                <legend><i class="fa-solid fa-heart"></i> Preferencias de Adopción</legend>
+
+                                <div class="input-box">
+                                    <label for="id-mascota-form-adopcion">Mascota seleccionada (ID):</label>
+                                    <input type="text" id="id-mascota-form-adopcion" name="id_mascota_form_adopcion" placeholder="Ej. PET001" required>
+                                    <small class="form-error" id="error-id-mascota-form-adopcion"></small>
+                                </div>
+
+                                <div class="input-box">
+                                    <label for="nombre-mascota-form-adopcion">Nombre de la mascota:</label>
+                                    <input type="text" id="nombre-mascota-form-adopcion" name="nombre_mascota_form_adopcion" placeholder="Ej. Suki" required>
+                                    <small class="form-error" id="error-nombre-mascota-form-adopcion"></small>
+                                </div>
+
+                                <div class="input-box">
+                                    <label for="tipo-mascota-form-adopcion">Tipo de mascota:</label>
+                                    <select id="tipo-mascota-form-adopcion" name="tipo_mascota_form_adopcion" required>
+                                        <option value="" disabled selected>Seleccione una especie</option>
+                                        <option value="perro">Perro</option>
+                                        <option value="gato">Gato</option>
+                                    </select>
+                                    <small class="form-error" id="error-tipo-mascota-form-adopcion"></small>
+                                </div>
+
+                                <div class="input-box">
+                                    <label for="sexo-form-adopcion">Sexo:</label>
+                                    <input type="text" id="sexo-form-adopcion" name="sexo_form_adopcion" placeholder="Macho o Hembra" required>
+                                    <small class="form-error" id="error-sexo-form-adopcion"></small>
+                                </div>
+
+                                <div class="input-box">
+                                    <label for="edad-form-adopcion">Edad aproximada:</label>
+                                    <input type="text" id="edad-form-adopcion" name="edad_form_adopcion" placeholder="Ej. 2 años" required>
+                                    <small class="form-error" id="error-edad-form-adopcion"></small>
+                                </div>
+
+                                <div class="input-box">
+                                    <label for="peso-form-adopcion">Peso aproximado:</label>
+                                    <input type="text" id="peso-form-adopcion" name="peso_form_adopcion" placeholder="Ej. 10kg" required>
+                                    <small class="form-error" id="error-peso-form-adopcion"></small>
+                                </div>
+                            </fieldset>
          
          
                                 <fieldset class="form-group">
@@ -185,7 +192,7 @@
                         </div>
 
                         <!-- Panel formulario de refugio -->
-                        <div class="tab-panel" id="panelRefugio" data-tab="refugio" hidden>
+                        <div class="tab-panel" id="panelRefugio" data-tab="refugio">
          
                             <h2>Formulario de Refugio</h2>
                             <form id="formRefugio" action="#" method="POST" class="adoption-form" novalidate>
