@@ -1,7 +1,3 @@
-// =========================
-//  SISTEMA DE PESTAÑAS
-// =========================
-
 document.addEventListener('DOMContentLoaded', function() {
 
     // Obtener elementos
@@ -92,7 +88,7 @@ function setupStepper(formId) {
     const buttons = document.createElement('div');
     buttons.className = 'step-buttons';
 
-    const btnPrev = document.createElement('button');3
+    const btnPrev = document.createElement('button');
     btnPrev.type = 'button';
     btnPrev.className = 'btn-step';
     btnPrev.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Anterior';

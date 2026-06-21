@@ -51,18 +51,15 @@ TARJETAS DE CIFRAS
 RESPONSIVIDAD PARA TARJETAS DE CIFRAS
 ========================= */
 
-/* Pantallas muy pequeñas (celulares) */
-@media (max-width: 360px) {
+@media (max-width: 400px) {
     .cifras-container {
-        gap: 15px;
+        gap: 12px;
     }
-    
-    .card { 
-        padding: 16px; 
-        flex-basis: 100%; 
+    .card {
+        padding: 14px;
+        flex-basis: 100%;
     }
-
     .card-icons .number {
-        font-size: 1.5rem; 
+        font-size: 1.3rem;
     }
 }

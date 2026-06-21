@@ -70,7 +70,7 @@ SECCIÓN PET
 }
 
 /* =========================
-RESPONSIVIDAD PARA VIDEO
+RESPONSIVIDAD 
 ========================= */
 
 /* Tablets en adelante */
@@ -80,7 +80,39 @@ RESPONSIVIDAD PARA VIDEO
     }
 }
 
-/* Celulares */
-@media (max-width: 576px) {
-    /* Estilos para celulares */
+/* Ocultar video en móviles y usar fondo sólido */
+@media (max-width: 768px) {
+    .bg-video {
+        display: none !important;
+    }
+    .pet-section {
+        background-color: #0f172a; 
+    }
+    /* Opcional: si el degradado (::before) interfiere, también lo ocultamos o cambiamos */
+    .pet-section::before {
+        display: none;
+    }
+}
+
+/* Celulares muy pequeños (≤ 400px) */
+@media (max-width: 400px) {
+    .inicio-content {
+        padding: 20px 12px 60px;  /* Menos padding */
+    }
+    .inicio-content h1 {
+        font-size: 1.4rem;
+    }
+    .inicio-content p {
+        font-size: 0.85rem;
+    }
+    .card {
+        padding: 16px;
+        flex-basis: 100%;
+    }
+    .card-icons .number {
+        font-size: 1.4rem;
+    }
+    .card p {
+        font-size: 0.85rem;
+    }
 }

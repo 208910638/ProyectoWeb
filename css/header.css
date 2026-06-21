@@ -57,9 +57,9 @@ HEADER Y NAVEGACIÓN
     align-items: center;
 }
 
-/* ============================================
+/* =========================
 LOGO
-============================================ */
+========================= */
 .logo i {
     /* Colores */
     color: #93CFA7;
@@ -100,9 +100,6 @@ MENÚ PRINCIPAL
 ========================= */
 .main-nav {
     width: 100%;
-
-    /* Medidas y espaciado */
-    padding: 20px 0;
     
     /* Flexbox */
     display: none;
@@ -211,10 +208,30 @@ MENÚ PRINCIPAL
 }
 
 /* =========================
-PANTALLAS GRANDES (768PX O MÁS)
+AJUSTE DEL PRIMER CONTENIDO
+(Para que el header fijo no lo tape)
+========================= */
+.inicio-content {
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Texto */
+    text-align: center;
+    
+    /* Medidas y espaciado */
+    width: 100%;
+}
+
+/* =========================
+RESPONSIVE
 ========================= */
 @media (min-width: 768px) {
-    
+    .header-mobile-actions {
+        display: none; /* Asegura que no se vea en desktop */
+    }
+
     /* Header */
     .site-header {
         padding: 18px 0px;
@@ -315,28 +332,25 @@ PANTALLAS GRANDES (768PX O MÁS)
     }
 }
 
-/* =========================
-AJUSTE DEL PRIMER CONTENIDO
-(PARA QUE EL HEADER FIJO NO LO TAPE)
-========================= */
-.inicio-content {
-    /* Flexbox */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    /* Texto */
-    text-align: center;
-    
-    /* Medidas y espaciado */
-    width: 100%;
-    padding-top: 100px;
-    margin-top: 1rem;
-}
-
-/* Ajuste para pantallas grandes */
-@media (min-width: 768px) {
-    .inicio-content {
-        padding-top: 140px;
+/* Celulares muy pequeños (≤ 400px) */
+@media (max-width: 400px) {
+    .site-header {
+        padding: 10px 12px;  /* Menos padding horizontal */
+    }
+    .logo {
+        font-size: 1.3rem;   /* Logo más pequeño */
+    }
+    .logo i {
+        font-size: 1.5rem;
+    }
+    .menu-toggle {
+        font-size: 1.5rem;   /* Botón hamburguesa más pequeño */
+        margin-left: auto;   /* Para que quede a la derecha */
+    }
+    .main-nav a {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        width: 95%;          /* Ocupa casi todo el ancho */
+        max-width: 280px;
     }
 }

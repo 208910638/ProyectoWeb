@@ -36,9 +36,6 @@ body {
     background-color: #111827;
     color: whitesmoke;
     line-height: 1.6;
-
-    /* Espacio para que el header fixed no tape el contenido */
-    padding-top: 70px; 
 }
 
 /* Títulos de secciones con estilo especial */
@@ -49,7 +46,7 @@ h4,
 h5, 
 h6 {
     font-family: 'Quicksand', sans-serif;
-    font-weight: 400; /* Aplicado a todos */
+    font-weight: 400; 
 }
 
 /* Texto de párrafos */
@@ -101,7 +98,7 @@ ul {
 }
 
 /* =========================
-RESPONSIVE - AJUSTES DE TIPOGRAFÍA
+RESPONSIVE 
 ========================= */
 
 /* Tablets */
@@ -131,5 +128,25 @@ RESPONSIVE - AJUSTES DE TIPOGRAFÍA
     
     h2 {
         font-size: 1.2rem;
+    }
+}
+
+/* Celulares muy pequeños (≤ 400px) */
+@media (max-width: 400px) {
+    body {
+        font-size: 0.85rem;  /* Reduce ligeramente el texto base */
+        line-height: 1.5;
+    }
+    h1 {
+        font-size: 1.3rem;
+    }
+    h2 {
+        font-size: 1.1rem;
+    }
+    h3 {
+        font-size: 1rem;
+    }
+    p, li, label, input, select, textarea {
+        font-size: 0.85rem;
     }
 }

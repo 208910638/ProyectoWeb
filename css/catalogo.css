@@ -363,3 +363,59 @@ BOTÓN DE ADOPCIÓN
 .btn-adoptar:active {
     transform: scale(0.98);
 }
+
+/* =========================
+RESPONSIVE
+========================= */
+
+/* Celulares muy pequeños (≤ 400px) */
+@media (max-width: 400px) {
+    .catalog-title {
+        font-size: 1.6rem;
+    }
+    .catalog-subtitle {
+        font-size: 0.9rem;
+    }
+    .filter-container {
+        padding: 16px;
+        gap: 12px;
+    }
+    .filter-box {
+        min-width: 100%;
+        padding-top: 0;
+        padding-bottom: 10px;
+    }
+    .filter-box select {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    .search-input-box input {
+        padding: 12px 12px 12px 38px;
+        font-size: 0.85rem;
+    }
+    .pet-grid {
+        grid-template-columns: 1fr;  /* Una sola columna */
+        gap: 20px;
+    }
+    .pet-card {
+        border-radius: 12px;
+    }
+    .pet-image {
+        height: 200px;
+    }
+    .pet-name {
+        font-size: 1.3rem;
+    }
+    .pet-info {
+        padding: 16px;
+    }
+    .pet-details-list {
+        font-size: 0.75rem;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    .btn-adoptar {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}
