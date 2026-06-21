@@ -1,8 +1,4 @@
 /* =========================
-UTILIDADES GENERALES
-========================= */
-
-/* =========================
 CONTENEDORES
 ========================= */
 .container {
@@ -14,18 +10,3 @@ section,
 aside {
     padding: 64px 0;
 }
-
-h1,h2, h3, h4, h5, h6 {
-    color: white;
-    margin-bottom: 15px;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-main {
-    background: linear-gradient(135deg, #111827, #0f172a);
-    color: white;
-}
-

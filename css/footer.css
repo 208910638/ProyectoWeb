@@ -1,53 +1,70 @@
 /* =========================
 FOOTER
 ========================= */
+
+/* Contenedor principal del footer */
 #contacto {
-    background-color: #2A5A46;
+    background: linear-gradient(135deg, #1a3d30 0%, #2A5A46 40%, #3d7a5f 80%, #2A5A46 100%);
     color: white;
-    padding: 24px 16px; 
     border-top: 4px solid #93CFA7;
-    font-size: 1.0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 12px; 
+
+    padding: 30px 20px;
+    font-size: 1rem;
+    margin-top: 0;
+
     text-align: center;
 
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    width: 100%;
 }
 
+/* Lista de redes sociales */
 #contacto ul {
-    list-style: none;
-    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
     padding: 0;
+    margin: 0;
+
+    list-style: none;
 }
 
-#contacto a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Cada elemento de la lista */
+#contacto ul li {
+    display: flex;
+    align-items: center;
+    gap: 22px;
 
-    
+    padding: 8px 12px;
 }
 
-#contacto a:hover {
-    color: #93CFA7; 
+/* Texto de redes en negrita */
+#contacto ul li span {
+    font-weight: 470;
 }
 
-.fa-brands {
-    margin-right: 0.5rem;
+/* Espacio entre redes sociales y copyright */
+#contacto p {
+    padding-top: 1.2rem;
+    padding-bottom: 16px;
+    margin: 0;
 }
 
 /* =========================
-Responsividad para el footer
+RESPONSIVE - PANTALLAS GRANDES
 ========================= */
-/* Para pantallas grandes */
 @media (min-width: 768px) {
     #contacto {
-        list-style: none;
-        padding: 24px 40px; 
-        text-align: center; 
-        justify-content: space-between; 
+        padding: 24px 40px;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    /* En escritorio, las redes quedan a la izquierda y el copyright a la derecha */
+    #contacto p {
+        padding-bottom: 0;  /* Solo eliminamos el padding inferior */
+        margin: 0;
     }
 }

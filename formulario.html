@@ -8,7 +8,7 @@
     <meta name="description" content="Formulario de postulación para la adopción responsable de mascotas en MatchPet CR.">
     
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
@@ -27,8 +27,10 @@
 
     <header class="site-header">
         <div class="container header-content">
-            <p class="logo"><strong>MatchPet CR</strong></p> 
-            
+            <p class="logo">
+                <i class="fa-solid fa-paw paw-icon"></i>
+                <strong>MatchPet CR</strong>
+            </p>
             <button class="menu-toggle">☰</button>
 
             <nav class="main-nav">
@@ -389,17 +391,10 @@
         </p>
     </footer>
 
-    <script>
-        const menuToggle = document.querySelector('.menu-toggle');
-        const mainNav = document.querySelector('.main-nav');
-
-        menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('open');
-            menuToggle.textContent = mainNav.classList.contains('open') ? '✕' : '☰';
-        });
-    </script>
 
     <script src="js/formulario.js"></script>
+    <script src="js/header.js"></script>
+
 </body>
 
 </html>

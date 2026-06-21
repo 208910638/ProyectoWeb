@@ -9,8 +9,7 @@ FUENTES EXTERNAS
 }
 
 /* =========================
-CSS BASE
-Reglas generales del sitio
+CSS BASE - REGLAS GENERALES DEL SITIO
 ========================= */
 
 /* Elimina márgenes y espacios automáticos del navegador */
@@ -26,19 +25,54 @@ html {
     scroll-behavior: smooth;
 }
 
+/* =========================
+TIPOGRAFÍAS GLOBALES
+========================= */
+
 /* Estilo general del sitio */
 body {
     font-family: 'Quicksand', sans-serif;
-    font-weight: 100;
-    background-color: rgb(23, 23, 30);
+    font-weight: 400;
+    background-color: #111827;
     color: whitesmoke;
     line-height: 1.6;
 
-    /*Espacio para que el header fixed no tape el contenido */
-    padding-top: 88px;
+    /* Espacio para que el header fixed no tape el contenido */
+    padding-top: 70px; 
 }
 
-/* Multimedia adaptable */
+/* Títulos de secciones con estilo especial */
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400; /* Aplicado a todos */
+}
+
+/* Texto de párrafos */
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: #f8fafc;
+}
+
+/* Texto en negrita */
+strong, b {
+    font-weight: 700;
+}
+
+/* Etiquetas y textos pequeños */
+label, small, .label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+/* =========================
+MULTIMEDIA ADAPTABLE
+========================= */
 img,
 video,
 iframe {
@@ -51,12 +85,51 @@ img {
     display: block;
 }
 
+/* =========================
+ENLACES Y LISTAS
+========================= */
+
 /* Enlaces sin subrayado */
 a {
     text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Viñetas dentro del bloque */
 ul {
-    list-style-position: none;
+    list-style: none;  
+}
+
+/* =========================
+RESPONSIVE - AJUSTES DE TIPOGRAFÍA
+========================= */
+
+/* Tablets */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
 }

@@ -92,7 +92,7 @@ function setupStepper(formId) {
     const buttons = document.createElement('div');
     buttons.className = 'step-buttons';
 
-    const btnPrev = document.createElement('button');
+    const btnPrev = document.createElement('button');3
     btnPrev.type = 'button';
     btnPrev.className = 'btn-step';
     btnPrev.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Anterior';

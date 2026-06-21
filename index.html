@@ -33,7 +33,10 @@
 
     <header class="site-header">
         <div class="container header-content">
-            <p class="logo"><strong>MatchPet CR</strong></p> 
+            <p class="logo">
+                <i class="fa-solid fa-paw paw-icon"></i>
+                <strong>MatchPet CR</strong>
+            </p>
             <button class="menu-toggle" aria-label="Abrir menú">☰</button> 
 
             <nav class="main-nav">
@@ -92,13 +95,6 @@
         </div>
     </section>
 
-    <!-- Otra sección, aquí hay un contenedor con la clase "responsable-content" 
-    para darle un estilo específico a esta sección, y dentro de este contenedor hay un título y 
-    otro contenedor con las clases "caracteristicas-container" y "cifras-container" 
-    para mostrar las características de la adopción responsable en tarjetas. Cada tarjeta 
-    tiene la clase "caracteristicas-info" y "card" para darle un estilo uniforme, y 
-    dentro de cada tarjeta hay un contenedor para los iconos y el texto descriptivo. -->
-
     <section id="adopcion-responsable" class="adopcion-responsable">
     <div class="container responsable-content">
         <h2>¿Qué implica una adopción responsable?</h2>
@@ -154,19 +150,9 @@
         </p>
     </footer>
 
-    <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    <script src="js/header.js"></script>
+    <script src="js/menu.js"></script>
 
-    menuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('open');
-        //Cambiar el icono al abrir
-        menuToggle.textContent = mainNav.classList.contains('open') ? '✕' : '☰';
-    });
-</script>
-
-</body>
-</html>
 </body>
 
 </html>
