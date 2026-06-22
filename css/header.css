@@ -24,10 +24,10 @@ HEADER Y NAVEGACIÓN
 }
 
 /* Contenedor interno del header.
-   .main-nav vive ANIDADO dentro de este contenedor (junto al logo y al
-   botón hamburguesa), no como hermano de .header-content. Por eso se
-   agrega flex-wrap: cuando el menú se abre y pide width:100%, no le
-   cabe en la misma fila junto al logo y el botón, así que el navegador
+.main-nav vive ANIDADO dentro de este contenedor (junto al logo y al
+botón hamburguesa), no como hermano de .header-content. Por eso se
+agrega flex-wrap: cuando el menú se abre y pide width:100%, no le
+cabe en la misma fila junto al logo y el botón, así que el navegador
    lo manda automáticamente a su propia línea, debajo. */
 .header-content {
     /* Flexbox */
@@ -69,13 +69,15 @@ LOGO
     
     /* Animación */
     animation: pawWave 2s ease-in-out infinite;
+
+    margin-left: auto;
 }
 
 /* Animación de la huella */
 @keyframes pawWave {
     0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
 }
 
 /* Botón hamburguesa */

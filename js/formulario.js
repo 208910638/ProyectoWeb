@@ -302,4 +302,6 @@ function setupStepper(formId) {
 
     // Iniciar en el paso 0
     showStep(0);
+
+
 }
