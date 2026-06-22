@@ -1,62 +1,110 @@
 /* =========================
-ICONOS
+ICONOS DE LA PÁGINA DE INICIO
 ========================= */
-.paw-icon{
-    color: rgb(160, 230, 225);
-    font-size: 2rem;
+
+.dog-icon {
+    color: rgb(130, 114, 67);
 }
 
-.dog-icon{
-    color: rgb(160, 230, 225);
-    font-size: 2rem;
+.location-icon {
+    color: red;
 }
 
-.location-icon{
-    color: rgb(160, 230, 225);
-    font-size: 2rem;
-} 
-
-.heart-icon{
-    color: rgb(160, 230, 225);
-    font-size: 2rem;
+.paw-icon {
+    color:  rgb(130, 114, 67);
 }
 
-.calendar-icon{
-    color: rgb(160, 230, 225);;
-    font-size: 2rem;
+.heart-icon {
+    color: #f472b6;
 }
 
-.clock-icon{
-    color: rgb(160, 230, 225);;
-    font-size: 2rem;
+.calendar-icon {
+    color:  #60a5fa;
 }
 
-.briefcase-medical-icon{
-    color: rgb(160, 230, 225);;
-    font-size: 2rem;
+.clock-icon {
+    color: whitesmoke;
 }
 
-.stethoscope-icon{
-    color: rgb(160, 230, 225);;
-    font-size: 2rem;
+.briefcase-medical-icon {
+    color: #f472b6;
 }
 
-.baseball-icon{
-    color: rgb(160, 230, 225);;
-    font-size: 2rem;
+.stethoscope-icon {
+    color: grey;
+}
+.baseball-icon {
+    color: yellowgreen;
 }
 
-.facebook-icon{
-    color: rgb(121, 85, 72);
-    font-size: 1rem;
+/* =========================
+ICONOS DE REDES SOCIALES
+========================= */
+
+.facebook-icon {
+    color: #1877F2;
 }
 
-.instagram-icon{
-    color: rgb(121, 85, 72);
-    font-size: 1rem;
+.instagram-icon {
+    color: #E4405F;
 }
 
-.youtube-icon{
-    color: rgb(121, 85, 72);
-    font-size: 1rem;
+.youtube-icon {
+    color: #FF0000;
+}
+
+/* =========================
+ICONOS DE GÉNERO (MASCOTAS)
+(Catálogo - sexo)
+========================= */
+
+.text-pink {
+    color: #f472b6;
+}
+
+.text-blue {
+    color: #60a5fa;
+}
+
+/* =========================
+ICONOS DE INTERFAZ
+(Buscar, filtrar, etc.)
+========================= */
+
+/* Lupa de búsqueda */
+.search-icon {
+    color: #475569;
+    transition: color 0.3s ease;
+
+    position: absolute;
+    left: 16px;
+    font-size: 1.1rem;
+}
+
+/* Cuando el input de búsqueda está en foco, la lupa se vuelve verde */
+.search-input-box input:focus + .search-icon {
+    color: #93CFA7;
+}
+
+/* =========================
+ICONOS DENTRO DE BOTONES
+========================= */
+
+/* Iconos dentro de botones de tipo .btn-* */
+.btn-vaciar i,
+.btn-enviar i,
+.btn-limpiar i {
+    margin-right: 8px;
+    /* Los colores los heredan del botón, pero si quieres forzarlos: */
+    color: inherit;
+}
+
+/* =========================
+AJUSTES ADICIONALES PARA ICONOS
+========================= */
+
+/* Iconos en la lista de detalles de mascotas (catálogo) */
+.pet-details-list i {
+    color: #93CFA7;
+    margin-right: 5px;
 }

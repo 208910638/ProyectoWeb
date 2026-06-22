@@ -1,0 +1,167 @@
+/* =========================
+FONDO GENERAL
+========================= */
+body {
+    background-color: #111827; 
+    color: #cbd5e1;            
+    font-family: 'Quicksand', sans-serif; 
+}
+
+/* =========================
+Títulos principales
+========================= */
+h1.catalog-title,
+.catalog-title {
+    font-family: 'Lilita One', cursive;
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: white;
+    border-bottom: 2px solid rgba(147, 207, 167, 0.15);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    text-align: center; 
+    letter-spacing: 1.5px;
+}
+
+h2,
+.adopcion-responsable h2,
+.section-title {
+    font-family: 'Lilita One', cursive;
+    font-size: 1.8rem;
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+}
+
+/* =========================
+PARRÁFOS Y TEXTOS
+========================= */
+p, .text-content {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* =========================
+CONTENEDOR DE CIFRAS GRID
+========================= */
+.cifras-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin: 20px 0;
+}
+
+/* =========================
+TARJETAS CIFRAS Y CARACTERÍSTICAS
+========================= */
+.card {
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+    border: 2px solid #2A5A46;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 24px 20px;        
+    min-height: 240x;         
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s ease;
+}
+
+/* Iconos dentro de las tarjetas */
+.card-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 2.2rem;
+    color: #93CFA7;
+    margin-bottom: 12px;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: #93CFA7;
+}
+
+.card-icons .number {
+    font-family: 'Lilita One', cursive;
+    font-size: 2.4rem;
+    font-weight: normal;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Texto dentro de las tarjetas */
+.card p {
+    color: white;
+    font-size: 0.95rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); 
+}
+
+.card p strong {
+    color: white;
+    font-weight: 700;
+}
+
+/* =========================
+ADOPCIÓN RESPONSABLE
+========================= */
+.adopcion-responsable {
+    background-color: #0f172a; /* fondo más oscuro para contraste */
+    padding: 40px 0;
+    margin-top: 30px;
+}
+
+.adopcion-responsable .cifras-container {
+    margin-top: 10px;
+}
+
+/* Ajuste para las tarjetas de características */
+.caracteristicas-info.card {
+    padding: 20px 18px;        
+    min-height: 160px;         
+}
+
+.caracteristicas-info .card-icons {
+    font-size: 2rem;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media (max-width: 400px) {
+    h1.catalog-title {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    .cifras-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .card {
+        padding: 20px 16px;
+        min-height: 180px;
+    }
+    .card-icons {
+        font-size: 1.8rem;
+    }
+    .card-icons .number {
+        font-size: 2rem;
+    }
+    .card p {
+        font-size: 0.85rem;
+    }
+    .adopcion-responsable {
+        padding: 20px 0;
+    }
+}

@@ -25,15 +25,16 @@ body {
 
 /* Título principal del catálogo */
 .catalog-title {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Lilita One', cursive;
     font-size: 2.4rem;
     font-weight: 800;
-    color: #93CFA7;
+    color: white;
 
     border-bottom: 2px solid rgba(147, 207, 167, 0.15);
 
     padding-bottom: 10px;
     margin-bottom: 10px;
+    letter-spacing: 1.5px;
 }
 
 /* Subtítulo del catálogo */
@@ -95,17 +96,6 @@ BARRA DE BÚSQUEDA Y FILTROS
 
     display: flex;
     align-items: center;
-}
-
-/* Ícono de lupa */
-.search-icon {
-    position: absolute;
-    left: 16px;
-
-    color: #475569;
-    font-size: 1.1rem;
-
-    transition: color 0.3s ease;
 }
 
 /* Input de búsqueda */
@@ -308,10 +298,6 @@ REJILLA Y TARJETAS DE MASCOTAS
 
     margin-bottom: 6px;
 }
-
-/* Colores para iconos de sexo */
-.text-pink { color: #f472b6; }
-.text-blue { color: #60a5fa; }
 
 /* Raza de la mascota */
 .pet-breed {
