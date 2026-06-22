@@ -1,0 +1,33 @@
+{
+  "cifras": [
+    {
+      "categoria": "mascotas_calle",
+      "estado": "10k+",
+      "descripcion": "Mascotas actualmente en situación de calle esperando un hogar.",
+      "iconos": ["fa-solid fa-dog", "fa-solid fa-location-dot"]
+    },
+    {
+      "categoria": "mejora_calidad_vida",
+      "estado": "85%",
+      "descripcion": "De los animales adoptados mejoran significativamente la calidad de vida de sus dueños.",
+      "iconos": ["fa-solid fa-paw", "fa-solid fa-heart"]
+    }
+  ],
+  "caracteristicas": [
+    {
+      "titulo": "Compromiso a largo plazo",
+      "descripcion": "Una mascota te acompañará entre 10 y 15 años.",
+      "iconos": ["fa-solid fa-calendar-days", "fa-solid fa-clock"]
+    },
+    {
+      "titulo": "Atención veterinaria",
+      "descripcion": "Vacunas, castración y chequeos periódicos.",
+      "iconos": ["fa-solid fa-briefcase-medical", "fa-solid fa-stethoscope"]
+    },
+    {
+      "titulo": "Espacio y tiempo",
+      "descripcion": "Brindarles el ejercicio y la atención afectiva que requieren.",
+      "iconos": ["fa-solid fa-baseball"]
+    }
+  ]
+}
