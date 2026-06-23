@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let mascotas = []; // Almacenará los datos cargados
 
+    // Función para quitar tildes, espacios y poner en minúscula
+    function normalizar(texto) {
+        return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s/g, '');
+    }
+
     // Cargar datos del JSON
     fetch('data/mascotas.json')
         .then(response => response.json())
@@ -38,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Atributos para filtros (coinciden con los datos)
             card.dataset.especie = pet.especie;
             card.dataset.edad = pet.edad; // si quieres
-            card.dataset.provincia = pet.provincia.toLowerCase().replace(/ /g, '');
+            card.dataset.provincia = normalizar(pet.provincia);
             card.dataset.nombre = pet.nombre.toLowerCase();
             card.dataset.tamanio = pet.tamanio;
 
@@ -66,17 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const busqueda = searchInput ? searchInput.value.toLowerCase() : '';
         const especie = especieSelect ? especieSelect.value : 'todos';
         const provincia = provinciaSelect ? provinciaSelect.value : 'todas';
+        const provinciaNormalizada = normalizar(provincia);
         const tamanio = tamanioSelect ? tamanioSelect.value : 'todos';
 
         const filtradas = mascotas.filter(pet => {
             const nombre = pet.nombre.toLowerCase();
             const esp = pet.especie;
-            const prov = pet.provincia.toLowerCase().replace(/ /g, '');
+            const prov = normalizar(pet.provincia);   
             const tam = pet.tamanio;
 
             const matchNombre = nombre.includes(busqueda);
             const matchEspecie = (especie === 'todos' || esp === especie);
-            const matchProvincia = (provincia === 'todas' || prov === provincia);
+            const matchProvincia = (provincia === 'todas' || prov === provinciaNormalizada);
             const matchTamanio = (tamanio === 'todos' || tam === tamanio);
 
             return matchNombre && matchEspecie && matchProvincia && matchTamanio;

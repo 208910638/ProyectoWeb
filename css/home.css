@@ -305,6 +305,7 @@ RESPONSIVE
     .card {
         padding: 20px 16px;
         min-height: 160px;
+         margin-bottom: 10px; 
     }
     .card-icons {
         font-size: 1.8rem;

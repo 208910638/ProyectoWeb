@@ -112,12 +112,10 @@ function setupStepper(formId) {
     if (lastFieldset) 
         lastFieldset.parentNode.insertBefore(navContainer, lastFieldset.nextSibling);
 
-    // Mover el botón de enviar al final del último paso
+    // Controlar la visibilidad del botón de enviar
     const btnSubmit = form.querySelector('.btn-submit');
     if (btnSubmit) {
-        const lastStepContainer = legends[totalSteps - 1].closest('fieldset');
-        if (lastStepContainer) 
-            lastStepContainer.appendChild(btnSubmit);
+        btnSubmit.style.display = 'none'; // Oculto por defecto
     }
 
     // Función para ocultar/mostrar pasos
@@ -144,6 +142,15 @@ function setupStepper(formId) {
 
         // Actualizar botones
         btnPrev.disabled = (index === 0);
+
+        // Mostrar u ocultar el botón de enviar según el paso
+        if (btnSubmit) {
+            if (index === totalSteps - 1) {
+                btnSubmit.style.display = 'flex';
+            } else {
+                btnSubmit.style.display = 'none';
+            }
+        }
         
         // En el último paso, ocultar el botón "Siguiente"
         if (index === totalSteps - 1) 

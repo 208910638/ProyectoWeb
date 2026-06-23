@@ -670,7 +670,7 @@ FORMULARIO + HISTORIAL
 .historial-sidebar .historial-resumen {
     font-size: 0.8rem;
     color: #64748b;
-
+    text-align: center;
     padding: 8px;
 }
 
@@ -732,8 +732,9 @@ RESPONSIVE
     }
 
     .historial-sidebar {
-        min-height: 200px;
+        min-height: auto;      /* Para que crezca con el contenido */
         order: 2;
+        padding: 20px 30px;    /* Más espacio lateral */
     }
 
     .adoption-form {
@@ -767,10 +768,13 @@ RESPONSIVE
 /* Celulares pequeños */
 @media (max-width: 480px) {
     .form-container {
-        padding: 10px 20px 40px 20px;  /* Aumenta el padding lateral */
+        padding: 10px 30px 40px 30px;   /* Aumentamos lateral a 30px */
+    }
+    .form-group {
+        padding: 1.8rem 1.5rem 1.5rem 1.5rem;   /* Más espacio interno */
     }
     .adoption-form {
-        padding: 1.5rem;               
+        padding: 2rem;                  /* Más espacio interno */
         max-width: 100%;
         margin: 0 auto;
     }
@@ -778,8 +782,8 @@ RESPONSIVE
         flex-direction: column;
     }
     .historial-sidebar {
-        min-height: 150px;
-        padding: 16px;
+        min-height: auto;      /* Sin altura fija, se adapta */
+        padding: 20px 25px;    /* Más espacio */
     }
     .historial-sidebar .historial-placeholder {
         padding: 20px 15px;
@@ -799,16 +803,19 @@ RESPONSIVE
 /* Celulares muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     .form-container {
-        padding: 10px 18px 40px 18px;   
+        padding: 10px 25px 40px 25px;   /* Lateral un poco mayor */
+    }
+    .form-group {
+        padding: 1.8rem 1.5rem 1.5rem 1.5rem;   /* Más espacio interno */
+    }
+    .adoption-form {
+        padding: 1.8rem;                /* Más espacio */
+        max-width: 100%;
     }
     .form-header h1 {
         font-size: 1rem;
         padding: 0.8rem 1rem;
         border-left-width: 3px;
-    }
-    .adoption-form {
-        padding: 1.2rem;               
-        max-width: 100%;
     }
     .adoption-form input,
     .adoption-form select,
@@ -854,9 +861,10 @@ RESPONSIVE
         font-size: 0.7rem;
         padding: 6px 12px;
     }
-
     .historial-sidebar {
-        display: none;   /* Oculta completamente el historial lateral */
+        display: block;         
+        min-height: auto;
+        padding: 20px 20px;
     }
     .btn-limpiar {
         display: none;   /* Oculta el botón "Limpiar" para simplificar */
