@@ -50,8 +50,9 @@ CONTENEDOR DE CIFRAS GRID
 .cifras-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    margin: 20px 0;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1100px;
 }
 
 /* =========================
@@ -164,4 +165,99 @@ RESPONSIVE
     .adopcion-responsable {
         padding: 20px 0;
     }
+}  
+
+/* =========================
+SOBRE NOSOTROS
+========================= */
+.sobre-nosotros {
+    background-color: #0d152a; 
+    color: white;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================
+2. Tipografía y Contenido Central
+   ========================================= */
+.container {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sobre-nosotros h2 {
+    font-family: 'Lilita One', cursive;
+    font-size: 2.8rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+    letter-spacing: 1.5px;
+}
+
+.sobre-nosotros-content {
+    max-width: 900px; 
+    margin: 0 auto 3.5rem auto;
+    text-align: center;
+}
+
+.sobre-nosotros-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: #cbd5e1; 
+}
+
+/* Estilo para las palabras clave o MatchPet CR */
+.sobre-nosotros-content strong,
+.sobre-nosotros-content p .highlight {
+    color: #93CFA7; 
+    font-weight: bold;
+}
+
+/* =========================================
+Tarjetas con Efecto
+   ========================================= */
+.tarjetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.card.glass-card {
+    background: rgba(26, 34, 52, 0.5); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); 
+    border: 2px solid #2a5a46; 
+    border-radius: 20px;
+    
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto hover en la tarjeta */
+.card.glass-card:hover {
+    transform: translateY(-8px); 
+    border-color: #93CFA7; 
+}
+
+/* Tipografía dentro de las tarjetas */
+.card h3 {
+    font-family: 'Lilita One', cursive;
+    color: #cbd5e1; /* Gris claro */
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
 }
