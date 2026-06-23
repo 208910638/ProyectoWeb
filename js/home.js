@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('data/home.json')
         .then(response => response.json())
         .then(data => {
-            // Renderizar cifras 10k+, 85%
-            const cifrasContainer = document.querySelector('.cifras-container');
-            if (cifrasContainer) {
-                cifrasContainer.innerHTML = ''; // Limpiar
+            // 1. Renderizar cifras del hero (10k+, 85%)
+            // Usamos un selector específico para el contenedor dentro de .inicio-content
+            const cifrasHero = document.querySelector('.inicio-content .cifras-container');
+            if (cifrasHero) {
+                cifrasHero.innerHTML = ''; // Limpiar
                 data.cifras.forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'card';
@@ -13,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const cardIcons = document.createElement('div');
                     cardIcons.className = 'card-icons';
 
-                    // Agregar iconos
                     item.iconos.forEach(iconClass => {
                         const icon = document.createElement('i');
                         icon.className = iconClass;
@@ -35,12 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     card.appendChild(cardIcons);
                     card.appendChild(paragraph);
-                    cifrasContainer.appendChild(card);
+                    cifrasHero.appendChild(card);
                 });
             }
 
-            // Renderizar características (compromiso, atención, espacio) 
-            const caracteristicasContainer = document.querySelector('.caracteristicas-container');
+            // 2. Renderizar características (compromiso, atención, espacio) 
+            // en el contenedor de adopción responsable (usando el ID)
+            const caracteristicasContainer = document.getElementById('cifras-adopcion');
             if (caracteristicasContainer) {
                 caracteristicasContainer.innerHTML = ''; // Limpiar
                 data.caracteristicas.forEach(item => {

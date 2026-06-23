@@ -766,33 +766,31 @@ RESPONSIVE
 
 /* Celulares pequeños */
 @media (max-width: 480px) {
-    .adoption-form {
-        padding: 1rem;
+    .form-container {
+        padding: 10px 20px 40px 20px;  /* Aumenta el padding lateral */
     }
-
+    .adoption-form {
+        padding: 1.5rem;               
+        max-width: 100%;
+        margin: 0 auto;
+    }
     .options {
         flex-direction: column;
     }
-
     .historial-sidebar {
         min-height: 150px;
-
         padding: 16px;
     }
-
     .historial-sidebar .historial-placeholder {
         padding: 20px 15px;
     }
-
     .historial-sidebar .historial-placeholder i {
         font-size: 2rem;
     }
-
     .tab-btn {
         padding: 12px 16px;
         font-size: 0.85rem;
     }
-
     .tab-btn i {
         font-size: 0.9rem;
     }
@@ -801,7 +799,7 @@ RESPONSIVE
 /* Celulares muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     .form-container {
-        padding: 10px 12px 40px 12px;
+        padding: 10px 18px 40px 18px;   
     }
     .form-header h1 {
         font-size: 1rem;
@@ -809,7 +807,8 @@ RESPONSIVE
         border-left-width: 3px;
     }
     .adoption-form {
-        padding: 1rem;
+        padding: 1.2rem;               
+        max-width: 100%;
     }
     .adoption-form input,
     .adoption-form select,
@@ -854,5 +853,12 @@ RESPONSIVE
     .btn-step {
         font-size: 0.7rem;
         padding: 6px 12px;
+    }
+
+    .historial-sidebar {
+        display: none;   /* Oculta completamente el historial lateral */
+    }
+    .btn-limpiar {
+        display: none;   /* Oculta el botón "Limpiar" para simplificar */
     }
 }

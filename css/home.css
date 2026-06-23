@@ -136,38 +136,6 @@ ADOPCIÓN RESPONSABLE
 }
 
 /* =========================
-RESPONSIVE
-========================= */
-@media (max-width: 400px) {
-    h1.catalog-title {
-        font-size: 1.6rem;
-    }
-    h2 {
-        font-size: 1.4rem;
-    }
-    .cifras-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .card {
-        padding: 20px 16px;
-        min-height: 180px;
-    }
-    .card-icons {
-        font-size: 1.8rem;
-    }
-    .card-icons .number {
-        font-size: 2rem;
-    }
-    .card p {
-        font-size: 0.85rem;
-    }
-    .adopcion-responsable {
-        padding: 20px 0;
-    }
-}  
-
-/* =========================
 SOBRE NOSOTROS
 ========================= */
 .sobre-nosotros {
@@ -178,9 +146,43 @@ SOBRE NOSOTROS
     overflow: hidden;
 }
 
-/* =========================================
-2. Tipografía y Contenido Central
-   ========================================= */
+/* =========================
+BOTÓN "QUIERO ADOPTAR" EN SOBRE NOSOTROS
+========================= */
+.btn-adoptar-wrapper {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.btn-adoptar-grande {
+    display: inline-block;
+    padding: 18px 48px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: #2A5A46;
+    color: #ffffff;
+    border: 3px solid #93CFA7;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(42, 90, 70, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.btn-adoptar-grande:hover {
+    background: #93CFA7;
+    color: #0f172a;
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(147, 207, 167, 0.5);
+}
+
+.btn-adoptar-grande:active {
+    transform: scale(0.97);
+}
+
+/* =========================
+TIPOGRAFÍA Y CONTENIDO CENTRAL
+========================= */
 .container {
     max-width: 1200px; 
     margin: 0 auto;
@@ -216,9 +218,9 @@ SOBRE NOSOTROS
     font-weight: bold;
 }
 
-/* =========================================
-Tarjetas con Efecto
-   ========================================= */
+/* =========================
+TARJETAS CON EFECTO
+========================= */
 .tarjetas-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -260,4 +262,79 @@ Tarjetas con Efecto
     font-size: 1rem;
     line-height: 1.6;
     margin: 0;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    h1.catalog-title {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .cifras-container {
+        grid-template-columns: 1fr;   /* Una sola columna */
+        gap: 20px;
+        justify-items: stretch;       /* Para que las tarjetas ocupen todo el ancho */
+    }
+    .card {
+        width: 100%;
+        padding: 24px 20px;
+        min-height: 180px;
+        box-sizing: border-box;
+    }
+    .card-icons {
+        font-size: 2rem;
+    }
+    .card-icons .number {
+        font-size: 2.2rem;
+    }
+    .card p {
+        font-size: 0.95rem;
+    }
+    .adopcion-responsable {
+        padding: 30px 0;
+    }
+}
+
+/* Ajuste fino para móviles muy pequeños (≤ 400px) */
+@media (max-width: 400px) {
+    h1.catalog-title {
+        font-size: 1.6rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    .card {
+        padding: 20px 16px;
+        min-height: 160px;
+    }
+    .card-icons {
+        font-size: 1.8rem;
+    }
+    .card-icons .number {
+        font-size: 2rem;
+    }
+    .card p {
+        font-size: 0.85rem;
+    }
+    .adopcion-responsable {
+        padding: 20px 0;
+    }
+    
+    .btn-adoptar-wrapper {
+        display: none;
+    }
+}
+
+/* Responsive del botón */
+@media (max-width: 480px) {
+    .btn-adoptar-grande {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        width: 90%;
+        max-width: 280px;
+    }
 }

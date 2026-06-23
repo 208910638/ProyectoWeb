@@ -168,6 +168,7 @@ function setupStepper(formId) {
             const input = inputs[i];
             const errorMsg = input.parentElement.querySelector('.form-error');
             
+            // Validar que no esté vacío
             if (!input.value.trim()) {
                 valid = false;
                 input.classList.add('input-error');
@@ -175,18 +176,48 @@ function setupStepper(formId) {
                     errorMsg.textContent = 'Este campo es obligatorio';
                 }
             } else {
-                input.classList.remove('input-error');
-                if (errorMsg) {
-                    errorMsg.textContent = '';
+                // Validar formato según tipo de input
+                let formatoValido = true;
+                const tipo = input.getAttribute('type');
+                
+                if (tipo === 'email') {
+                    // Regex para email
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value.trim())) {
+                        formatoValido = false;
+                        valid = false;
+                        input.classList.add('input-error');
+                        if (errorMsg) {
+                            errorMsg.textContent = 'Ingrese un correo electrónico válido (ej. nombre@dominio.com)';
+                        }
+                    }
+                } else if (tipo === 'tel') {
+                    // Regex para teléfono (permite 8 dígitos con guión o sin él, o con espacios)
+                    const telefonoRegex = /^[0-9]{4}[- ]?[0-9]{4}$/;
+                    if (!telefonoRegex.test(input.value.trim())) {
+                        formatoValido = false;
+                        valid = false;
+                        input.classList.add('input-error');
+                        if (errorMsg) {
+                            errorMsg.textContent = 'Ingrese un número de teléfono válido (ej. 8888-8888)';
+                        }
+                    }
+                }
+                
+                // Si el formato es válido y no estaba vacío, limpiar errores
+                if (formatoValido && input.value.trim()) {
+                    input.classList.remove('input-error');
+                    if (errorMsg) {
+                        errorMsg.textContent = '';
+                    }
                 }
             }
         }
         
-        // 2. Validar todos los grupos de radio buttons
+        // 2. Validar todos los grupos de radio buttons (código existente, sin cambios)
         const allRadios = stepElement.querySelectorAll('input[type="radio"]'); 
         const radioGroups = {};
 
-        // Agrupar todos los radios por nombre
         for (let i = 0; i < allRadios.length; i++) {
             const radio = allRadios[i];
             const name = radio.getAttribute('name');
@@ -208,25 +239,15 @@ function setupStepper(formId) {
             }
         }
 
-        // Validar cada grupo (solo si el grupo es obligatorio)
         for (const groupName in radioGroups) {
             const group = radioGroups[groupName];
+            if (!group.required) continue;
 
-            if (!group.required) {
-                continue;
-            }
-
-            // Buscar el contenedor del grupo
             const firstRadio = group.elements[0];
             let container = firstRadio.closest('.radio-group');
-            if (!container) {
-                container = firstRadio.closest('.subgroup');
-            }
-            if (!container) {
-                container = firstRadio.closest('.input-box');
-            }
+            if (!container) container = firstRadio.closest('.subgroup');
+            if (!container) container = firstRadio.closest('.input-box');
 
-            // Buscar el mensaje de error asociado
             let errorMsg = null;
             if (container) {
                 errorMsg = container.querySelector('.form-error');
