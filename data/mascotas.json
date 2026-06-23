@@ -1,0 +1,44 @@
+[
+  {
+    "id": "PET001",
+    "nombre": "Suki",
+    "especie": "perro",
+    "sexo": "hembra",
+    "edad": "2 años",
+    "peso": "10 kg",
+    "raza": "Zaguate / Mixto",
+    "tamanio": "mediano",
+    "provincia": "Alajuela",
+    "descripcion": "Es super juguetona, cariñosa y se lleva increíble con niños pequeños y otros perritos. ¡Lista para llenar tu hogar de felicidad!",
+    "imagen": "img/suki.jpg",
+    "imagen_fallback": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "PET002",
+    "nombre": "Oliver",
+    "especie": "gato",
+    "sexo": "macho",
+    "edad": "8 meses",
+    "peso": "3.5 kg",
+    "raza": "Doméstico Corto",
+    "tamanio": "pequenio",
+    "provincia": "San José",
+    "descripcion": "Un gatito rescatado muy tranquilo. Le encanta dormir bajo los rayos del sol y ronronear apenas te acercas.",
+    "imagen": "img/oliver.jpg",
+    "imagen_fallback": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600"
+  },
+  {
+    "id": "PET003",
+    "nombre": "Rocky",
+    "especie": "perro",
+    "sexo": "macho",
+    "edad": "3 años",
+    "peso": "22 kg",
+    "raza": "Tipo Golden / Mixto",
+    "tamanio": "grande",
+    "provincia": "Heredia",
+    "descripcion": "Rocky es activo, obediente y sabe pasear perfectamente con correa. Ideal para familias que aman salir a caminar.",
+    "imagen": "img/rocky.jpg",
+    "imagen_fallback": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600"
+  }
+]

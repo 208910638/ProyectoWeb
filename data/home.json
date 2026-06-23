@@ -29,5 +29,17 @@
       "descripcion": "Brindarles el ejercicio y la atención afectiva que requieren.",
       "iconos": ["fa-solid fa-baseball"]
     }
+  ],
+  "mision_vision": [
+    {
+      "titulo": "Nuestra Misión",
+      "descripcion": "Reducir la tasa de abandono animal mediante la sensibilización y la conexión efectiva de adopciones responsables.",
+      "iconos": ["fa-solid fa-bullseye"]
+    },
+    {
+      "titulo": "Nuestra Visión",
+      "descripcion": "Ser la plataforma líder en Costa Rica para el bienestar animal, promoviendo una cultura de respeto y cuidado a largo plazo.",
+      "iconos": ["fa-solid fa-eye"]
+    }
   ]
 }

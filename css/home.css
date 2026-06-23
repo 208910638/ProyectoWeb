@@ -23,8 +23,8 @@ h1.catalog-title,
     letter-spacing: 1.5px;
 }
 
+/* Estilo general para h2 (Sobre Nosotros, Misión, Visión, etc.) */
 h2,
-.adopcion-responsable h2,
 .section-title {
     font-family: 'Lilita One', cursive;
     font-size: 1.8rem;
@@ -55,9 +55,6 @@ CONTENEDOR DE CIFRAS GRID
     max-width: 1100px;
 }
 
-/* =========================
-TARJETAS CIFRAS Y CARACTERÍSTICAS
-========================= */
 .card {
     background-color: transparent;
     backdrop-filter: blur(4px);
@@ -89,6 +86,7 @@ TARJETAS CIFRAS Y CARACTERÍSTICAS
 .card:hover {
     transform: translateY(-6px);
     border-color: #93CFA7;
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);  
 }
 
 .card-icons .number {
@@ -246,6 +244,7 @@ TARJETAS CON EFECTO
 .card.glass-card:hover {
     transform: translateY(-8px); 
     border-color: #93CFA7; 
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);
 }
 
 /* Tipografía dentro de las tarjetas */
@@ -275,27 +274,23 @@ RESPONSIVE
         font-size: 1.5rem;
     }
     .cifras-container {
-        grid-template-columns: 1fr;   /* Una sola columna */
+        display: grid !important;
+        grid-template-columns: 1fr !important;   
+        flex-direction: column !important;        
+        flex-wrap: wrap !important;
         gap: 20px;
-        justify-items: stretch;       /* Para que las tarjetas ocupen todo el ancho */
+        justify-items: stretch;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     .card {
-        width: 100%;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 1 100% !important;   
         padding: 24px 20px;
         min-height: 180px;
         box-sizing: border-box;
-    }
-    .card-icons {
-        font-size: 2rem;
-    }
-    .card-icons .number {
-        font-size: 2.2rem;
-    }
-    .card p {
-        font-size: 0.95rem;
-    }
-    .adopcion-responsable {
-        padding: 30px 0;
     }
 }
 

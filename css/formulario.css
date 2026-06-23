@@ -714,7 +714,7 @@ RESPONSIVE
 /* Tablets y celulares */
 @media (max-width: 768px) {
     .form-container {
-        padding-top: 100px;
+        padding-top: 25px;
     }
 
     .form-header h1 {

@@ -8,6 +8,8 @@
     
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     
@@ -98,55 +100,10 @@
 
         </div>
 
-    <section class="pet-grid">
-    <article class="pet-card" data-especie="perro" data-edad="adulto" data-provincia="alajuela" data-nombre="suki" data-tamanio="mediano">
-        <div class="pet-badge">ID: PET001</div>
-        <img src="img/suki.jpg" alt="Foto de Suki" class="pet-image" onerror="this.src='https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600'">
-        <div class="pet-info">
-            <h2 class="pet-name">Suki <i class="fa-solid fa-venus text-pink"></i></h2>
-            <p class="pet-breed"><i class="fa-solid fa-paw"></i> Zaguate / Mixto</p>
-            <ul class="pet-details-list">
-                <li><i class="fa-solid fa-cake-candles"></i> 2 años</li>
-                <li><i class="fa-solid fa-weight-scale"></i> 10 kg</li>
-                <li><i class="fa-solid fa-location-dot"></i> Alajuela</li>
-            </ul>
-            <p class="pet-description">Es super juguetona, cariñosa y se lleva increíble con niños pequeños y otros perritos. ¡Lista para llenar tu hogar de felicidad!</p>
-            <a href="formulario.html?id=PET001&nombre=Suki" class="btn-adoptar">Adoptar a Suki</a>
-        </div>
-    </article>
+        <section class="pet-grid" id="pet-grid-container">
+            <!-- Las tarjetas se generarán dinámicamente desde mascotas.json -->
+        </section>
 
-    <article class="pet-card" data-especie="gato" data-edad="cachorro" data-provincia="sanjose" data-nombre="oliver" data-tamanio="pequenio">
-        <div class="pet-badge">ID: PET002</div>
-        <img src="img/oliver.jpg" alt="Foto de Oliver" class="pet-image" onerror="this.src='https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600'">
-        <div class="pet-info">
-            <h2 class="pet-name">Oliver <i class="fa-solid fa-mars text-blue"></i></h2>
-            <p class="pet-breed"><i class="fa-solid fa-cat"></i> Doméstico Corto</p>
-            <ul class="pet-details-list">
-                <li><i class="fa-solid fa-cake-candles"></i> 8 meses</li>
-                <li><i class="fa-solid fa-weight-scale"></i> 3.5 kg</li>
-                <li><i class="fa-solid fa-location-dot"></i> San José</li>
-            </ul>
-            <p class="pet-description">Un gatito rescatado muy tranquilo. Le encanta dormir bajo los rayos del sol y ronronear apenas te acercas.</p>
-            <a href="formulario.html?id=PET002&nombre=Oliver" class="btn-adoptar">Adoptar a Oliver</a>
-        </div>
-    </article>
-
-    <article class="pet-card" data-especie="perro" data-edad="adulto" data-provincia="heredia" data-nombre="rocky" data-tamanio="grande">
-        <div class="pet-badge">ID: PET003</div>
-        <img src="img/rocky.jpg" alt="Foto de Rocky" class="pet-image" onerror="this.src='https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600'">
-        <div class="pet-info">
-            <h2 class="pet-name">Rocky <i class="fa-solid fa-mars text-blue"></i></h2>
-            <p class="pet-breed"><i class="fa-solid fa-paw"></i> Tipo Golden / Mixto</p>
-            <ul class="pet-details-list">
-                <li><i class="fa-solid fa-cake-candles"></i> 3 años</li>
-                <li><i class="fa-solid fa-weight-scale"></i> 22 kg</li>
-                <li><i class="fa-solid fa-location-dot"></i> Heredia</li>
-            </ul>
-            <p class="pet-description">Rocky es activo, obediente y sabe pasear perfectamente con correa. Ideal para familias que aman salir a caminar.</p>
-            <a href="formulario.html?id=PET003&nombre=Rocky" class="btn-adoptar">Adoptar a Rocky</a>
-        </div>
-    </article>
-</section>
     </main>
 
     <footer id="contacto">
@@ -162,6 +119,7 @@
 
     <script src="js/header.js"></script>
     <script src="js/filtros.js"></script>
+    <script src="js/catalogo.js"></script>
     
 </body>
 
