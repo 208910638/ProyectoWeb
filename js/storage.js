@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Pestañas
+
     const tabs = document.querySelectorAll('.tab-btn');
     const panelPostulacion = document.getElementById('panelPostulacion');
     const panelRefugio = document.getElementById('panelRefugio');
@@ -18,17 +18,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (activeTab) 
             activeTab.classList.add('active');
 
+        // Mostrar el panel correspondiente
         if (tabId === 'postulacion' && panelPostulacion) 
             panelPostulacion.hidden = false;
         else if (tabId === 'refugio' && panelRefugio) 
             panelRefugio.hidden = false;
 
-        // Disparar evento personalizado para notificar cambio de pestaña
-        document.dispatchEvent(new CustomEvent('tabChanged', { 
-            detail: { tabId: tabId } 
-        }));
     }
 
+    // Agregar eventos a cada pestaña
     for (let i = 0; i < tabs.length; i++) {
         tabs[i].addEventListener('click', function() {
             const tabId = this.getAttribute('data-tab');
@@ -36,70 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Mostrar la primera pestaña por defecto
     switchTab('postulacion');
-
-    window.limpiarFormulario = function(form) {
-        // Limpiar inputs de texto y textareas
-        const inputs = form.querySelectorAll('input:not([type="radio"]):not([type="file"]), select, textarea');
-        inputs.forEach(input => {
-            if (input.tagName === 'SELECT') {
-                input.selectedIndex = 0;
-            } else {
-                input.value = '';
-            }
-            input.classList.remove('input-error', 'input-warning', 'input-success');
-        });
-
-        // Limpiar radio buttons
-        const radios = form.querySelectorAll('input[type="radio"]');
-        radios.forEach(radio => {
-            radio.checked = false;
-        });
-
-        // Limpiar errores
-        const errores = form.querySelectorAll('.form-error');
-        errores.forEach(error => {
-            error.textContent = '';
-        });
-
-        // Limpiar mensajes
-        const msg = form.querySelector('.form-message');
-        if (msg) {
-            msg.textContent = '';
-            msg.hidden = true;
-        }
-    };
-
-    // Botón limpiar
-    document.querySelectorAll('.btn-limpiar').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const form = this.closest('form');
-            if (form) {
-                Swal.fire({
-                    title: '¿Limpiar formulario?',
-                    text: 'Todos los campos se vaciarán.',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#2A5A46',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sí, limpiar',
-                    cancelButtonText: 'Cancelar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        window.limpiarFormulario(form);
-                        Swal.fire({
-                            icon: 'info',
-                            title: 'Formulario limpiado',
-                            text: 'Todos los campos han sido vaciados.',
-                            confirmButtonColor: '#2A5A46',
-                            timer: 1500
-                        });
-                    }
-                });
-            }
-        });
-    });
+    // Inicializar
+    setupStepper('formRefugio');
+    setupStepper('formPostulacion');  
 });
+
 
 function setupStepper(formId) {
     const form = document.getElementById(formId);
@@ -113,13 +54,16 @@ function setupStepper(formId) {
 
     let currentStep = 0;
 
+    // Crear contenedor de navegación
     const navContainer = document.createElement('div');
     navContainer.className = 'step-navigation';
 
+    // Contador 
     const counter = document.createElement('span');
     counter.className = 'step-counter';
     counter.textContent = 'Paso ' + (currentStep + 1) + ' de ' + totalSteps;
 
+    // Botones
     const buttons = document.createElement('div');
     buttons.className = 'step-buttons';
 
@@ -137,9 +81,11 @@ function setupStepper(formId) {
     buttons.appendChild(btnPrev);
     buttons.appendChild(btnNext);
 
+    // Agregar contador y botones al nav
     navContainer.appendChild(counter);
     navContainer.appendChild(buttons);
 
+    // Insertar navegación después del último legend
     const lastLegend = legends[totalSteps - 1];
     const lastFieldset = lastLegend.closest('fieldset');
     if (lastFieldset) 
@@ -147,19 +93,63 @@ function setupStepper(formId) {
 
     const btnSubmit = form.querySelector('.btn-submit');
     if (btnSubmit) {
-        btnSubmit.style.display = 'none';
+        btnSubmit.style.display = 'none'; // Oculto por defecto
     }
 
-    // Función global de validación
-    window.validarPaso = function(form, stepElement) {
+    function showStep(index) {
+        const allFields = form.querySelectorAll('fieldset.form-group');
+        for (let i = 0; i < allFields.length; i++) 
+            allFields[i].style.display = 'none';
+
+        // Mostrar solo el fieldset del paso actual
+        const currentFieldset = legends[index].closest('fieldset');
+        if (currentFieldset) 
+            currentFieldset.style.display = 'block';
+
+        // Forzar que los radio buttons sean visibles
+        const radios = currentFieldset?.querySelectorAll('input[type="radio"]');
+        if (radios) {
+            for (let i = 0; i < radios.length; i++) 
+                radios[i].style.display = 'inline-block';
+        }
+
+        counter.textContent = 'Paso ' + (index + 1) + ' de ' + totalSteps;
+
+        // Actualizar botones
+        btnPrev.disabled = (index === 0);
+
+        // Mostrar u ocultar el botón de enviar según el paso
+        if (btnSubmit) {
+            if (index === totalSteps - 1) {
+                btnSubmit.style.display = 'flex';
+            } else {
+                btnSubmit.style.display = 'none';
+            }
+        }
+        
+        // En el último paso, ocultar el botón "Siguiente"
+        if (index === totalSteps - 1) 
+            btnNext.style.display = 'none';
+        else {
+            btnNext.style.display = 'inline-flex';
+            btnNext.innerHTML = 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
+            btnNext.className = 'btn-step btn-step-primary';
+        }
+
+        currentStep = index;
+    }
+
+    function validarPaso(stepElement) {
         let valid = true;
         
+        // Validar
         const inputs = stepElement.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
         
         for (let i = 0; i < inputs.length; i++) {
             const input = inputs[i];
             const errorMsg = input.parentElement.querySelector('.form-error');
             
+            // Validar que no esté vacío
             if (!input.value.trim()) {
                 valid = false;
                 input.classList.add('input-error');
@@ -167,10 +157,12 @@ function setupStepper(formId) {
                     errorMsg.textContent = 'Este campo es obligatorio';
                 }
             } else {
+                // Validar formato según tipo de input
                 let formatoValido = true;
                 const tipo = input.getAttribute('type');
                 
                 if (tipo === 'email') {
+                    // Regex para email
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     if (!emailRegex.test(input.value.trim())) {
                         formatoValido = false;
@@ -181,6 +173,7 @@ function setupStepper(formId) {
                         }
                     }
                 } else if (tipo === 'tel') {
+                    // Regex para teléfono (permite 8 dígitos con guión o sin él, o con espacios)
                     const telefonoRegex = /^[0-9]{4}[- ]?[0-9]{4}$/;
                     if (!telefonoRegex.test(input.value.trim())) {
                         formatoValido = false;
@@ -192,6 +185,7 @@ function setupStepper(formId) {
                     }
                 }
                 
+                // Si el formato es válido y no estaba vacío, limpiar errores
                 if (formatoValido && input.value.trim()) {
                     input.classList.remove('input-error');
                     if (errorMsg) {
@@ -201,6 +195,7 @@ function setupStepper(formId) {
             }
         }
         
+        // Validar todos los grupos de radio buttons 
         const allRadios = stepElement.querySelectorAll('input[type="radio"]'); 
         const radioGroups = {};
 
@@ -263,46 +258,9 @@ function setupStepper(formId) {
         }
 
         return valid;
-    };
-
-    function showStep(index) {
-        const allFields = form.querySelectorAll('fieldset.form-group');
-        for (let i = 0; i < allFields.length; i++) 
-            allFields[i].style.display = 'none';
-
-        const currentFieldset = legends[index].closest('fieldset');
-        if (currentFieldset) 
-            currentFieldset.style.display = 'block';
-
-        const radios = currentFieldset?.querySelectorAll('input[type="radio"]');
-        if (radios) {
-            for (let i = 0; i < radios.length; i++) 
-                radios[i].style.display = 'inline-block';
-        }
-
-        counter.textContent = 'Paso ' + (index + 1) + ' de ' + totalSteps;
-
-        btnPrev.disabled = (index === 0);
-
-        if (btnSubmit) {
-            if (index === totalSteps - 1) {
-                btnSubmit.style.display = 'flex';
-            } else {
-                btnSubmit.style.display = 'none';
-            }
-        }
-        
-        if (index === totalSteps - 1) 
-            btnNext.style.display = 'none';
-        else {
-            btnNext.style.display = 'inline-flex';
-            btnNext.innerHTML = 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
-            btnNext.className = 'btn-step btn-step-primary';
-        }
-
-        currentStep = index;
     }
 
+    // Evento para "Anterior"
     btnPrev.addEventListener('click', function() {
         if (currentStep > 0) {
             showStep(currentStep - 1);
@@ -310,6 +268,7 @@ function setupStepper(formId) {
         }
     });
 
+    // Evento para "Siguiente"
     btnNext.addEventListener('click', function() {
         if (currentStep === totalSteps - 1) {
             return;
@@ -317,7 +276,7 @@ function setupStepper(formId) {
 
         const currentFieldset = legends[currentStep].closest('fieldset');
 
-        if (!window.validarPaso(form, currentFieldset)) {
+        if (!validarPaso(currentFieldset)) {
             const msg = form.querySelector('.form-message');
             if (msg) {
                 msg.textContent = 'Por favor complete todos los campos obligatorios';
@@ -336,10 +295,12 @@ function setupStepper(formId) {
         }
     });
 
+    // Ocultar todos los fieldset excepto el primero
     const allFields = form.querySelectorAll('fieldset.form-group');
     for (let i = 1; i < allFields.length; i++) {
         allFields[i].style.display = 'none';
     }
 
+    // Iniciar en el paso 0
     showStep(0);
 }

@@ -1,0 +1,398 @@
+/* =========================
+PANEL LATERAL DE HISTORIAL
+========================= */
+
+.historial-sidebar {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #1e293b;
+    border: 2px solid #2A5A46;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+
+    padding: 1.5rem;
+
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.historial-header {
+    border-bottom: 1px solid rgba(147, 207, 167, 0.15);
+
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+}
+
+.historial-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    text-align: left;
+
+    margin: 0 0 6px 0;
+}
+
+.historial-header h2 i {
+    color: #93CFA7;
+}
+
+.historial-resumen {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    margin: 0;
+}
+
+/* =========================
+LISTA DE SOLICITUDES
+========================= */
+
+.historial-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    max-height: 720px;
+    overflow-y: auto;
+
+    padding-right: 4px;
+    margin-bottom: 16px;
+}
+
+.historial-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.historial-grid::-webkit-scrollbar-thumb {
+    background-color: #2A5A46;
+    border-radius: 10px;
+}
+
+.historial-vacio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+
+    color: #64748b;
+
+    padding: 30px 14px;
+}
+
+.historial-vacio i {
+    color: #2A5A46;
+    font-size: 2rem;
+}
+
+.historial-vacio p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* =========================
+TARJETA DE SOLICITUD
+========================= */
+
+.historial-card {
+    background: rgba(15, 23, 42, 0.5);
+    border: 1.5px solid rgba(147, 207, 167, 0.15);
+    border-radius: 14px;
+
+    padding: 14px;
+
+    transition: border-color 0.25s ease, transform 0.2s ease;
+}
+
+.historial-card:hover {
+    border-color: #93CFA7;
+    transform: translateY(-2px);
+}
+
+.historial-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    border-radius: 999px;
+
+    padding: 5px 12px;
+}
+
+.badge-refugio {
+    background: rgba(147, 207, 167, 0.12);
+    color: #93CFA7;
+    border: 1px solid rgba(147, 207, 167, 0.4);
+}
+
+.badge-adopcion {
+    background: rgba(96, 165, 250, 0.12);
+    color: #60a5fa;
+    border: 1px solid rgba(96, 165, 250, 0.4);
+}
+
+.historial-fecha {
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.historial-card-body {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.historial-foto {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1.5px solid #2A5A46;
+}
+
+.historial-foto-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(147, 207, 167, 0.06);
+    color: #2A5A46;
+    font-size: 1.3rem;
+}
+
+.historial-card-texto {
+    min-width: 0;
+}
+
+.historial-titulo {
+    color: #f8fafc;
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    margin: 0 0 3px 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.historial-detalle {
+    color: #94a3b8;
+    font-size: 0.78rem;
+    line-height: 1.35;
+
+    margin: 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* =========================
+ACCIONES: CONFIRMAR / CANCELAR
+========================= */
+
+.historial-card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-historial {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+
+    border-radius: 999px;
+    border: 1.5px solid;
+
+    padding: 8px 10px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.btn-confirmar {
+    background: rgba(147, 207, 167, 0.1);
+    color: #93CFA7;
+    border-color: #2A5A46;
+}
+
+.btn-confirmar:hover {
+    background: #2A5A46;
+    color: #ffffff;
+    border-color: #93CFA7;
+}
+
+.btn-cancelar {
+    background: rgba(248, 113, 113, 0.08);
+    color: #fca5a5;
+    border-color: #5f1e1e;
+}
+
+.btn-cancelar:hover {
+    background: #5f1e1e;
+    color: #ffffff;
+    border-color: #f87171;
+}
+
+/* =========================
+VACIAR HISTORIAL
+========================= */
+
+.historial-acciones {
+    border-top: 1px solid rgba(147, 207, 167, 0.15);
+
+    padding-top: 14px;
+}
+
+.btn-vaciar {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #fca5a5;
+
+    background: transparent;
+    border: 1.5px solid #5f1e1e;
+    border-radius: 999px;
+
+    padding: 10px 16px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.btn-vaciar:hover {
+    background: #5f1e1e;
+    color: #ffffff;
+    border-color: #f87171;
+}
+
+/* =========================
+DETALLES
+========================= */
+.historial-card details {
+    margin-top: 8px;
+}
+
+.historial-card details summary {
+    color: #93CFA7;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 4px 0;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.historial-card details summary:hover {
+    color: #d7f3e2;
+}
+
+.historial-card details summary i {
+    font-size: 0.7rem;
+    margin-right: 4px;
+    transition: transform 0.3s ease;
+}
+
+.historial-card details[open] summary i {
+    transform: rotate(180deg);
+}
+
+.historial-card details > div {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #93CFA7;
+}
+
+.historial-card details > div p {
+    margin: 4px 0;
+}
+
+.historial-card details > div p strong {
+    color: #cbd5e1;
+}
+
+.historial-card details > div .detalles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+    margin-top: 4px;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+    .historial-sidebar {
+        position: static;
+    }
+
+    .historial-grid {
+        max-height: 480px;
+    }
+}
+
+@media (max-width: 480px) {
+    .historial-sidebar {
+        padding: 1.2rem;
+    }
+
+    .historial-grid {
+        max-height: 380px;
+    }
+
+    .historial-titulo,
+    .historial-detalle {
+        white-space: normal;
+    }
+
+    .historial-card details > div .detalles-grid {
+        grid-template-columns: 1fr;
+    }
+}

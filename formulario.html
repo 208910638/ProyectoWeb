@@ -2,26 +2,25 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Formulario de postulación para la adopción responsable de mascotas en MatchPet CR.">
     
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css.all.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="css/base.css">               
-    <link rel="stylesheet" href="css/header.css">             
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/formulario.css">         
-    <link rel="stylesheet" href="css/formulario-stepper.css">
-    <link rel="stylesheet" href="css/iconos.css">             
-
+    <link rel="stylesheet" href="css/iconos.css">
     <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/formulario.css">
+    <link rel="stylesheet" href="css/formulario-stepper.css">
+    <link rel="stylesheet" href="css/historial.css">
 
     <title>MatchPet CR | Formulario de Adopción</title>
 </head>
@@ -49,12 +48,28 @@
     </header>
 
     <main>
-
         <section id="formulario-adopcion" class="formulario-section">
             <div class="container form-container">
 
                 <div class="form-header">
                     <h1>Completa la información solicitada para ayudar a crear el match perfecto entre mascotas que buscan un hogar y personas que desean adoptar.</h1>
+                </div>
+
+                <!-- Banner de mascota seleccionada -->
+                <div class="mascota-seleccionada-banner" id="mascotaBanner" hidden>
+                    <div>
+                        <p class="mascota-seleccionada-titulo">
+                            <i class="fa-solid fa-paw"></i> Mascota seleccionada: <span id="mascotaBannerNombre"></span>
+                        </p>
+                        <p class="mascota-seleccionada-subtitulo">
+                            ID: <span id="mascotaBannerId"></span> · 
+                            <span id="mascotaBannerEspecie"></span> · 
+                            <span id="mascotaBannerSexo"></span>
+                        </p>
+                    </div>
+                    <button type="button" id="btnCancelarSeleccion" class="btn-cancelar-seleccion" title="Cancelar selección">
+                        <i class="fa-solid fa-xmark"></i> Cambiar mascota
+                    </button>
                 </div>
 
                 <!-- Contenedor principal: formulario + historial lateral -->
@@ -75,25 +90,25 @@
 
                         <!-- Panel formulario de postulación -->
                         <div class="tab-panel" id="panelPostulacion" data-tab="postulacion">
-         
+                            
                             <h2>Formulario de Postulación</h2>
                             <form id="formPostulacion" action="#" method="POST" class="adoption-form" novalidate>
-         
+
                                 <fieldset class="form-group">
                                     <legend><i class="fa-solid fa-user"></i> Datos Personales</legend>
-         
+
                                     <div class="input-box">
                                         <label for="nombre-form-adopcion">Nombre Completo:</label>
                                         <input type="text" id="nombre-form-adopcion" name="nombre_form_adopcion" placeholder="Ej. Juan Pérez" required>
                                         <small class="form-error" id="error-nombre-form-adopcion"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="email-form-adopcion">Correo Electrónico:</label>
                                         <input type="email" id="email-form-adopcion" name="email_form_adopcion" placeholder="ejemplo@correo.com" required>
                                         <small class="form-error" id="error-email-form-adopcion"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="telefono-form-adopcion">Número de Teléfono:</label>
                                         <input type="tel" id="telefono-form-adopcion" name="telefono_form_adopcion" placeholder="Ej. 8888-8888" required>
@@ -116,54 +131,58 @@
                                     </div>
                                 </fieldset>
 
+
                                 <fieldset class="form-group">
-                                <legend><i class="fa-solid fa-heart"></i> Preferencias de Adopción</legend>
+                                    <legend><i class="fa-solid fa-heart"></i> Preferencias de Adopción</legend>
 
-                                <div class="input-box">
-                                    <label for="id-mascota-form-adopcion">Mascota seleccionada (ID):</label>
-                                    <input type="text" id="id-mascota-form-adopcion" name="id_mascota_form_adopcion" placeholder="Ej. PET001" required>
-                                    <small class="form-error" id="error-id-mascota-form-adopcion"></small>
-                                </div>
+                                    <div class="input-box">
+                                        <label for="id-mascota-form-adopcion">Mascota seleccionada (ID):</label>
+                                        <input type="text" id="id-mascota-form-adopcion" name="id_mascota_form_adopcion" placeholder="Ej. PET001" required>
+                                        <small class="form-error" id="error-id-mascota-form-adopcion"></small>
+                                    </div>
 
-                                <div class="input-box">
-                                    <label for="nombre-mascota-form-adopcion">Nombre de la mascota:</label>
-                                    <input type="text" id="nombre-mascota-form-adopcion" name="nombre_mascota_form_adopcion" placeholder="Ej. Suki" required>
-                                    <small class="form-error" id="error-nombre-mascota-form-adopcion"></small>
-                                </div>
+                                    <div class="input-box">
+                                        <label for="nombre-mascota-form-adopcion">Nombre de la mascota:</label>
+                                        <input type="text" id="nombre-mascota-form-adopcion" name="nombre_mascota_form_adopcion" placeholder="Ej. Suki" required>
+                                        <small class="form-error" id="error-nombre-mascota-form-adopcion"></small>
+                                    </div>
 
-                                <div class="input-box">
-                                    <label for="tipo-mascota-form-adopcion">Tipo de mascota:</label>
-                                    <select id="tipo-mascota-form-adopcion" name="tipo_mascota_form_adopcion" required>
-                                        <option value="" disabled selected>Seleccione una especie</option>
-                                        <option value="perro">Perro</option>
-                                        <option value="gato">Gato</option>
-                                    </select>
-                                    <small class="form-error" id="error-tipo-mascota-form-adopcion"></small>
-                                </div>
+                                    <div class="input-box">
+                                        <label for="tipo-mascota-form-adopcion">Tipo de mascota:</label>
+                                        <select id="tipo-mascota-form-adopcion" name="tipo_mascota_form_adopcion" required>
+                                            <option value="" disabled selected>Seleccione una especie</option>
+                                            <option value="perro">Perro</option>
+                                            <option value="gato">Gato</option>
+                                        </select>
+                                        <small class="form-error" id="error-tipo-mascota-form-adopcion"></small>
+                                    </div>
 
-                                <div class="input-box">
-                                    <label for="sexo-form-adopcion">Sexo:</label>
-                                    <input type="text" id="sexo-form-adopcion" name="sexo_form_adopcion" placeholder="Macho o Hembra" required>
-                                    <small class="form-error" id="error-sexo-form-adopcion"></small>
-                                </div>
+                                    <div class="input-box radio-group">
+                                        <label>Sexo:</label>
+                                        <div class="options">
+                                            <label><input type="radio" name="sexo_form_adopcion" value="macho" required> Macho</label>
+                                            <label><input type="radio" name="sexo_form_adopcion" value="hembra" required> Hembra</label>
+                                        </div>
+                                        <small class="form-error" id="error-sexo-form-adopcion"></small>
+                                    </div>
 
-                                <div class="input-box">
-                                    <label for="edad-form-adopcion">Edad aproximada:</label>
-                                    <input type="text" id="edad-form-adopcion" name="edad_form_adopcion" placeholder="Ej. 2 años" required>
-                                    <small class="form-error" id="error-edad-form-adopcion"></small>
-                                </div>
+                                    <div class="input-box">
+                                        <label for="edad-form-adopcion">Edad aproximada:</label>
+                                        <input type="text" id="edad-form-adopcion" name="edad_form_adopcion" placeholder="Ej. 2 años" required>
+                                        <small class="form-error" id="error-edad-form-adopcion"></small>
+                                    </div>
 
-                                <div class="input-box">
-                                    <label for="peso-form-adopcion">Peso aproximado:</label>
-                                    <input type="text" id="peso-form-adopcion" name="peso_form_adopcion" placeholder="Ej. 10kg" required>
-                                    <small class="form-error" id="error-peso-form-adopcion"></small>
-                                </div>
-                            </fieldset>
-         
-         
+                                    <div class="input-box">
+                                        <label for="peso-form-adopcion">Peso aproximado:</label>
+                                        <input type="text" id="peso-form-adopcion" name="peso_form_adopcion" placeholder="Ej. 10kg" required>
+                                        <small class="form-error" id="error-peso-form-adopcion"></small>
+                                    </div>
+                                </fieldset>
+
+
                                 <fieldset class="form-group">
                                     <legend><i class="fa-solid fa-house-chimney"></i> Hogar y Estilo de Vida</legend>
-                                    
+
                                     <div class="input-box radio-group">
                                         <label>¿Tiene patio o espacio cerrado en su hogar?</label>
                                         <div class="options">
@@ -172,7 +191,7 @@
                                         </div>
                                         <small class="form-error" id="error-tiene-patio"></small>
                                     </div>
-         
+
                                     <div class="input-box radio-group">
                                         <label>¿Convive actualmente con otras mascotas?</label>
                                         <div class="options">
@@ -181,49 +200,50 @@
                                         </div>
                                         <small class="form-error" id="error-otras-mascotas"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="motivo-adopcion">¿Por qué desea adoptar a esta mascota?</label>
                                         <textarea id="motivo-adopcion" name="motivo" rows="4" placeholder="Cuéntenos un poco sobre su motivación y el tiempo que planea dedicarle..."></textarea>
                                     </div>
                                 </fieldset>
-         
+
+
                                 <div class="btn-submit">
                                     <button type="submit" class="btn-enviar">Enviar Solicitud de Adopción</button>
                                     <button type="button" class="btn-limpiar">Limpiar formulario</button>
                                 </div>
-         
+
                                 <div class="form-message" id="msgPostulacion" hidden></div>
                             </form>
                         </div>
 
                         <!-- Panel formulario de refugio -->
                         <div class="tab-panel" id="panelRefugio" data-tab="refugio">
-         
+
                             <h2>Formulario de Refugio</h2>
                             <form id="formRefugio" action="#" method="POST" class="adoption-form" novalidate>
-         
+
                                 <fieldset class="form-group">
                                     <legend><i class="fa-solid fa-user"></i> Datos del Publicador</legend>
-         
+
                                     <div class="input-box">
                                         <label for="nombre-form-refugio">Nombre Completo:</label>
                                         <input type="text" id="nombre-form-refugio" name="nombre_form_refugio" placeholder="Ej. Juan Pérez" required>
                                         <small class="form-error" id="error-nombre-form-refugio"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="email-form-refugio">Correo Electrónico:</label>
                                         <input type="email" id="email-form-refugio" name="email_form_refugio" placeholder="ejemplo@correo.com" required>
                                         <small class="form-error" id="error-email-form-refugio"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="telefono-form-refugio">Número de Teléfono:</label>
                                         <input type="tel" id="telefono-form-refugio" name="telefono_form_refugio" placeholder="Ej. 8888-8888" required>
                                         <small class="form-error" id="error-telefono-form-refugio"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="provincia-form-refugio">Provincia de residencia:</label>
                                         <select id="provincia-form-refugio" name="provincia_form_refugio" required>
@@ -239,17 +259,17 @@
                                         <small class="form-error" id="error-provincia-form-refugio"></small>
                                     </div>
                                 </fieldset>
-         
-         
+
+
                                 <fieldset class="form-group">
                                     <legend><i class="fa-solid fa-heart"></i> Datos de la Mascota</legend>
-         
+
                                     <div class="input-box">
                                         <label for="nombre-mascota-refugio">Nombre de la mascota:</label>
                                         <input type="text" id="nombre-mascota-refugio" name="nombre_mascota_refugio" placeholder="Ej. Suki" required>
                                         <small class="form-error" id="error-nombre-mascota-refugio"></small>
                                     </div>
-         
+
                                     <div class="radio-group">
                                         <div class="subgroup" id="grupoEspecie">
                                             <label>Especie</label>
@@ -281,25 +301,25 @@
                                             <small class="form-error" id="error-sexo-refugio"></small>
                                         </div>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="edad-form-refugio">Edad:</label>
                                         <input type="text" id="edad-form-refugio" name="edad_form_refugio" placeholder="Ej. 2 años" required>
                                         <small class="form-error" id="error-edad-form-refugio"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="peso-form-refugio">Peso aproximado:</label>
                                         <input type="text" id="peso-form-refugio" name="peso_form_refugio" placeholder="Ej. 10kg" required>
                                         <small class="form-error" id="error-peso-form-refugio"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="raza">Raza:</label>
                                         <input type="text" id="raza" name="raza" placeholder="Ej. Zaguate o Persa" required>
                                         <small class="form-error" id="error-raza"></small>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="tamanio">Tamaño:</label>
                                         <select id="tamanio" name="tamanio" required>
@@ -310,7 +330,7 @@
                                         </select>
                                         <small class="form-error" id="error-tamanio"></small>
                                     </div>
-         
+
                                     <div class="input-box radio-group">
                                         <label>¿Está vacunado?</label>
                                         <div class="options">
@@ -319,7 +339,7 @@
                                         </div>
                                         <small class="form-error" id="error-vacunado"></small>
                                     </div>
-         
+
                                     <div class="input-box radio-group">
                                         <label>¿Está esterilizado?</label>
                                         <div class="options">
@@ -329,8 +349,8 @@
                                         <small class="form-error" id="error-esterilizado"></small>
                                     </div>
                                 </fieldset>
-         
-         
+
+
                                 <fieldset class="form-group">
                                     <legend><i class="fa-solid fa-clipboard"></i> Información Adicional</legend>
                                     
@@ -338,24 +358,24 @@
                                         <label for="descripcion-refugio">Descripción de la mascota:</label>
                                         <textarea id="descripcion-refugio" name="descripcion" rows="4" placeholder="Agregue aquí detalles de su personalidad, comportamiento..."></textarea>
                                     </div>
-         
+
                                     <div class="input-box">
                                         <label for="foto-mascota">Suba aquí la foto de la mascota:</label>
                                         <input type="file" id="foto-mascota" name="foto_mascota" accept="image/*" required>
                                         <small class="form-error" id="error-foto-mascota"></small>
                                     </div>
                                 </fieldset>
-         
-         
+                                
+
                                 <div class="btn-submit">
                                     <button type="submit" class="btn-enviar">Enviar Solicitud de Postulación</button>
                                     <button type="button" class="btn-limpiar">Limpiar formulario</button>
                                 </div>
-         
+
                                 <div class="form-message" id="msgRefugio" hidden></div>
+
                             </form>
                         </div>
-
                     </div>
 
                     <!-- Columna derecha: Historial -->
@@ -378,10 +398,8 @@
 
                 </div>
                 <!-- Fin de form-wrapper -->
-
             </div>
         </section>
-
     </main>
 
     <footer id="contacto">
@@ -390,13 +408,16 @@
             <li><i class="fa-brands fa-square-instagram instagram-icon"></i><span>@MatchPetCR</span></li>
             <li><i class="fa-brands fa-youtube youtube-icon"></i><span>MatchPet CR</span></li>
         </ul>
-        <p>
-            <small>&copy; 2026 MatchPet CR. Todos los derechos reservados.</small>
-        </p>
+        <p><small>&copy; 2026 MatchPet CR. Todos los derechos reservados.</small></p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="js/header.js"></script>
+    <script src="js/storage.js"></script>
     <script src="js/formulario.js"></script>
+    <script src="js/formularioPostulacion.js"></script>
+    <script src="js/formularioRefugio.js"></script>
 </body>
 
 </html>

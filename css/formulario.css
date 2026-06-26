@@ -372,8 +372,7 @@ BOTONES
 }
 
 .btn-enviar,
-.btn-limpiar,
-.btn-vaciar {
+.btn-limpiar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -445,31 +444,43 @@ BOTÓN LIMPIAR
 }
 
 /* =========================
-BOTÓN VACIAR HISTORIAL
+BOTONES PERSONALIZADOS DE SWEETALERT
 ========================= */
 
-.btn-vaciar {
-    background: #5f1e1e;
-    color: #ffffff;
-    border-color: #f87171;
-    box-shadow: 0 4px 15px rgba(95, 30, 30, 0.25);
+.swal2-popup .btn-success {
+    background-color: #2A5A46 !important;
+    border: 2px solid #93CFA7 !important;
+    border-radius: 8px;
 
-    padding: 12px 28px;
-    font-size: 0.8rem;
+    color: white !important;
+    font-weight: 700;
+
+    padding: 10px 20px;
+
+    transition: all 0.3s ease;
 }
 
-.btn-vaciar:hover {
-    background: #f87171;
-    color: #0f172a;
-    box-shadow: 0 6px 25px rgba(248, 113, 113, 0.35);
+.swal2-popup .btn-success:hover {
+    background-color: #93CFA7 !important;
+    color: #0f172a !important;
 }
 
-.btn-vaciar:active {
-    transform: scale(0.97);
+.swal2-popup .btn-danger {
+    background-color: #5f1e1e !important;
+    border: 2px solid #f87171 !important;
+    border-radius: 8px;
+
+    color: white !important;
+    font-weight: 700;
+
+    padding: 10px 20px;
+
+    transition: all 0.3s ease;
 }
 
-.btn-vaciar i {
-    margin-right: 8px;
+.swal2-popup .btn-danger:hover {
+    background-color: #f87171 !important;
+    color: #0f172a !important;
 }
 
 /* =========================
@@ -560,75 +571,95 @@ ERRORES EN RADIO BUTTONS
 }
 
 /* =========================
-FORMULARIO + HISTORIAL
+BANNER: MASCOTA SELECCIONADA
 ========================= */
 
-.form-wrapper {
-    display: grid;
-    grid-template-columns: 2.5fr 1.2fr;
-    gap: 30px;
-    align-items: start;
-
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.form-column {
-    min-width: 0;
-}
-
-.historial-sidebar {
-    position: sticky;
-    top: 120px;
-
-    background: rgba(30, 41, 59, 0.6);
-    border: 2px solid #2A5A46;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
-    min-height: 300px;
-
-    padding: 24px;
-
+.mascota-seleccionada-banner {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    background: rgba(147, 207, 167, 0.08);
+    border: 1.5px solid #93CFA7;
+    border-radius: 16px;
+
+    padding: 14px 20px;
+    margin: 0 auto 1.5rem;
+    max-width: 1000px;
 }
 
-.historial-sidebar .historial-header h2 {
-    font-size: 1.2rem;
+.mascota-seleccionada-banner[hidden] {
+    display: none;
+}
+
+.mascota-seleccionada-banner .mascota-seleccionada-titulo {
+    color: #d7f3e2;
+    font-weight: 700;
+    font-size: 0.98rem;
+
+    margin: 0 0 2px 0;
+}
+
+.mascota-seleccionada-banner .mascota-seleccionada-titulo i {
+    color: #93CFA7;
+    margin-right: 4px;
+}
+
+.mascota-seleccionada-banner .mascota-seleccionada-subtitulo {
+    color: #94a3b8;
+    font-size: 0.85rem;
+
+    margin: 0;
+}
+
+.btn-cancelar-seleccion {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-left: auto;
+    padding: 8px 18px;
+
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+    border: 1.5px solid #f87171;
+    border-radius: 999px;
+
     font-family: 'Quicksand', sans-serif;
-    font-weight: 600;
-    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
 
-    border-bottom: 2px solid rgba(147, 207, 167, 0.15);
+    cursor: pointer;
 
-    padding-bottom: 10px;
-    margin-bottom: 4px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
-.historial-sidebar .historial-resumen {
-    font-size: 0.8rem;
-    color: #64748b;
-    text-align: center;
-    padding: 8px;
-}
-
-.historial-sidebar .historial-acciones .btn-vaciar {
-    width: 100%;
-
-    background: #5f1e1e;
-    color: #ffffff;
-    border-color: #f87171;
-    box-shadow: 0 4px 15px rgba(95, 30, 30, 0.25);
-
-    padding: 8px 16px;
-    font-size: 0.8rem;
-}
-
-.historial-sidebar .historial-acciones .btn-vaciar:hover {
+.btn-cancelar-seleccion:hover {
     background: #f87171;
-    color: #0f172a;
-    box-shadow: 0 6px 25px rgba(248, 113, 113, 0.35);
+    color: #ffffff;
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(248, 113, 113, 0.3);
+}
+
+.btn-cancelar-seleccion:active {
+    transform: scale(0.97);
+}
+
+.btn-cancelar-seleccion i {
+    font-size: 1.1rem;
+}
+
+/* =========================
+CAMPOS BLOQUEADOS (precargados, no editables)
+========================= */
+
+.adoption-form input.campo-bloqueado,
+.adoption-form select.campo-bloqueado {
+    background-color: rgba(147, 207, 167, 0.05) !important;
+    color: #93CFA7 !important;
+    border-color: rgba(147, 207, 167, 0.3) !important;
+    cursor: not-allowed;
 }
 
 /* =========================
@@ -659,17 +690,6 @@ RESPONSIVE
         border-left-width: 3px;
 
         padding: 1rem 1.2rem;
-    }
-
-    .form-wrapper {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .historial-sidebar {
-        min-height: auto;
-        order: 2;
-        padding: 20px 30px;
     }
 
     .adoption-form {
@@ -714,22 +734,18 @@ RESPONSIVE
     .options {
         flex-direction: column;
     }
-    .historial-sidebar {
-        min-height: auto;
-        padding: 20px 25px;
-    }
-    .historial-sidebar .historial-placeholder {
-        padding: 20px 15px;
-    }
-    .historial-sidebar .historial-placeholder i {
-        font-size: 2rem;
-    }
     .tab-btn {
         padding: 12px 16px;
         font-size: 0.85rem;
     }
     .tab-btn i {
         font-size: 0.9rem;
+    }
+    .mascota-seleccionada-banner {
+        flex-direction: column;
+        text-align: center;
+
+        padding: 14px;
     }
 }
 
@@ -777,13 +793,6 @@ RESPONSIVE
         flex-direction: column;
         gap: 10px;
     }
-    .historial-sidebar {
-        padding: 12px;
-        min-height: 150px;
-    }
-    .historial-sidebar .historial-header h2 {
-        font-size: 1rem;
-    }
     .step-navigation {
         padding: 10px 12px;
         flex-direction: column;
@@ -793,12 +802,44 @@ RESPONSIVE
         font-size: 0.7rem;
         padding: 6px 12px;
     }
-    .historial-sidebar {
-        display: block;
-        min-height: auto;
-        padding: 20px 20px;
-    }
     .btn-limpiar {
         display: none;
+    }
+}
+
+/* =========================
+RESPONSIVE PARA EL BANNER
+========================= */
+
+@media (max-width: 768px) {
+    .mascota-seleccionada-banner {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .btn-cancelar-seleccion {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .mascota-seleccionada-banner .mascota-seleccionada-titulo {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mascota-seleccionada-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+    }
+
+    .btn-cancelar-seleccion {
+        width: 100%;
+        justify-content: center;
     }
 }

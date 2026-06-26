@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" href="css/base.css">       
     <link rel="stylesheet" href="css/header.css">     
-    <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/iconos.css">
@@ -26,7 +25,6 @@
 </head>
 
 <body>
-    
     <header class="site-header">
         <div class="container header-content">
             <p class="logo">
@@ -48,63 +46,62 @@
     </header>
 
     <main class="container py-40">
-        
         <section class="catalog-header header-content-catalog">
             <h1 class="catalog-title">Nuestros Peluditos Buscando Hogar</h1>
             <p class="catalog-subtitle">Usa los filtros para encontrar perritos o gatitos listos para recibir amor.</p>
             
-
-        <div class="filter-container">
-            
-            <div class="search-wrapper">
-                <label for="search-input">Buscar por nombre o palabra clave:</label>
-                <div class="search-input-box">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="search-input" placeholder="Ej. Suki, juguetona, activo...">
-                </div>
-            </div>
-
-            <div class="filters-row">
-                <div class="filter-box">
-                    <label for="filter-especie">Especie:</label>
-                    <select id="filter-especie">
-                        <option value="todos">Todos</option>
-                        <option value="perro">Perros</option>
-                        <option value="gato">Gatos</option>
-                    </select>
-                </div>
+            <div class="filter-container">
                 
-                <div class="filter-box">
-                    <label for="filter-provincia">Ubicación:</label>
-                    <select id="filter-provincia">
-                        <option value="todas">Cualquier provincia</option>
-                        <option value="sanjose">San José</option>
-                        <option value="alajuela">Alajuela</option>
-                        <option value="cartago">Cartago</option>
-                        <option value="heredia">Heredia</option>
-                        <option value="guanacaste">Guanacaste</option>
-                        <option value="puntarenas">Puntarenas</option>
-                        <option value="limon">Limón</option>
-                    </select>
+                <div class="search-wrapper">
+                    <label for="search-input">Buscar por nombre o palabra clave:</label>
+                    <div class="search-input-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Ej. Suki, juguetona, activo...">
+                    </div>
                 </div>
 
-                <div class="filter-box">
-                    <label for="filter-tamanio">Tamaño:</label>
-                    <select id="filter-tamanio">
-                        <option value="todos">Cualquier tamaño</option>
-                        <option value="pequenio">Pequeño</option>
-                        <option value="mediano">Mediano</option>
-                        <option value="grande">Grande</option>
-                    </select>
+                <div class="filters-row">
+
+                    <div class="filter-box">
+                        <label for="filter-especie">Especie:</label>
+                        <select id="filter-especie">
+                            <option value="todos">Todos</option>
+                            <option value="perro">Perros</option>
+                            <option value="gato">Gatos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-box">
+                        <label for="filter-provincia">Ubicación:</label>
+                        <select id="filter-provincia">
+                            <option value="todas">Cualquier provincia</option>
+                            <option value="sanjose">San José</option>
+                            <option value="alajuela">Alajuela</option>
+                            <option value="cartago">Cartago</option>
+                            <option value="heredia">Heredia</option>
+                            <option value="guanacaste">Guanacaste</option>
+                            <option value="puntarenas">Puntarenas</option>
+                            <option value="limon">Limón</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-box">
+                        <label for="filter-tamanio">Tamaño:</label>
+                        <select id="filter-tamanio">
+                            <option value="todos">Cualquier tamaño</option>
+                            <option value="pequenio">Pequeño</option>
+                            <option value="mediano">Mediano</option>
+                            <option value="grande">Grande</option>
+                        </select>
+                    </div>
+
                 </div>
             </div>
-
-        </div>
+        </section>
 
         <section class="pet-grid" id="pet-grid-container">
             <!-- Las tarjetas se generarán dinámicamente desde mascotas.json -->
         </section>
-
     </main>
 
     <footer id="contacto">
@@ -113,12 +110,11 @@
             <li><i class="fa-brands fa-square-instagram instagram-icon"></i><span>@MatchPetCR</span></li>
             <li><i class="fa-brands fa-youtube youtube-icon"></i><span>MatchPet CR</span></li>
         </ul>
-        <p>
-            <small>&copy; 2026 MatchPet CR. Todos los derechos reservados.</small>
-        </p>
+        <p><small>&copy; 2026 MatchPet CR. Todos los derechos reservados.</small></p>
     </footer>
 
     <script src="js/header.js"></script>
+    <script src="js/storage.js"></script>
     <script src="js/catalogo.js"></script>
 </body>
 
