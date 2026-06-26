@@ -5,9 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const provinciaSelect = document.getElementById('filter-provincia');
     const tamanioSelect = document.getElementById('filter-tamanio');
 
-    let mascotas = []; // Almacenará los datos cargados
+    let mascotas = []; 
 
-    // Función para quitar tildes, espacios y poner en minúscula
     function normalizar(texto) {
         return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s/g, '');
     }
@@ -21,10 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error cargando mascotas:', error));
 
-    // Función para renderizar las tarjetas
     function renderMascotas(lista) {
         if (!grid) return;
-        grid.innerHTML = ''; // Limpiar
+        grid.innerHTML = ''; 
 
         if (lista.length === 0) {
             grid.innerHTML = `<p class="no-results">No se encontraron mascotas con esos filtros.</p>`;
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             card.className = 'pet-card';
             // Atributos para filtros (coinciden con los datos)
             card.dataset.especie = pet.especie;
-            card.dataset.edad = pet.edad; // si quieres
+            card.dataset.edad = pet.edad; 
             card.dataset.provincia = normalizar(pet.provincia);
             card.dataset.nombre = pet.nombre.toLowerCase();
             card.dataset.tamanio = pet.tamanio;
@@ -66,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Función de filtrado
     function filtrar() {
         const busqueda = searchInput ? searchInput.value.toLowerCase() : '';
         const especie = especieSelect ? especieSelect.value : 'todos';

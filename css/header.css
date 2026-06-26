@@ -2,57 +2,40 @@
 HEADER Y NAVEGACIÓN
 ========================= */
 
-/* Header fijo superior */
 .site-header {
-    /* Fondo y colores */
     background: linear-gradient(135deg, #1a3d30 0%, #2A5A46 50%, #3d7a5f 100%);
     color: white;
     border-bottom: 4px solid #93CFA7;
-    
-    /* Medidas y espaciado */
+
     padding: 12px 20px;
     width: 100%;
-    
-    /* Posicionamiento */
+
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    
-    /* Modelo de caja */
+
     box-sizing: border-box;
 }
 
-/* Contenedor interno del header.
-.main-nav vive ANIDADO dentro de este contenedor (junto al logo y al
-botón hamburguesa), no como hermano de .header-content. Por eso se
-agrega flex-wrap: cuando el menú se abre y pide width:100%, no le
-cabe en la misma fila junto al logo y el botón, así que el navegador
-   lo manda automáticamente a su propia línea, debajo. */
 .header-content {
-    /* Flexbox */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    
-    /* Medidas */
+
     max-width: 1200px;
 }
 
-/* Logo del sitio */
 .logo {
-    /* Texto - Fuente más llamativa */
     font-size: 1.8rem;
     letter-spacing: 1.5px;
-    font-family: 'Lilita One', cursive; 
+    font-family: 'Lilita One', cursive;
     white-space: nowrap;
-    
-    /* Medidas y espaciado */
+
     margin: 0;
     gap: 12px;
-    
-    /* Flexbox */
+
     display: flex;
     align-items: center;
 }
@@ -60,152 +43,117 @@ cabe en la misma fila junto al logo y el botón, así que el navegador
 /* =========================
 LOGO
 ========================= */
+
 .logo i {
-    /* Colores */
     color: #93CFA7;
-    
-    /* Medidas */
     font-size: 2rem;
-    
-    /* Animación */
+
     animation: pawWave 2s ease-in-out infinite;
 
     margin-left: auto;
 }
 
-/* Animación de la huella */
 @keyframes pawWave {
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(-5deg); }
     75% { transform: rotate(5deg); }
 }
 
-/* Botón hamburguesa */
 .menu-toggle {
-    /* Medidas */
     font-size: 1.8rem;
-    
-    /* Colores y bordes */
+
     color: white;
     background: none;
     border: none;
-    
-    /* Interacción */
+
     cursor: pointer;
-    
-    /* Display */
+
     display: block;
 }
 
 /* =========================
 MENÚ PRINCIPAL 
 ========================= */
+
 .main-nav {
     width: 100%;
-    
-    /* Flexbox */
+
     display: none;
     flex-direction: column;
 }
 
-/* Cuando el menú está abierto */
 .main-nav.open {
     display: flex;
 }
 
-/* Lista de enlaces */
 .main-nav ul {
-    /* Flexbox */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    
-    /* Medidas y espaciado */
+
     padding: 0;
     margin: 0;
     width: 100%;
-    
-    /* Estilos */
+
     list-style: none;
 }
 
-/* Enlaces del menú - solo celular */
 .main-nav a {
-    /* Texto */
     color: white;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    
-    /* Medidas y espaciado */
+
     padding: 12px 20px;
     width: 90%;
     max-width: 300px;
     margin: 0 auto;
-    
-    /* Display y posición */
+
     display: block;
     position: relative;
-    
-    /* Bordes */
+
     border-radius: 6px;
-    
-    /* Transiciones */
+
     transition: all 0.3s ease;
 }
 
-/* Enlaces - hover */
 .main-nav a:hover {
-    /* Colores */
     background-color: rgba(147, 207, 167, 0.25);
     color: #93CFA7;
-    
-    /* Bordes */
+
     border-radius: 20px;
-    
-    /* Transformaciones */
+
     transform: scale(1.05);
 }
 
-/* Línea decorativa bajo los enlaces */
 .main-nav a::after {
-    /* Contenido */
     content: '';
-    
-    /* Posición */
+
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    
-    /* Medidas */
+
     width: 0;
     height: 2px;
-    
-    /* Colores */
+
     background: #93CFA7;
-    
-    /* Transiciones */
+
     transition: all 0.3s ease;
 }
 
-/* Línea decorativa - hover */
 .main-nav a:hover::after {
     width: 60%;
 }
 
-/* Enlace activo (página actual) - solo celular */
 .main-nav a.active {
-    /* Colores */
     background: linear-gradient(135deg, rgba(147, 207, 167, 0.3), rgba(147, 207, 167, 0.1));
     color: #93CFA7;
     border: 2px solid rgba(147, 207, 167, 0.3);
-    
-    /* Medidas y espaciado */
+
     padding: 12px 25px;
-    
-    /* Bordes */
+
     border-radius: 20px;
 }
 
@@ -213,146 +161,120 @@ MENÚ PRINCIPAL
 AJUSTE DEL PRIMER CONTENIDO
 (Para que el header fijo no lo tape)
 ========================= */
+
 .inicio-content {
-    /* Flexbox */
     display: flex;
     flex-direction: column;
     align-items: center;
-    
-    /* Texto */
+
     text-align: center;
-    
-    /* Medidas y espaciado */
+
     width: 100%;
 }
 
 /* =========================
 RESPONSIVE
 ========================= */
+
 @media (min-width: 768px) {
     .header-mobile-actions {
-        display: none; /* Asegura que no se vea en desktop */
+        display: none;
     }
 
-    /* Header */
     .site-header {
         padding: 18px 0px;
-        border-bottom: 4px solid #93CFA7; 
+        border-bottom: 4px solid #93CFA7;
     }
-    
-    /* Logo - más grande en PC */
+
     .logo {
         font-size: 2.2rem;
     }
-    
+
     .logo i {
         font-size: 2.4rem;
     }
-    
-    /* Botón hamburguesa */
+
     .menu-toggle {
         display: none;
     }
-    
-    /* Resetear completamente el menú para PC */
+
     .main-nav {
-        /* Posición */
         width: auto;
-        
-        /* Fondo y bordes */
+
         background: none !important;
         background-color: transparent !important;
         border-bottom: none;
-        
-        /* Medidas y espaciado */
+
         padding: 0;
-        
-        /* Flexbox */
+
         display: flex !important;
     }
-    
-    /* Lista de enlaces - PC */
+
     .main-nav ul {
         flex-direction: row;
         gap: 12px;
         width: auto;
     }
-    
-    /* Enlaces - PC */
+
     .main-nav a {
-        /* Medidas y espaciado */
         width: auto;
         max-width: none;
         padding: 10px 20px;
         margin: 0;
-        
-        /* Texto */
+
         text-align: left;
-        
-        /* Colores y bordes */
+
         background: none !important;
         border: none !important;
         border-radius: 20px;
-        
-        /* Transformaciones */
+
         transform: none !important;
     }
-    
-    /* Quitar línea decorativa en PC */
+
     .main-nav a::after {
         display: none;
     }
-    
-    /* Hover en PC */
+
     .main-nav a:hover {
-        /* Colores */
         background-color: rgba(147, 207, 167, 0.2) !important;
         color: #93CFA7;
-        
-        /* Transformaciones */
+
         transform: translateY(-2px);
-        
-        /* Bordes - redondeados */
+
         border-radius: 20px !important;
     }
-    
-    /* Enlace activo en PC */
+
     .main-nav a.active {
-        /* Colores */
         background: linear-gradient(135deg, rgba(147, 207, 167, 0.2), rgba(147, 207, 167, 0.05)) !important;
         color: #93CFA7;
-        
-        /* Medidas y espaciado */
+
         padding: 10px 25px !important;
-        
-        /* Bordes */
+
         border-radius: 20px !important;
         border: none !important;
-        
-        /* Transformaciones */
+
         transform: none !important;
     }
 }
 
-/* Celulares muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     .site-header {
-        padding: 10px 12px;  /* Menos padding horizontal */
+        padding: 10px 12px;
     }
     .logo {
-        font-size: 1.3rem;   /* Logo más pequeño */
+        font-size: 1.3rem;
     }
     .logo i {
         font-size: 1.5rem;
     }
     .menu-toggle {
-        font-size: 1.5rem;   /* Botón hamburguesa más pequeño */
-        margin-left: auto;   /* Para que quede a la derecha */
+        font-size: 1.5rem;
+        margin-left: auto;
     }
     .main-nav a {
         padding: 10px 12px;
         font-size: 0.9rem;
-        width: 95%;          /* Ocupa casi todo el ancho */
+        width: 95%;
         max-width: 280px;
     }
 }

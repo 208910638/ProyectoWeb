@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menú hamburguesa
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     const header = document.querySelector('.site-header');
@@ -16,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Función que ajusta el padding-top del body según la altura real del header
     function ajustarPaddingHeader() {
         if (!header) return;
-        // Calcula la altura total del header (incluyendo el menú desplegado)
+
         const headerHeight = header.offsetHeight;
-        // Asigna ese valor como padding-top al body
+
         body.style.paddingTop = headerHeight + 'px';
     }
 

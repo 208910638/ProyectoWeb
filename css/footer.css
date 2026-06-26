@@ -2,23 +2,21 @@
 FOOTER
 ========================= */
 
-/* Contenedor principal del footer */
 #contacto {
     background: linear-gradient(135deg, #1a3d30 0%, #2A5A46 40%, #3d7a5f 80%, #2A5A46 100%);
     color: white;
     border-top: 4px solid #93CFA7;
 
     padding: 30px 20px;
-    font-size: 1rem;
     margin-top: 0;
 
+    font-size: 1rem;
     text-align: center;
 
     box-sizing: border-box;
     width: 100%;
 }
 
-/* Lista de redes sociales */
 #contacto ul {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +29,6 @@ FOOTER
     list-style: none;
 }
 
-/* Cada elemento de la lista */
 #contacto ul li {
     display: flex;
     align-items: center;
@@ -40,12 +37,10 @@ FOOTER
     padding: 8px 12px;
 }
 
-/* Texto de redes en negrita */
 #contacto ul li span {
     font-weight: 470;
 }
 
-/* Espacio entre redes sociales y copyright */
 #contacto p {
     padding-top: 1.2rem;
     padding-bottom: 16px;
@@ -55,6 +50,7 @@ FOOTER
 /* =========================
 RESPONSIVE - PANTALLAS GRANDES
 ========================= */
+
 @media (min-width: 768px) {
     #contacto {
         padding: 24px 40px;
@@ -62,9 +58,8 @@ RESPONSIVE - PANTALLAS GRANDES
         text-align: center;
     }
 
-    /* En escritorio, las redes quedan a la izquierda y el copyright a la derecha */
     #contacto p {
-        padding-bottom: 0;  /* Solo eliminamos el padding inferior */
+        padding-bottom: 0;
         margin: 0;
     }
 }

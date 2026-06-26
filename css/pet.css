@@ -2,7 +2,6 @@
 SECCIÓN PET
 ========================= */
 
-/* Contenedor principal de la sección */
 .pet-section {
     position: relative;
 
@@ -15,7 +14,6 @@ SECCIÓN PET
     background-color: #1a362a;
 }
 
-/* Capa de degradado sobre el video */
 .pet-section::before {
     content: '';
     position: absolute;
@@ -33,7 +31,6 @@ SECCIÓN PET
     pointer-events: none;
 }
 
-/* Video de fondo */
 .bg-video {
     position: absolute;
     top: 0;
@@ -46,7 +43,6 @@ SECCIÓN PET
     object-fit: cover;
 }
 
-/* Capa de contenido sobre el video */
 .content-overlay {
     position: relative;
     top: 0;
@@ -57,7 +53,6 @@ SECCIÓN PET
     height: 100%;
 }
 
-/* Contenido principal */
 .inicio-content {
     position: relative;
     z-index: 3;
@@ -73,31 +68,27 @@ SECCIÓN PET
 RESPONSIVIDAD 
 ========================= */
 
-/* Tablets en adelante */
 @media (min-width: 768px) {
     .inicio-content {
         padding: 90px 90px 120px;
     }
 }
 
-/* Ocultar video en móviles y usar fondo sólido */
 @media (max-width: 768px) {
     .bg-video {
         display: none !important;
     }
     .pet-section {
-        background-color: #0f172a; 
+        background-color: #0f172a;
     }
-    /* Opcional: si el degradado (::before) interfiere, también lo ocultamos o cambiamos */
     .pet-section::before {
         display: none;
     }
 }
 
-/* Celulares muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     .inicio-content {
-        padding: 20px 12px 60px;  /* Menos padding */
+        padding: 20px 12px 60px;
     }
     .inicio-content h1 {
         font-size: 1.4rem;

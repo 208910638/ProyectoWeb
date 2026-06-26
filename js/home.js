@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('data/home.json')
         .then(response => response.json())
         .then(data => {
-            // 1. Renderizar cifras del hero (10k+, 85%)
+            // Renderizar cifras del hero (10k+, 85%)
             const cifrasPet = document.querySelector('.inicio-content .cifras-container');
             if (cifrasPet) {
                 cifrasPet.innerHTML = '';
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // 2. Renderizar características (adopción responsable)
+            // Renderizar características (adopción responsable)
             const caracteristicasContainer = document.getElementById('cifras-adopcion');
             if (caracteristicasContainer) {
                 caracteristicasContainer.innerHTML = '';
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // 3. Renderizar Misión y Visión 
+            // Renderizar Misión y Visión 
             const misionVisionContainer = document.getElementById('mision-vision-container');
             if (misionVisionContainer) {
                 misionVisionContainer.innerHTML = '';
@@ -86,10 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         cardIcons.appendChild(icon);
                     });
 
-                    // Título (h3) en lugar de número
                     const title = document.createElement('h3');
                     title.textContent = item.titulo;
-                    title.style.color = '#93CFA7'; // Para que resalte
+                    title.style.color = '#93CFA7'; 
 
                     const paragraph = document.createElement('p');
                     paragraph.textContent = item.descripcion;

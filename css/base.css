@@ -2,14 +2,12 @@
 CSS BASE - REGLAS GENERALES DEL SITIO
 ========================= */
 
-/* Elimina márgenes y espacios automáticos del navegador */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Configuración general del documento */
 html {
     font-size: 16px;
     scroll-behavior: smooth;
@@ -19,7 +17,6 @@ html {
 TIPOGRAFÍAS GLOBALES
 ========================= */
 
-/* Estilo general del sitio */
 body {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
@@ -28,7 +25,6 @@ body {
     line-height: 1.6;
 }
 
-/* Títulos de secciones con estilo especial */
 h1, 
 h2, 
 h3, 
@@ -39,19 +35,16 @@ h6 {
     font-weight: 400; 
 }
 
-/* Texto de párrafos */
 p {
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     color: #f8fafc;
 }
 
-/* Texto en negrita */
 strong, b {
     font-weight: 700;
 }
 
-/* Etiquetas y textos pequeños */
 label, small, .label {
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
@@ -60,13 +53,13 @@ label, small, .label {
 /* =========================
 MULTIMEDIA ADAPTABLE
 ========================= */
+
 img,
 video,
 iframe {
     max-width: 100%;
 }
 
-/* Evita deformación y espacios inferiores */
 img {
     height: auto;
     display: block;
@@ -76,13 +69,11 @@ img {
 ENLACES Y LISTAS
 ========================= */
 
-/* Enlaces sin subrayado */
 a {
     text-decoration: none;
     font-family: 'Quicksand', sans-serif;
 }
 
-/* Viñetas dentro del bloque */
 ul {
     list-style: none;  
 }
@@ -91,7 +82,6 @@ ul {
 RESPONSIVE 
 ========================= */
 
-/* Tablets */
 @media (max-width: 768px) {
     body {
         font-size: 0.95rem;
@@ -106,7 +96,6 @@ RESPONSIVE
     }
 }
 
-/* Celulares */
 @media (max-width: 480px) {
     body {
         font-size: 0.9rem;
@@ -121,10 +110,9 @@ RESPONSIVE
     }
 }
 
-/* Celulares muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     body {
-        font-size: 0.85rem;  /* Reduce ligeramente el texto base */
+        font-size: 0.85rem;
         line-height: 1.5;
     }
     h1 {

@@ -9,20 +9,21 @@
     <meta name="author" content="MatchPet CR">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet"> 
 
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
-    
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/cards.css">
-    <link rel="stylesheet" href="css/footer.css"> 
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/iconos.css">
-    <link rel="stylesheet" href="css/pet.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/utilities.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/base.css">       
+    <link rel="stylesheet" href="css/header.css">     
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/cards.css">      
+    <link rel="stylesheet" href="css/iconos.css">
+    <link rel="stylesheet" href="css/home.css">       
+    <link rel="stylesheet" href="css/pet.css">
+
+    <link rel="stylesheet" href="css/utilities.css">
 
     <title>MatchPet CR | Inicio</title>
 </head>
@@ -51,59 +52,58 @@
 
 
     <main>
-    <section id="inicio" class="pet-section">
-        <video autoplay muted loop playsinline class="bg-video">
-            <source src="source/videos/perritoanimado.mp4" type="video/mp4">
-        </video>
+        <section id="inicio" class="pet-section">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="source/videos/perritoanimado.mp4" type="video/mp4">
+            </video>
 
-        <div class="content-overlay">
+            <div class="content-overlay">
 
-            <div class="inicio-content">
-                <h1 class="catalog-title">¡Adoptar es Salvar una Vida!</h1>
-                <p>
-                    El propósito de <strong>MatchPet CR</strong> es conectar corazones, brindando una segunda oportunidad
-                    a animales en estado de abandono a través de una plataforma segura y consciente.
-                </p>
+                <div class="inicio-content">
+                    <h1 class="catalog-title">¡Adoptar es Salvar una Vida!</h1>
+                    <p>
+                        El propósito de <strong>MatchPet CR</strong> es conectar corazones, brindando una segunda oportunidad
+                        a animales en estado de abandono a través de una plataforma segura y consciente.
+                    </p>
 
-                <h2>El impacto de la adopción en cifras</h2>
-                
-                <!-- Agregamos la clase "cifras-container" para que las tarjetas se muestren en una fila -->
-                <div class="cifras-container"></div>
+                    <h2>El impacto de la adopción en cifras</h2>
+                    
+                    <div class="cifras-container"></div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="sobre-nosotros" class="sobre-nosotros-section">
-        <div class="container">
-            <h2>Sobre Nosotros</h2>
-            <div class="sobre-nosotros-content">
-                <p>
-                    En <strong>MatchPet CR</strong>, somos un equipo apasionado por el bienestar animal en Costa Rica. 
-                    Nacimos con la firme convicción de que cada mascota merece una familia amorosa y que cada persona 
-                    puede encontrar a su compañero ideal.
-                </p>
-                <p>
-                    Nuestra plataforma actúa como un puente entre refugios, rescatistas independientes y adoptantes 
-                    responsables, facilitando un proceso de adopción transparente, educativo y, sobre todo, humano.
-                </p>
+        <section id="sobre-nosotros" class="sobre-nosotros-section">
+            <div class="container">
+                <h2>Sobre Nosotros</h2>
+                <div class="sobre-nosotros-content">
+                    <p>
+                        En <strong>MatchPet CR</strong>, somos un equipo apasionado por el bienestar animal en Costa Rica. 
+                        Nacimos con la firme convicción de que cada mascota merece una familia amorosa y que cada persona 
+                        puede encontrar a su compañero ideal.
+                    </p>
+                    <p>
+                        Nuestra plataforma actúa como un puente entre refugios, rescatistas independientes y adoptantes 
+                        responsables, facilitando un proceso de adopción transparente, educativo y, sobre todo, humano.
+                    </p>
+                </div>
+
+                <div id="mision-vision-container" class="cifras-container">
+                    <!-- Las tarjetas de Misión y Visión se cargarán desde home.js -->
+                </div>
+
+            <div class="btn-adoptar-wrapper">
+                <a href="catalogo.html" class="btn-adoptar btn-adoptar-grande">🐾 Quiero Adoptar</a>
             </div>
+        </section>
 
-            <div id="mision-vision-container" class="cifras-container">
-                <!-- Las tarjetas de Misión y Visión se cargarán desde home.js -->
+        <section id="adopcion-responsable" class="adopcion-responsable">
+            <div class="container responsable-content">
+                <h2>¿Qué implica una adopción responsable?</h2>
+            
+                <div id="cifras-adopcion" class="caracteristicas-container cifras-container"></div>
             </div>
-
-        <div class="btn-adoptar-wrapper">
-            <a href="catalogo.html" class="btn-adoptar btn-adoptar-grande">🐾 Quiero Adoptar</a>
-        </div>
-    </section>
-
-    <section id="adopcion-responsable" class="adopcion-responsable">
-        <div class="container responsable-content">
-            <h2>¿Qué implica una adopción responsable?</h2>
-        
-            <div id="cifras-adopcion" class="caracteristicas-container cifras-container"></div>
-        </div>
-    </section>
+        </section>
 
     </main>
 

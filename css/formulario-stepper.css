@@ -2,7 +2,6 @@
 NAVEGACIÓN POR PASOS
 ========================= */
 
-/* Contenedor principal del stepper */
 .step-navigation {
     display: flex;
     justify-content: space-between;
@@ -23,7 +22,6 @@ NAVEGACIÓN POR PASOS
 CONTADOR DE PASOS
 ========================= */
 
-/* Texto que muestra "Paso 1 de 3" */
 .step-counter {
     color: #94a3b8;
     font-size: 0.85rem;
@@ -36,7 +34,6 @@ CONTADOR DE PASOS
     padding: 4px 14px;
 }
 
-/* Resalta el número del paso actual en verde */
 .step-counter span {
     color: #93CFA7;
 }
@@ -45,13 +42,11 @@ CONTADOR DE PASOS
 BOTONES DE NAVEGACIÓN
 ========================= */
 
-/* Contenedor de los botones Anterior y Siguiente */
 .step-buttons {
     display: flex;
     gap: 10px;
 }
 
-/* Estilo base para ambos botones */
 .btn-step {
     display: inline-flex;
     align-items: center;
@@ -73,32 +68,27 @@ BOTONES DE NAVEGACIÓN
     transition: all 0.3s ease;
 }
 
-/* Hover en botón Anterior - resalta el borde */
 .btn-step:hover:not(:disabled) {
     border-color: #93CFA7;
     background: rgba(147, 207, 167, 0.06);
     color: #ffffff;
 }
 
-/* Iconos dentro de los botones */
 .btn-step i {
     font-size: 0.8rem;
 }
 
-/* Botón Siguiente / Finalizar - fondo verde */
 .btn-step-primary {
     background: #2A5A46;
     color: #ffffff;
     border-color: #93CFA7;
 }
 
-/* Hover en botón Siguiente - se aclara el verde */
 .btn-step-primary:hover:not(:disabled) {
     background: #93CFA7;
     color: #0f172a;
 }
 
-/* Botón deshabilitado (cuando no se puede avanzar) */
 .btn-step:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -108,7 +98,6 @@ BOTONES DE NAVEGACIÓN
 RESPONSIVE - ADAPTACIÓN A PANTALLAS PEQUEÑAS
 ========================= */
 
-/* Tablets y celulares */
 @media (max-width: 768px) {
     .step-navigation {
         flex-direction: column;
@@ -138,7 +127,6 @@ RESPONSIVE - ADAPTACIÓN A PANTALLAS PEQUEÑAS
     }
 }
 
-/* Celulares muy pequeños */
 @media (max-width: 480px) {
     .step-navigation {
         gap: 10px;

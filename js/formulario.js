@@ -1,24 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Obtener elementos
     const tabs = document.querySelectorAll('.tab-btn');
     const panelPostulacion = document.getElementById('panelPostulacion');
     const panelRefugio = document.getElementById('panelRefugio');
 
-    // Función para cambiar de pestaña
     function switchTab(tabId) {
-        // Desactivar todas las pestañas
         for (let i = 0; i < tabs.length; i++) 
             tabs[i].classList.remove('active');
 
-        // Ocultar todos los paneles
         if (panelPostulacion) 
             panelPostulacion.hidden = true;
 
         if (panelRefugio) 
             panelRefugio.hidden = true;
 
-        // Activar la pestaña seleccionada
         const activeTab = document.querySelector('[data-tab="' + tabId + '"]');
         if (activeTab) 
             activeTab.classList.add('active');
@@ -41,18 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar la primera pestaña por defecto
     switchTab('postulacion');
-
-    // =========================
-    //  INICIALIZAR STEPPER 
-    // =========================
-    setupStepper('formPostulacion');
+    // Inicializar
     setupStepper('formRefugio');
-
+    setupStepper('formPostulacion');  
 });
 
-// =========================
-//  NAVEGACIÓN POR PASOS (STEPPER) 
-// =========================
 
 function setupStepper(formId) {
     const form = document.getElementById(formId);
@@ -61,17 +49,8 @@ function setupStepper(formId) {
         return;
     }
 
-    // Buscar TODOS los legend dentro del formulario
     const legends = form.querySelectorAll('legend');
     const totalSteps = legends.length;
-
-    console.log('Formulario:', formId, ' - Legends encontrados:', totalSteps);
-
-    // Si no hay legends o solo hay uno, no hacer nada
-    if (totalSteps <= 1) {
-        console.log('No hay suficientes legends para el stepper');
-        return;
-    }
 
     let currentStep = 0;
 
@@ -112,15 +91,12 @@ function setupStepper(formId) {
     if (lastFieldset) 
         lastFieldset.parentNode.insertBefore(navContainer, lastFieldset.nextSibling);
 
-    // Controlar la visibilidad del botón de enviar
     const btnSubmit = form.querySelector('.btn-submit');
     if (btnSubmit) {
         btnSubmit.style.display = 'none'; // Oculto por defecto
     }
 
-    // Función para ocultar/mostrar pasos
     function showStep(index) {
-        // Ocultar todos los pasos (fieldset completos)
         const allFields = form.querySelectorAll('fieldset.form-group');
         for (let i = 0; i < allFields.length; i++) 
             allFields[i].style.display = 'none';
@@ -137,7 +113,6 @@ function setupStepper(formId) {
                 radios[i].style.display = 'inline-block';
         }
 
-        // Actualizar contador
         counter.textContent = 'Paso ' + (index + 1) + ' de ' + totalSteps;
 
         // Actualizar botones
@@ -164,11 +139,10 @@ function setupStepper(formId) {
         currentStep = index;
     }
 
-    // Función para validar el paso actual
     function validarPaso(stepElement) {
         let valid = true;
         
-        // 1. Validar inputs de texto, select y textarea (excluyendo radio buttons)
+        // Validar
         const inputs = stepElement.querySelectorAll('input[required]:not([type="radio"]), select[required], textarea[required]');
         
         for (let i = 0; i < inputs.length; i++) {
@@ -221,7 +195,7 @@ function setupStepper(formId) {
             }
         }
         
-        // 2. Validar todos los grupos de radio buttons (código existente, sin cambios)
+        // Validar todos los grupos de radio buttons 
         const allRadios = stepElement.querySelectorAll('input[type="radio"]'); 
         const radioGroups = {};
 
@@ -296,7 +270,6 @@ function setupStepper(formId) {
 
     // Evento para "Siguiente"
     btnNext.addEventListener('click', function() {
-        // Si ya estamos en el último paso, no hacer nada
         if (currentStep === totalSteps - 1) {
             return;
         }
@@ -330,6 +303,4 @@ function setupStepper(formId) {
 
     // Iniciar en el paso 0
     showStep(0);
-
-
 }

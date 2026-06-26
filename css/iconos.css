@@ -3,40 +3,47 @@ ICONOS DE LA PÁGINA DE INICIO
 ========================= */
 
 .dog-icon {
-    color: #93CFA7;
+    color: rgb(147, 83, 56);
 }
 
 .location-icon {
-    color: #93CFA7;
+    color: red;
 }
 
 .paw-icon {
-    color: #93CFA7;
+    color: rgb(147, 83, 56);
 }
 
 .heart-icon {
-    color: #93CFA7;
+    color: red;
 }
 
 .calendar-icon {
-    color: #93CFA7;
+    color: #2196F3;
 }
 
 .clock-icon {
-    color: #93CFA7;
+    color: white;
 }
 
 .briefcase-medical-icon {
-    color: #93CFA7;
+    color: rgb(255, 95, 122);
 }
 
 .stethoscope-icon {
-    color: #93CFA7;
-
+    color: rgb(185, 184, 184);
 }
 
 .baseball-icon {
-    color: #93CFA7;
+    color: yellowgreen;
+}
+
+#mision-vision-container .card:first-child .card-icons i {
+    color: #7824b0;
+}
+
+#mision-vision-container .card:last-child .card-icons i {
+    color: whitesmoke;
 }
 
 /* =========================
@@ -73,17 +80,16 @@ ICONOS DE INTERFAZ
 (Buscar, filtrar, etc.)
 ========================= */
 
-/* Lupa de búsqueda */
 .search-icon {
     color: #475569;
-    transition: color 0.3s ease;
 
     position: absolute;
     left: 16px;
     font-size: 1.1rem;
+
+    transition: color 0.3s ease;
 }
 
-/* Cuando el input de búsqueda está en foco, la lupa se vuelve verde */
 .search-input-box input:focus + .search-icon {
     color: #93CFA7;
 }
@@ -92,12 +98,10 @@ ICONOS DE INTERFAZ
 ICONOS DENTRO DE BOTONES
 ========================= */
 
-/* Iconos dentro de botones de tipo .btn-* */
 .btn-vaciar i,
 .btn-enviar i,
 .btn-limpiar i {
     margin-right: 8px;
-    /* Los colores los heredan del botón, pero si quieres forzarlos: */
     color: inherit;
 }
 
@@ -105,8 +109,8 @@ ICONOS DENTRO DE BOTONES
 AJUSTES ADICIONALES PARA ICONOS
 ========================= */
 
-/* Iconos en la lista de detalles de mascotas (catálogo) */
 .pet-details-list i {
     color: #93CFA7;
+
     margin-right: 5px;
 }

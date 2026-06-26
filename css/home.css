@@ -1,36 +1,41 @@
 /* =========================
 FONDO GENERAL
 ========================= */
+
 body {
-    background-color: #111827; 
-    color: #cbd5e1;            
-    font-family: 'Quicksand', sans-serif; 
+    background-color: #111827;
+    color: #cbd5e1;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* =========================
 Títulos principales
 ========================= */
+
 h1.catalog-title,
 .catalog-title {
     font-family: 'Lilita One', cursive;
     font-size: 2.4rem;
     font-weight: normal;
     color: white;
+
     border-bottom: 2px solid rgba(147, 207, 167, 0.15);
+
     padding-bottom: 10px;
     margin-bottom: 10px;
-    text-align: center; 
+    text-align: center;
     letter-spacing: 1.5px;
 }
 
-/* Estilo general para h2 (Sobre Nosotros, Misión, Visión, etc.) */
 h2,
 .section-title {
     font-family: 'Lilita One', cursive;
     font-size: 1.8rem;
     font-weight: normal;
     color: white;
+
     text-align: center;
+
     margin-bottom: 20px;
     letter-spacing: 1.5px;
 }
@@ -38,6 +43,7 @@ h2,
 /* =========================
 PARRÁFOS Y TEXTOS
 ========================= */
+
 p, .text-content {
     color: white;
     font-size: 1rem;
@@ -47,46 +53,52 @@ p, .text-content {
 /* =========================
 CONTENEDOR DE CIFRAS GRID
 ========================= */
+
 .cifras-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 40px;
+
     margin: 0 auto;
     max-width: 1100px;
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
     background-color: transparent;
     backdrop-filter: blur(4px);
     border: 2px solid #2A5A46;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    padding: 24px 20px;        
-    min-height: 240x;         
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+    padding: 24px 20px;
+    min-height: 240px;
+
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.3s ease;
 }
 
-/* Iconos dentro de las tarjetas */
 .card-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
+
     font-size: 2.2rem;
     color: #93CFA7;
+
     margin-bottom: 12px;
 }
 
 .card:hover {
     transform: translateY(-6px);
     border-color: #93CFA7;
-    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);  
+    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);
 }
 
 .card-icons .number {
@@ -94,15 +106,16 @@ CONTENEDOR DE CIFRAS GRID
     font-size: 2.4rem;
     font-weight: normal;
     color: white;
+
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Texto dentro de las tarjetas */
 .card p {
     color: white;
     font-size: 0.95rem;
     margin: 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); 
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .card p strong {
@@ -113,20 +126,22 @@ CONTENEDOR DE CIFRAS GRID
 /* =========================
 ADOPCIÓN RESPONSABLE
 ========================= */
+
 .adopcion-responsable {
-    background-color: #0f172a; /* fondo más oscuro para contraste */
+    background-color: #0f172a;
+
     padding: 40px 0;
     margin-top: 30px;
+    margin-bottom: 3rem;
 }
 
 .adopcion-responsable .cifras-container {
     margin-top: 10px;
 }
 
-/* Ajuste para las tarjetas de características */
 .caracteristicas-info.card {
-    padding: 20px 18px;        
-    min-height: 160px;         
+    padding: 20px 18px;
+    min-height: 160px;
 }
 
 .caracteristicas-info .card-icons {
@@ -136,10 +151,13 @@ ADOPCIÓN RESPONSABLE
 /* =========================
 SOBRE NOSOTROS
 ========================= */
+
 .sobre-nosotros {
-    background-color: #0d152a; 
+    background-color: #0d152a;
     color: white;
+
     padding: 60px 0;
+
     position: relative;
     overflow: hidden;
 }
@@ -147,29 +165,35 @@ SOBRE NOSOTROS
 /* =========================
 BOTÓN "QUIERO ADOPTAR" EN SOBRE NOSOTROS
 ========================= */
+
 .btn-adoptar-wrapper {
     text-align: center;
+
     margin-top: 2.5rem;
 }
 
 .btn-adoptar-grande {
     display: inline-block;
-    padding: 18px 48px;
-    font-size: 1.3rem;
-    font-weight: 700;
+
     background: #2A5A46;
     color: #ffffff;
     border: 3px solid #93CFA7;
     border-radius: 50px;
     box-shadow: 0 8px 25px rgba(42, 90, 70, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    padding: 18px 48px;
+    font-size: 1.3rem;
+    font-weight: 700;
     text-decoration: none;
     letter-spacing: 0.5px;
+
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-adoptar-grande:hover {
     background: #93CFA7;
     color: #0f172a;
+
     transform: scale(1.05);
     box-shadow: 0 12px 35px rgba(147, 207, 167, 0.5);
 }
@@ -181,8 +205,10 @@ BOTÓN "QUIERO ADOPTAR" EN SOBRE NOSOTROS
 /* =========================
 TIPOGRAFÍA Y CONTENIDO CENTRAL
 ========================= */
+
 .container {
-    max-width: 1200px; 
+    max-width: 1200px;
+
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -191,13 +217,16 @@ TIPOGRAFÍA Y CONTENIDO CENTRAL
     font-family: 'Lilita One', cursive;
     font-size: 2.8rem;
     color: white;
+
     text-align: center;
+
     margin-bottom: 2rem;
     letter-spacing: 1.5px;
 }
 
 .sobre-nosotros-content {
-    max-width: 900px; 
+    max-width: 900px;
+
     margin: 0 auto 3.5rem auto;
     text-align: center;
 }
@@ -205,53 +234,55 @@ TIPOGRAFÍA Y CONTENIDO CENTRAL
 .sobre-nosotros-content p {
     font-size: 1.1rem;
     line-height: 1.7;
+    color: #cbd5e1;
+
     margin-bottom: 1.5rem;
-    color: #cbd5e1; 
 }
 
-/* Estilo para las palabras clave o MatchPet CR */
 .sobre-nosotros-content strong,
 .sobre-nosotros-content p .highlight {
-    color: #93CFA7; 
+    color: #93CFA7;
     font-weight: bold;
 }
 
 /* =========================
 TARJETAS CON EFECTO
 ========================= */
+
 .tarjetas-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
+
     margin: 0 auto;
     max-width: 1100px;
 }
 
 .card.glass-card {
-    background: rgba(26, 34, 52, 0.5); 
-    backdrop-filter: blur(8px); 
-    -webkit-backdrop-filter: blur(8px); 
-    border: 2px solid #2a5a46; 
+    background: rgba(26, 34, 52, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid #2a5a46;
     border-radius: 20px;
-    
+    box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.3);
+
     padding: 40px;
     text-align: center;
-    box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.3);
+
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Efecto hover en la tarjeta */
 .card.glass-card:hover {
-    transform: translateY(-8px); 
-    border-color: #93CFA7; 
+    transform: translateY(-8px);
+    border-color: #93CFA7;
     box-shadow: 0 12px 35px rgba(255, 255, 255, 0.15);
 }
 
-/* Tipografía dentro de las tarjetas */
 .card h3 {
     font-family: 'Lilita One', cursive;
-    color: #cbd5e1; /* Gris claro */
     font-size: 1.8rem;
+    color: #cbd5e1;
+
     margin-top: 0;
     margin-bottom: 15px;
 }
@@ -266,6 +297,7 @@ TARJETAS CON EFECTO
 /* =========================
 RESPONSIVE
 ========================= */
+
 @media (max-width: 768px) {
     h1.catalog-title {
         font-size: 1.8rem;
@@ -275,10 +307,11 @@ RESPONSIVE
     }
     .cifras-container {
         display: grid !important;
-        grid-template-columns: 1fr !important;   
-        flex-direction: column !important;        
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
         flex-wrap: wrap !important;
         gap: 20px;
+
         justify-items: stretch;
         width: 100%;
         max-width: 100%;
@@ -287,14 +320,14 @@ RESPONSIVE
     .card {
         width: 100% !important;
         max-width: 100% !important;
-        flex: 1 1 100% !important;   
+        flex: 1 1 100% !important;
+
         padding: 24px 20px;
         min-height: 180px;
         box-sizing: border-box;
     }
 }
 
-/* Ajuste fino para móviles muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     h1.catalog-title {
         font-size: 1.6rem;
@@ -305,7 +338,7 @@ RESPONSIVE
     .card {
         padding: 20px 16px;
         min-height: 160px;
-         margin-bottom: 10px; 
+        margin-bottom: 10px;
     }
     .card-icons {
         font-size: 1.8rem;
@@ -319,13 +352,11 @@ RESPONSIVE
     .adopcion-responsable {
         padding: 20px 0;
     }
-    
     .btn-adoptar-wrapper {
         display: none;
     }
 }
 
-/* Responsive del botón */
 @media (max-width: 480px) {
     .btn-adoptar-grande {
         padding: 14px 30px;

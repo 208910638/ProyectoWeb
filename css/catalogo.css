@@ -2,12 +2,10 @@
 ESTILOS GENERALES DEL CATÁLOGO
 ========================= */
 
-/* Fondo general del catálogo */
 body {
     background-color: #111827;
 }
 
-/* Contenedor principal con espacio para el header fijo */
 .py-40 {
     padding-top: 20px;
     padding-bottom: 60px;
@@ -15,7 +13,6 @@ body {
     background-color: #0f172a;
 }
 
-/* Encabezado del catálogo */
 .catalog-header {
     text-align: center;
 
@@ -23,7 +20,6 @@ body {
     padding-bottom: 20px;
 }
 
-/* Título principal del catálogo */
 .catalog-title {
     font-family: 'Lilita One', cursive;
     font-size: 2.4rem;
@@ -37,7 +33,6 @@ body {
     letter-spacing: 1.5px;
 }
 
-/* Subtítulo del catálogo */
 .catalog-subtitle {
     color: #cbd5e1;
     font-size: 1.05rem;
@@ -51,7 +46,6 @@ body {
 BARRA DE BÚSQUEDA Y FILTROS
 ========================= */
 
-/* Contenedor principal de búsqueda y filtros */
 .filter-container {
     display: flex;
     flex-direction: column;
@@ -71,7 +65,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     padding-bottom: 20px;
 }
 
-/* Sección del buscador */
 .search-wrapper {
     display: flex;
     flex-direction: column;
@@ -80,7 +73,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     width: 100%;
 }
 
-/* Etiqueta del buscador */
 .search-wrapper label {
     color: #93CFA7;
     font-size: 0.9rem;
@@ -90,7 +82,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     letter-spacing: 0.5px;
 }
 
-/* Contenedor del input con ícono */
 .search-input-box {
     position: relative;
 
@@ -98,7 +89,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     align-items: center;
 }
 
-/* Input de búsqueda */
 .search-input-box input {
     width: 100%;
 
@@ -115,7 +105,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     transition: all 0.3s ease;
 }
 
-/* Input de búsqueda en foco */
 .search-input-box input:focus {
     outline: none;
 
@@ -124,12 +113,10 @@ BARRA DE BÚSQUEDA Y FILTROS
     box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.15);
 }
 
-/* Iluminar lupa al escribir */
 .search-input-box input:focus + .search-icon {
     color: #93CFA7;
 }
 
-/* Fila de filtros */
 .filters-row {
     display: flex;
     flex-wrap: wrap;
@@ -138,7 +125,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     width: 100%;
 }
 
-/* Cada filtro individual */
 .filter-box {
     display: flex;
     flex-direction: column;
@@ -149,52 +135,49 @@ BARRA DE BÚSQUEDA Y FILTROS
     min-width: 160px;
 }
 
-/* Etiqueta del filtro */
 .filter-box label {
     color: #94a3b8;
     font-size: 0.85rem;
     font-weight: 600;
 }
 
-/* Estilo base y estados de validación para el filtro */
 .filter-box select,
 .filter-box select:invalid,
 .filter-box select:valid {
     width: 100%;
     box-sizing: border-box;
+
     padding: 12px;
-    padding-right: 3.5rem; /* Espacio para el icono */
+    padding-right: 3.5rem;
+
     font-size: 0.95rem;
     cursor: pointer;
+
     border-radius: 8px;
     border: 1.5px solid #2A5A46;
-    transition: all 0.3s ease;
 
-    /* Estilos visuales forzados */
     appearance: none;
     background-color: #0f172a !important;
     color: #f8fafc !important;
-    
-    /* Icono de flecha personalizado */
+
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2393CFA7' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1.5rem center;
+
+    transition: all 0.3s ease;
 }
 
-/* FIX: Opciones desplegables */
 .filter-box select option {
     background-color: #0f172a !important;
     color: #f8fafc !important;
 }
 
-/* FIX: Estado deshabilitado */
 .filter-box select:disabled {
     background-color: #0f172a !important;
     color: #94a3b8 !important;
     opacity: 0.6;
 }
 
-/* FIX: Estados de error o éxito*/
 .filter-box select.input-error {
     background-color: rgba(248, 113, 113, 0.06) !important;
 }
@@ -203,7 +186,6 @@ BARRA DE BÚSQUEDA Y FILTROS
     background-color: #0f172a !important;
 }
 
-/* Select en foco */
 .filter-box select:focus {
     outline: none;
 
@@ -223,7 +205,6 @@ BARRA DE BÚSQUEDA Y FILTROS
 REJILLA Y TARJETAS DE MASCOTAS
 ========================= */
 
-/* Contenedor de la cuadrícula de mascotas */
 .pet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -232,7 +213,6 @@ REJILLA Y TARJETAS DE MASCOTAS
     margin-top: 20px;
 }
 
-/* Tarjeta de mascota */
 .pet-card {
     display: flex;
     flex-direction: column;
@@ -251,13 +231,11 @@ REJILLA Y TARJETAS DE MASCOTAS
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
 }
 
-/* Tarjeta en hover */
 .pet-card:hover {
     transform: translateY(-6px);
     border-color: #93CFA7;
 }
 
-/* Identificador ID flotante */
 .pet-badge {
     position: absolute;
     top: 15px;
@@ -275,7 +253,6 @@ REJILLA Y TARJETAS DE MASCOTAS
     font-weight: 700;
 }
 
-/* Imagen de la mascota */
 .pet-image {
     width: 100%;
     height: 250px;
@@ -285,7 +262,6 @@ REJILLA Y TARJETAS DE MASCOTAS
     border-bottom: 2px solid #2A5A46;
 }
 
-/* Bloque de información */
 .pet-info {
     display: flex;
     flex-direction: column;
@@ -294,7 +270,6 @@ REJILLA Y TARJETAS DE MASCOTAS
     padding: 22px;
 }
 
-/* Nombre de la mascota */
 .pet-name {
     display: flex;
     align-items: center;
@@ -307,7 +282,6 @@ REJILLA Y TARJETAS DE MASCOTAS
     margin-bottom: 6px;
 }
 
-/* Raza de la mascota */
 .pet-breed {
     color: #93CFA7;
     font-size: 0.95rem;
@@ -316,7 +290,6 @@ REJILLA Y TARJETAS DE MASCOTAS
     margin-bottom: 18px;
 }
 
-/* Lista horizontal de detalles clave */
 .pet-details-list {
     display: flex;
     justify-content: space-between;
@@ -333,14 +306,12 @@ REJILLA Y TARJETAS DE MASCOTAS
     padding-bottom: 14px;
 }
 
-/* Iconos de los detalles */
 .pet-details-list i {
     color: #93CFA7;
 
     margin-right: 5px;
 }
 
-/* Descripción de la mascota */
 .pet-description {
     color: #cbd5e1;
     font-size: 0.9rem;
@@ -355,7 +326,6 @@ REJILLA Y TARJETAS DE MASCOTAS
 BOTÓN DE ADOPCIÓN
 ========================= */
 
-/* Botón de adoptar */
 .btn-adoptar {
     background-color: #2A5A46;
     color: #ffffff;
@@ -372,7 +342,6 @@ BOTÓN DE ADOPCIÓN
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Botón en hover */
 .btn-adoptar:hover {
     background-color: #93CFA7;
     color: #111827;
@@ -381,7 +350,6 @@ BOTÓN DE ADOPCIÓN
     transform: scale(1.02);
 }
 
-/* Botón al hacer clic */
 .btn-adoptar:active {
     transform: scale(0.98);
 }
@@ -390,7 +358,6 @@ BOTÓN DE ADOPCIÓN
 RESPONSIVE
 ========================= */
 
-/* Celulares muy pequeños (≤ 400px) */
 @media (max-width: 400px) {
     .catalog-title {
         font-size: 1.6rem;
@@ -416,7 +383,7 @@ RESPONSIVE
         font-size: 0.85rem;
     }
     .pet-grid {
-        grid-template-columns: 1fr;  /* Una sola columna */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .pet-card {
@@ -440,5 +407,4 @@ RESPONSIVE
         padding: 12px;
         font-size: 0.9rem;
     }
-
 }
