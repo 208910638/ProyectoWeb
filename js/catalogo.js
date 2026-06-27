@@ -12,15 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s/g, '');
     }
 
-    function getMascotasPostuladas() {
-        return JSON.parse(localStorage.getItem('mascotasPostuladas')) || [];
-    }
-
     function cargarMascotas() {
         fetch('data/mascotas.json')
             .then(response => response.json())
             .then(data => {
-                const mascotasLocal = JSON.parse(localStorage.getItem('mascotasCatalogo')) || [];
+                const mascotasLocal = getMascotasCatalogo();
                 const idsExistentes = new Set(data.map(p => p.id));
                 const nuevasMascotas = mascotasLocal.filter(p => !idsExistentes.has(p.id));
                 

@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 cancelButtonText: 'Cancelar'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    localStorage.removeItem('historialAdopciones');
-                    localStorage.removeItem('mascotasPostuladas');
+                    vaciarHistorial();
                     renderizarHistorial();
                     Swal.fire({
                         icon: 'info',
@@ -148,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return fetch('data/mascotas.json')
             .then(response => response.json())
             .then(data => {
-                const mascotasLocal = JSON.parse(localStorage.getItem('mascotasCatalogo')) || [];
+                const mascotasLocal = getMascotasCatalogo();
                 const todasMascotas = [...data, ...mascotasLocal];
                 
                 const mascota = todasMascotas.find(p => p.id === id);
@@ -280,6 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         agregarAlHistorial(datosAdopcion);
+        renderizarHistorial();
         window.limpiarFormulario(form);
         
         if (banner) banner.hidden = true;
@@ -410,29 +410,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Funciones de mascota como postulada
-function marcarMascotaComoPostulada(idMascota) {
-    let mascotasPostuladas = JSON.parse(localStorage.getItem('mascotasPostuladas')) || [];
-    if (!mascotasPostuladas.includes(idMascota)) {
-        mascotasPostuladas.push(idMascota);
-        localStorage.setItem('mascotasPostuladas', JSON.stringify(mascotasPostuladas));
-    }
-}
-
-function eliminarMascotaPostulada(idMascota) {
-    let mascotasPostuladas = JSON.parse(localStorage.getItem('mascotasPostuladas')) || [];
-    mascotasPostuladas = mascotasPostuladas.filter(id => id !== idMascota);
-    localStorage.setItem('mascotasPostuladas', JSON.stringify(mascotasPostuladas));
-}
-
-// Historial
-function agregarAlHistorial(solicitud) {
-    let historial = JSON.parse(localStorage.getItem('historialAdopciones')) || [];
-    solicitud.idUnico = Date.now();
-    historial.push(solicitud);
-    localStorage.setItem('historialAdopciones', JSON.stringify(historial));
-    renderizarHistorial();
-}
 
 function renderizarHistorial() {
     const lista = document.getElementById('listaHistorial');
@@ -440,7 +417,7 @@ function renderizarHistorial() {
     
     if (!lista) return;
     
-    const historial = JSON.parse(localStorage.getItem('historialAdopciones')) || [];
+    const historial = getHistorialAdopciones();
     
     if (resumen) {
         const postulados = historial.filter(s => s.estado === 'postulado').length;
@@ -602,7 +579,7 @@ function manejarAceptar(id) {
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
-            let historial = JSON.parse(localStorage.getItem('historialAdopciones')) || [];
+            let historial = getHistorialAdopciones();
             const index = historial.findIndex(s => s.idUnico === id);
             
             if (index !== -1) {
@@ -627,12 +604,10 @@ function manejarAceptar(id) {
                         imagen: foto,
                     };
                     
-                    const mascotasGuardadas = JSON.parse(localStorage.getItem('mascotasCatalogo')) || [];
-                    mascotasGuardadas.push(nuevaMascota);
-                    localStorage.setItem('mascotasCatalogo', JSON.stringify(mascotasGuardadas));
+                    agregarMascotaCatalogo(nuevaMascota);
                     
                     historial[index].estado = 'aceptado';
-                    localStorage.setItem('historialAdopciones', JSON.stringify(historial));
+                    guardarHistorialAdopciones(historial);
                     renderizarHistorial();
                     
                     Swal.fire({
@@ -651,7 +626,7 @@ function manejarAceptar(id) {
                     
                     // Actualizar estado en historial
                     historial[index].estado = 'aceptado';
-                    localStorage.setItem('historialAdopciones', JSON.stringify(historial));
+                    guardarHistorialAdopciones(historial);
                     renderizarHistorial();
                     
                     Swal.fire({
@@ -671,7 +646,7 @@ function renderizarHistorial() {
     
     if (!lista) return;
     
-    const historial = JSON.parse(localStorage.getItem('historialAdopciones')) || [];
+    const historial = getHistorialAdopciones();
     
     if (resumen) {
         const postulados = historial.filter(s => s.estado === 'postulado').length;
@@ -756,11 +731,7 @@ function renderizarHistorial() {
     document.querySelectorAll('.btn-cancelar').forEach(b => b.onclick = (e) => manejarCancelar(parseInt(e.currentTarget.dataset.id)));
 }
 
-function eliminarMascotaDelCatalogo(idMascota) {
-    let mascotasLocal = JSON.parse(localStorage.getItem('mascotasCatalogo')) || [];
-    mascotasLocal = mascotasLocal.filter(p => p.id !== idMascota);
-    localStorage.setItem('mascotasCatalogo', JSON.stringify(mascotasLocal));
-}
+
 
 function manejarCancelar(id) {
     Swal.fire({
@@ -774,7 +745,7 @@ function manejarCancelar(id) {
         cancelButtonText: 'No, mantener'
     }).then((result) => {
         if (result.isConfirmed) {
-            let historial = JSON.parse(localStorage.getItem('historialAdopciones')) || [];
+            let historial = getHistorialAdopciones();
             const index = historial.findIndex(s => s.idUnico === id);
             
             if (index !== -1) {
@@ -786,7 +757,7 @@ function manejarCancelar(id) {
                 }
                 
                 historial.splice(index, 1);
-                localStorage.setItem('historialAdopciones', JSON.stringify(historial));
+                guardarHistorialAdopciones(historial);
                 renderizarHistorial();
                 
                 Swal.fire({

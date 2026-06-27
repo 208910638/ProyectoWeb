@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 tipo: 'publicacion',
                 datos: datosMascota
             });
+            renderizarHistorial();
 
             window.limpiarFormulario(form);
             
