@@ -31,7 +31,7 @@
     "id": "PET003",
     "nombre": "Coco",
     "especie": "perro",
-    "sexo": "hembra",
+    "sexo": "macho",
     "edad": "1 año",
     "peso": "12 kg",
     "raza": "Mestizo",
@@ -80,7 +80,7 @@
     "tamanio": "mediano",
     "provincia": "Alajuela",
     "descripcion": "Oliver es un gato muy elegante y observador. Disfruta de la tranquilidad del hogar y es experto en encontrar los lugares más cómodos para dormir la siesta. ¡Un gran compañero para tardes de lectura!",
-    "imagen": "source/img/oliver.jpeg",
+    "imagen": "source/img/Oliver.jpeg",
     "imagen_fallback": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=600"
   },
   {
@@ -94,7 +94,7 @@
     "tamanio": "mediano",
     "provincia": "Alajuela",
     "descripcion": "Bonnie es una perrita muy dulce y tranquila. Es muy obediente y le encanta pasear a un ritmo relajado. Se lleva de maravilla con adultos y otros perros. ¡Una compañera de vida excepcional!",
-    "imagen": "source/img/bonnie.jpeg",
+    "imagen": "source/img/Bonnie.jpeg",
     "imagen_fallback": "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=600"
   }
 ]

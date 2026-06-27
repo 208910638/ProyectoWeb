@@ -2,6 +2,11 @@
 FONDO GENERAL
 ========================= */
 
+/* Ajusta el valor según la altura, para que se vea sobre nosotros alineado */
+section {
+    scroll-margin-top: 80px; 
+}
+
 body {
     background-color: #111827;
     color: #cbd5e1;

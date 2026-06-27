@@ -90,9 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const tam = pet.tamanio;
 
             return nombre.includes(busqueda) && 
-                   (especie === 'todos' || esp === especie) && 
-                   (provincia === 'todas' || prov === provinciaNormalizada) && 
-                   (tamanio === 'todos' || tam === tamanio);
+                (especie === 'todos' || esp === especie) && 
+                (provincia === 'todas' || prov === provinciaNormalizada) && 
+                (tamanio === 'todos' || tam === tamanio);
         });
 
         renderMascotas(filtradas);

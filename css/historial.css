@@ -470,6 +470,11 @@ VACIAR HISTORIAL
 RESPONSIVE
    ========================= */
 
+/* Box-sizing global fuera de las media queries */
+* {
+    box-sizing: border-box;
+}
+
 @media (max-width: 1024px) {
     .historial-sidebar {
         position: static;
@@ -481,36 +486,13 @@ RESPONSIVE
 }
 
 @media (max-width: 600px) {
-    .historial-card-body {
-        align-items: flex-start; 
-    }
-
-    .historial-titulo {
-        white-space: normal; 
-        line-height: 1.2;
-        margin-bottom: 4px;
-    }
-
-    /* Asegura que los botones siempre se vean bien */
-    .historial-card-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Dos columnas proporcionales */
-        gap: 10px;
-    }
-
-    
-* {
-    box-sizing: border-box;
-}
-
-@media (max-width: 600px) {
     .historial-sidebar {
         padding: 1rem;
         border-radius: 12px;
     }
 
     .historial-grid {
-        max-height: 50vh; /* Ajuste dinámico al viewport */
+        max-height: 50vh; 
     }
 
     .historial-card {
@@ -526,12 +508,11 @@ RESPONSIVE
         white-space: normal;
         line-height: 1.3;
         display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limita a 2 líneas*/
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
 
-    /* Mejora la estructura de la información */
     .historial-card-header {
         flex-direction: row;
         flex-wrap: wrap;
@@ -558,5 +539,4 @@ RESPONSIVE
     .detalles-grid {
         grid-template-columns: 1fr;
     }
-}
 }
