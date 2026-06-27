@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const especieSelect = document.getElementById('filter-especie');
     const provinciaSelect = document.getElementById('filter-provincia');
     const tamanioSelect = document.getElementById('filter-tamanio');
+    const countDisplay = document.getElementById('count-display');
 
     let mascotas = []; 
 
@@ -11,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s/g, '');
     }
 
-    // Obtener IDs de mascotas postuladas
     function getMascotasPostuladas() {
         return JSON.parse(localStorage.getItem('mascotasPostuladas')) || [];
     }
@@ -24,10 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const idsExistentes = new Set(data.map(p => p.id));
                 const nuevasMascotas = mascotasLocal.filter(p => !idsExistentes.has(p.id));
                 
-                // Combinar todas las mascotas
                 let todasMascotas = [...data, ...nuevasMascotas];
-                
-                // Filtrar mascotas que NO estén postuladas
                 const postuladas = getMascotasPostuladas();
                 mascotas = todasMascotas.filter(p => !postuladas.includes(p.id));
                 
@@ -36,11 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error cargando mascotas:', error));
     }
 
-    cargarMascotas();
-
     function renderMascotas(lista) {
         if (!grid) return;
         grid.innerHTML = ''; 
+        
+        if (countDisplay) {
+            countDisplay.textContent = lista.length;
+        }
 
         if (lista.length === 0) {
             grid.innerHTML = `<p class="no-results">No se encontraron mascotas con esos filtros.</p>`;
@@ -54,15 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const card = document.createElement('article');
             card.className = 'pet-card';
-            card.dataset.especie = pet.especie;
-            card.dataset.edad = pet.edad; 
-            card.dataset.provincia = normalizar(pet.provincia);
-            card.dataset.nombre = pet.nombre.toLowerCase();
-            card.dataset.tamanio = pet.tamanio;
-
-            const imagenSrc = pet.imagen && pet.imagen.startsWith('data:image') 
-                ? pet.imagen 
-                : pet.imagen || pet.imagen_fallback || 'img/default.jpg';
+            
+            // La imagen usará la ruta definida en el JSON: source/img
+            const imagenSrc = pet.imagen || pet.imagen_fallback || 'img/default.jpg';
 
             card.innerHTML = `
                 <div class="pet-badge">ID: ${pet.id}</div>
@@ -76,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <li><i class="fa-solid fa-location-dot"></i> ${pet.provincia || 'Ubicación no especificada'}</li>
                     </ul>
                     <p class="pet-description">${pet.descripcion || 'Mascota en busca de un hogar lleno de amor.'}</p>
-                    <a href="formulario.html?id=${pet.id}&nombre=${pet.nombre}&especie=${pet.especie}&sexo=${pet.sexo}&edad=${pet.edad}&peso=${pet.peso}" class="btn-adoptar">Adoptar a ${pet.nombre}</a>
+                    <a href="formulario.html?id=${pet.id}&nombre=${pet.nombre}" class="btn-adoptar">Adoptar a ${pet.nombre}</a>
                 </div>
             `;
             grid.appendChild(card);
@@ -93,15 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const filtradas = mascotas.filter(pet => {
             const nombre = pet.nombre.toLowerCase();
             const esp = pet.especie;
-            const prov = normalizar(pet.provincia || '');   
+            const prov = normalizar(pet.provincia || '');
             const tam = pet.tamanio;
 
-            const matchNombre = nombre.includes(busqueda);
-            const matchEspecie = (especie === 'todos' || esp === especie);
-            const matchProvincia = (provincia === 'todas' || prov === provinciaNormalizada);
-            const matchTamanio = (tamanio === 'todos' || tam === tamanio);
-
-            return matchNombre && matchEspecie && matchProvincia && matchTamanio;
+            return nombre.includes(busqueda) && 
+                   (especie === 'todos' || esp === especie) && 
+                   (provincia === 'todas' || prov === provinciaNormalizada) && 
+                   (tamanio === 'todos' || tam === tamanio);
         });
 
         renderMascotas(filtradas);
@@ -112,10 +103,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (provinciaSelect) provinciaSelect.addEventListener('change', filtrar);
     if (tamanioSelect) tamanioSelect.addEventListener('change', filtrar);
 
-    // Escuchar cambios en localStorage
-    window.addEventListener('storage', function(e) {
-        if (e.key === 'mascotasCatalogo' || e.key === 'mascotasPostuladas') {
-            cargarMascotas();
-        }
-    });
+    cargarMascotas();
 });

@@ -409,61 +409,37 @@ RESPONSIVE
         box-sizing: border-box;
     }
 }
+/* =========================
+FONDO VETERINARIA (MÓVIL)
+========================= */
 
-@media (max-width: 480px) {
-    .btn-adoptar-grande {
-        padding: 14px 30px;
-        font-size: 1.1rem;
-        width: 90%;
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 400px) {
-    h1.catalog-title {
-        font-size: 1.6rem;
-    }
-    h2 {
-        font-size: 1.4rem;
-    }
-    .card {
-        padding: 20px 16px;
-        min-height: 160px;
-        margin-bottom: 10px;
-    }
-    .card-icons {
-        font-size: 1.8rem;
-    }
-    .card-icons .number {
-        font-size: 2rem;
-    }
-    .card p {
-        font-size: 0.85rem;
-    }
-    .adopcion-responsable {
-        padding: 20px 0;
-    }
-    .btn-adoptar-wrapper {
-        display: none;
+@media (max-width: 768px) {
+    body {
+        background-image: url('https://i.pinimg.com/736x/af/4a/bc/af4abc12c4b00ef60dd1b68526f5e683.jpg');
+        background-repeat: repeat;
+        background-size: 150px; 
+        background-attachment: fixed;
+        background-color: #0f172a29; 
     }
 
-    .inicio-content {
-        padding: 20px 12px 60px;
+    .pet-section{
+        background-color: #0d152a00;
     }
-    .inicio-content h1 {
-        font-size: 1.4rem;
+
+    .adopcion-responsable{
+        background-color: #0d152a00;
     }
-    .inicio-content p {
-        font-size: 0.85rem;
-    }
-    .card {
-        padding: 16px;
-        flex-basis: 100%;
-    }
-    .card-icons .number {
-        font-size: 1.4rem;
-    }
-    .card p {
-        font-size: 0.85rem;
+
+    /* Capa de opacidad para asegurar que el texto sea legible */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.92);
+        z-index: -1;
+        pointer-events: none;
     }
 }
