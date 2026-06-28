@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function manejarAceptar(id) {
     Swal.fire({
         title: '¿Confirmar acción?',
-        text: 'La solicitud será aprobada y la mascota ya no estará disponible en el catálogo.',
+        text: 'La solicitud será aprobada y la mascota cambiará de disponibilidad en el catálogo.',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#2A5A46',
