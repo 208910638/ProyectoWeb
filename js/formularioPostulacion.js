@@ -578,7 +578,7 @@ function manejarAceptar(id) {
                     Swal.fire({
                         icon: 'success',
                         title: '¡Adopción confirmada!',
-                        text: `La adopción de ${solicitud.nombre} ha sido aprobada. La mascota ya no está disponible en el catálogo.`,
+                        text: `La adopción de ${solicitud.nombre} ha sido aprobada. La mascota cambiará su disponibilidad en el catálogo.`,
                         confirmButtonColor: '#2A5A46'
                     });
                 }
