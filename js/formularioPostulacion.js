@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             window.validarMascota(idMascota, nombreMascota, especieMascota, sexoValue, edadMascota, pesoMascota)
                 .then(resultado => {
-                    Swal.close();
+
                     if (!resultado.valido) {
                         Swal.fire({
                             icon: resultado.icon || 'error',
@@ -495,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     console.error('Error en validación:', error);
-                    Swal.close();
+
                     Swal.fire({
                         icon: 'warning',
                         title: '<i class="fa-solid fa-triangle-exclamation"></i> Advertencia',
@@ -513,10 +513,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Se elimina la mascota
 function manejarAceptar(id) {
     Swal.fire({
         title: '¿Confirmar acción?',
-        text: 'La solicitud será aprobada y la mascota estará disponible en el catálogo.',
+        text: 'La solicitud será aprobada y la mascota ya no estará disponible en el catálogo.',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#2A5A46',
@@ -578,7 +579,7 @@ function manejarAceptar(id) {
                     Swal.fire({
                         icon: 'success',
                         title: '¡Adopción confirmada!',
-                        text: `La adopción de ${solicitud.nombre} ha sido aprobada. La mascota cambiará su disponibilidad en el catálogo.`,
+                        text: `La adopción de ${solicitud.nombre} ha sido aprobada. La mascota estará disponible en el catálogo.`,
                         confirmButtonColor: '#2A5A46'
                     });
                 }
