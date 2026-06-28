@@ -513,11 +513,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Se elimina la mascota
 function manejarAceptar(id) {
     Swal.fire({
         title: '¿Confirmar acción?',
-        text: 'La solicitud será aprobada y la mascota ya no estará disponible en el catálogo.',
+        text: 'La solicitud será aprobada y la mascota estará disponible en el catálogo.',
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#2A5A46',
