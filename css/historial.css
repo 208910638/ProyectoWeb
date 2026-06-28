@@ -119,9 +119,13 @@ TARJETA DE SOLICITUD
     border: 0.5px solid rgba(147, 207, 167, 0.12);
     border-radius: 12px;
     padding: 12px 14px;
+    
+    /* limite de altura */
+    max-height: 350px; 
+    overflow-y: auto;  /* Esto activa el scroll (si esto no sirve voy a llorar)*/
+    
     transition: border-color 0.2s ease, transform 0.2s ease;
-    overflow: hidden;        
-    box-sizing: border-box;  
+    box-sizing: border-box;
 }
 
 .historial-card:hover {
@@ -182,6 +186,7 @@ BADGES DE TIPO
     white-space: nowrap;
 }
 
+
 /* =========================
 CUERPO DE TARJETA
    ========================= */
@@ -190,6 +195,7 @@ CUERPO DE TARJETA
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 5px;
     margin-bottom: 10px;
 }
 
@@ -317,7 +323,7 @@ DETALLES EXPANDIBLES
 
 .historial-card details {
     margin-top: 4px;
-    margin-left: 90px;
+    margin-left: 40px;
 }
 
 .historial-card details summary {
@@ -334,8 +340,32 @@ DETALLES EXPANDIBLES
     transition: color 0.2s ease;
 }
 
-.historial-card details summary::-webkit-details-marker {
-    display: none;
+.historial-grid::-webkit-scrollbar,
+.historial-card::-webkit-scrollbar,
+.det-inner::-webkit-scrollbar {
+    width: 3px;    
+    height: 3px;   
+}
+
+.historial-grid::-webkit-scrollbar-track,
+.historial-card::-webkit-scrollbar-track,
+.det-inner::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.historial-grid::-webkit-scrollbar-thumb,
+.historial-card::-webkit-scrollbar-thumb,
+.det-inner::-webkit-scrollbar-thumb {
+    background-color: rgba(147, 207, 167, 0.4); 
+    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.2); 
+}
+
+/* Efecto hover */
+.historial-grid::-webkit-scrollbar-thumb:hover,
+.historial-card::-webkit-scrollbar-thumb:hover,
+.det-inner::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(147, 207, 167, 0.7);
 }
 
 .historial-card details summary:hover {
@@ -359,6 +389,8 @@ DETALLES EXPANDIBLES
     padding: 10px 12px;
     font-size: 0.78rem;
     color: #94a3b8;
+    max-height: none; 
+    overflow-y: visible;
 }
 
 .det-inner p {
@@ -516,22 +548,22 @@ VACIAR HISTORIAL
     color: #94a3b8;
     
 
-    max-height: 200px; /* Altura máximal */
+    max-height: 200px; /* Altura máxima */
     overflow-y: auto;  /* Scroll vertical*/
     overflow-x: auto;  /* Scroll horizontal*/
 }
 
-.det-inner::-webkit-scrollbar {
+.historial-card::-webkit-scrollbar {
     width: 6px;
-    height: 6px;
+
 }
 
-.det-inner::-webkit-scrollbar-thumb {
-    background-color: rgba(96, 165, 250, 0.2);
-    border-radius: 4px;
+.historial-card::-webkit-scrollbar-thumb {
+    background-color: rgba(147, 207, 167, 0.3);
+    border-radius: 10px;
 }
 
-/* RESPOSNIVE */
+/* RESPONSIVE */
 
 /* Mediano*/
 @media (max-width: 768px) {
@@ -558,22 +590,20 @@ VACIAR HISTORIAL
         gap: 6px;
     }
 
+
     .historial-foto, 
     .historial-foto-placeholder {
-        width: 36px; /* Ajuste para q se vea*/
-        height: 36px;
+        width: 35px; 
+        height: 35px;
+        font-size: 0.9rem; 
     }
 
-    .historial-card {
-        padding: 10px;
-    }
-
-    .detalles-grid {
-        grid-template-columns: 1fr;
-    }
     
-    /* Evita que los textos rompan todas las tarjetitas*/
-    .historial-titulo, .historial-detalle {
-        max-width: 100%;
+    .historial-card {
+        padding: 8px;
+    }
+
+    .historial-card-body {
+        gap: 8px;
     }
 }
