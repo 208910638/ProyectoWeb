@@ -114,42 +114,145 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             const idInput = document.getElementById('id-mascota-form-adopcion');
             const nombreInput = document.getElementById('nombre-mascota-form-adopcion');
-            const especieSelect = document.getElementById('tipo-mascota-form-adopcion');
-            const edadInput = document.getElementById('edad-form-adopcion');
-            const pesoInput = document.getElementById('peso-form-adopcion');
-            
             if (idInput) idInput.value = params.id;
             if (nombreInput) nombreInput.value = params.nombre;
-            if (especieSelect) especieSelect.value = params.especie || '';
-            if (edadInput) edadInput.value = params.edad || '';
-            if (pesoInput) pesoInput.value = params.peso || '';
             
-            if (params.sexo) {
-                const radios = document.querySelectorAll('input[name="sexo_form_adopcion"]');
-                radios.forEach(radio => {
-                    if (radio.value === params.sexo) {
-                        radio.checked = true;
+            // Buscar la mascota completa para auto-completar los demás campos
+            fetch('data/mascotas.json')
+                .then(response => response.json())
+                .then(data => {
+                    const mascotasLocal = getMascotasCatalogo();
+                    const todasMascotas = [...data, ...mascotasLocal];
+                    const mascota = todasMascotas.find(p => p.id === params.id);
+                    
+                    if (mascota) {
+                        const especieSelect = document.getElementById('tipo-mascota-form-adopcion');
+                        const edadInput = document.getElementById('edad-form-adopcion');
+                        const pesoInput = document.getElementById('peso-form-adopcion');
+                        
+                        if (especieSelect) especieSelect.value = mascota.especie.toLowerCase() || '';
+                        if (edadInput) edadInput.value = mascota.edad || '';
+                        if (pesoInput) pesoInput.value = mascota.peso || '';
+                        
+                        if (mascota.sexo) {
+                            const radios = document.querySelectorAll('input[name="sexo_form_adopcion"]');
+                            radios.forEach(radio => {
+                                if (radio.value.toLowerCase() === mascota.sexo.toLowerCase()) {
+                                    radio.checked = true;
+                                }
+                            });
+                        }
+                        
+                        mostrarBanner({
+                            id: mascota.id,
+                            nombre: mascota.nombre,
+                            especie: mascota.especie,
+                            sexo: mascota.sexo
+                        });
+                    } else {
+                        // Si no la encuentra (raro), usa lo que venía en URL
+                        mostrarBanner({
+                            id: params.id,
+                            nombre: params.nombre,
+                            especie: params.especie,
+                            sexo: params.sexo
+                        });
                     }
+                })
+                .catch(error => {
+                    console.error('Error buscando detalles de mascota:', error);
+                    mostrarBanner({
+                        id: params.id,
+                        nombre: params.nombre
+                    });
                 });
-            }
-            
-            mostrarBanner({
-                id: params.id,
-                nombre: params.nombre,
-                especie: params.especie,
-                sexo: params.sexo
-            });
             
         }, 150);
     }
 
-    function validarMascota(id, nombre, especie, sexo, edad, peso) {
+    function parseEdadAños(str) {
+        if (!str) return 0;
+        str = str.toString().toLowerCase().trim();
+        let m = 0;
+        let years = str.match(/(\d+)\s*(año|a)/);
+        if (years) m += parseInt(years[1]) * 12;
+        let months = str.match(/(\d+)\s*(mes|m)/);
+        if (months) m += parseInt(months[1]);
+        if (years || months) return m / 12;
+        let numMatch = str.match(/(\d+(\.\d+)?)/);
+        if (numMatch) return parseFloat(numMatch[1]);
+        return 0;
+    }
+
+    function parsePesoKg(str) {
+        if (!str) return 0;
+        str = str.toString().toLowerCase().trim();
+        let numMatch = str.match(/(\d+(\.\d+)?)/);
+        if (numMatch) return parseFloat(numMatch[1]);
+        return 0;
+    }
+
+    window.validarMascota = function(id, nombre, especie, sexo, edad, peso) {
         return fetch('data/mascotas.json')
             .then(response => response.json())
             .then(data => {
                 const mascotasLocal = getMascotasCatalogo();
                 const todasMascotas = [...data, ...mascotasLocal];
+                const postuladas = getMascotasPostuladas();
+                const mascotasDisponibles = todasMascotas.filter(m => m.permanente || !postuladas.includes(m.id));
                 
+                if (!id) {
+                    // Modo match (Recomendaciones)
+                    let edadUser = parseEdadAños(edad);
+                    let pesoUser = parsePesoKg(peso);
+                    
+                    let coincidencias = mascotasDisponibles.filter(m => {
+                        let match = true;
+                        if (especie && m.especie.toLowerCase() !== especie.toLowerCase()) match = false;
+                        if (sexo && m.sexo.toLowerCase() !== sexo.toLowerCase()) match = false;
+                        
+                        let edadMascota = parseEdadAños(m.edad);
+                        let pesoMascota = parsePesoKg(m.peso);
+                        
+                        // Tolerancia de 3 años y 10 kg para match
+                        if (Math.abs(edadMascota - edadUser) > 3) match = false;
+                        if (Math.abs(pesoMascota - pesoUser) > 10) match = false;
+                        
+                        return match;
+                    });
+                    
+                    if (coincidencias.length === 0) {
+                        return { 
+                            valido: false, 
+                            icon: 'info',
+                            title: 'Sin coincidencias exactas',
+                            mensaje: `No encontramos mascotas disponibles que coincidan exactamente con tus preferencias. ¡Pero te invitamos a revisar el catálogo completo!` 
+                        };
+                    }
+                    
+                    let htmlRecomendaciones = '<div style="text-align: left; max-height: 300px; overflow-y: auto;">';
+                    coincidencias.forEach(m => {
+                        htmlRecomendaciones += `
+                            <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; display: flex; gap: 10px; align-items: center;">
+                                <img src="${m.imagen}" alt="${m.nombre}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 5px;">
+                                <div>
+                                    <strong style="color: #2A5A46">${m.nombre}</strong> (ID: <strong>${m.id}</strong>)<br>
+                                    <small>${m.especie} · ${m.sexo} · ${m.edad} · ${m.peso}</small>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    htmlRecomendaciones += '</div><p style="margin-top: 10px; font-size: 0.9em;">Copia el <strong>ID</strong> de tu favorita y colócalo en el campo de Mascota Seleccionada.</p>';
+                    
+                    return {
+                        valido: false,
+                        icon: 'success',
+                        title: '¡Encontramos posibles matches!',
+                        mensaje: htmlRecomendaciones
+                    };
+                }
+                
+                // Validación con ID
                 const mascota = todasMascotas.find(p => p.id === id);
                 
                 if (!mascota) {
@@ -161,28 +264,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const errores = [];
                 
-                if (mascota.nombre.toLowerCase() !== nombre.toLowerCase()) {
-                    errores.push(`<i class=\"fa-solid fa-pen\"></i> Nombre: "${mascota.nombre}" ≠ "${nombre}"`);
+                if (nombre && mascota.nombre.trim().toLowerCase() !== nombre.trim().toLowerCase()) {
+                    errores.push(`<i class=\"fa-solid fa-pen\"></i> Nombre: "${mascota.nombre.trim()}" ≠ "${nombre}"`);
                 }
                 
-                if (mascota.especie.toLowerCase() !== especie.toLowerCase()) {
+                if (mascota.especie.trim().toLowerCase() !== especie.trim().toLowerCase()) {
                     errores.push(`<i class=\"fa-solid fa-paw\"></i> Especie: "${mascota.especie}" ≠ "${especie}"`);
                 }
                 
-                if (mascota.sexo.toLowerCase() !== sexo.toLowerCase()) {
+                if (mascota.sexo.trim().toLowerCase() !== sexo.trim().toLowerCase()) {
                     errores.push(`<i class=\"fa-solid fa-venus-mars\"></i> Sexo: "${mascota.sexo}" ≠ "${sexo}"`);
                 }
                 
-                const edadNormalizada = mascota.edad.toLowerCase().replace(/\s/g, '');
-                const edadInputNormalizada = edad.toLowerCase().replace(/\s/g, '');
-                if (edadNormalizada !== edadInputNormalizada) {
-                    errores.push(`<i class=\"fa-solid fa-calendar\"></i> Edad: "${mascota.edad}" ≠ "${edad}"`);
+                const edadMascotaNum = parseEdadAños(mascota.edad);
+                const edadInputNum = parseEdadAños(edad);
+                // Tolerancia de redondeo para edad
+                if (Math.abs(edadMascotaNum - edadInputNum) > 0.2) {
+                    errores.push(`<i class=\"fa-solid fa-calendar\"></i> Edad: "${mascota.edad}" ≠ lo ingresado`);
                 }
                 
-                const pesoNormalizado = mascota.peso.toLowerCase().replace(/\s/g, '');
-                const pesoInputNormalizado = peso.toLowerCase().replace(/\s/g, '');
-                if (pesoNormalizado !== pesoInputNormalizado) {
-                    errores.push(`<i class=\"fa-solid fa-scale-balanced\"></i> Peso: "${mascota.peso}" ≠ "${peso}"`);
+                const pesoMascotaNum = parsePesoKg(mascota.peso);
+                const pesoInputNum = parsePesoKg(peso);
+                if (pesoMascotaNum !== pesoInputNum) {
+                    errores.push(`<i class=\"fa-solid fa-scale-balanced\"></i> Peso: "${mascota.peso}" ≠ lo ingresado`);
                 }
                 
                 if (errores.length > 0) {
@@ -290,6 +394,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         reiniciarStepper(form);
+        if (window.resetStepper) window.resetStepper('formPostulacion');
         
         Swal.fire({
             icon: 'success',
@@ -352,24 +457,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            validarMascota(idMascota, nombreMascota, especieMascota, sexoValue, edadMascota, pesoMascota)
+            window.validarMascota(idMascota, nombreMascota, especieMascota, sexoValue, edadMascota, pesoMascota)
                 .then(resultado => {
                     if (!resultado.valido) {
-                        const mensajeHtml = resultado.mensaje.replace(/\n/g, '<br>');
                         Swal.fire({
-                            icon: 'error',
-                            title: 'Datos incorrectos',
-                            html: `
-                                <div style="text-align: left; font-size: 0.95rem; line-height: 1.6;">
-                                    ${mensajeHtml}
-                                </div>
-                                <div style="margin-top: 12px; padding: 10px; background: rgba(239, 68, 68, 0.1); border-radius: 8px; font-size: 0.85rem; color: #fca5a5;">
-                                    Asegúrate de que todos los datos coincidan exactamente con los del catálogo.
-                                </div>
-                            `,
-                            confirmButtonColor: '#6c757d',
-                            confirmButtonText: 'Ok'
+                            icon: resultado.icon || 'error',
+                            title: resultado.title || 'Error de coincidencia',
+                            html: resultado.mensaje.replace(/\n/g, '<br>'),
+                            confirmButtonColor: '#2A5A46',
+                            width: resultado.icon === 'success' ? '600px' : undefined
                         });
+                        if (resultado.icon === 'success' || resultado.icon === 'info') {
+                            window.limpiarFormulario(formPostulacion);
+                            if (window.resetStepper) window.resetStepper('formPostulacion');
+                        }
                         return;
                     }
 
@@ -409,162 +510,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-
-function renderizarHistorial() {
-    const lista = document.getElementById('listaHistorial');
-    const resumen = document.getElementById('resumenHistorial');
-    
-    if (!lista) return;
-    
-    const historial = getHistorialAdopciones();
-    
-    if (resumen) {
-        const postulados = historial.filter(s => s.estado === 'postulado').length;
-        const publicados = historial.filter(s => s.estado === 'publicado').length;
-        const total = historial.length;
-        
-        let texto = `Total: ${total}`;
-        if (postulados > 0) texto += ` | ${postulados} postulados`;
-        if (publicados > 0) texto += ` | ${publicados} publicados`;
-        resumen.textContent = texto;
-    }
-    
-    if (historial.length === 0) {
-        lista.innerHTML = `<p class="historial-vacio">No hay solicitudes en el historial.</p>`;
-        return;
-    }
-    
-    lista.innerHTML = historial.map(solicitud => {
-        const esPublicacion = solicitud.tipo === 'publicacion';
-        const titulo = esPublicacion ? `<i class=\"fa-solid fa-bullhorn\"></i> ${solicitud.nombre}` : solicitud.nombre;
-        
-        let estadoTexto = '';
-        if (solicitud.tipo === 'publicacion') {
-            estadoTexto = solicitud.estado === 'publicado' ? '<i class="fa-solid fa-bullhorn"></i> Publicado' :
-                            solicitud.estado === 'aceptado' ? '<i class="fa-solid fa-circle-check"></i> Aprobado' :
-                            '<i class="fa-solid fa-circle-xmark"></i> Cancelado';
-        } else {
-            estadoTexto = solicitud.estado === 'postulado' ? '<i class="fa-solid fa-clipboard-list"></i> Postulado' :
-                            solicitud.estado === 'aceptado' ? '<i class="fa-solid fa-house-heart"></i> Adoptado' :
-                            '<i class="fa-solid fa-circle-xmark" style="color:#d33"></i> Cancelado';
-        }
-        
-        let fotoHtml = '';
-        if (solicitud.datos && solicitud.datos.foto) {
-            fotoHtml = `
-                <div style="margin-top: 8px;">
-                    <img src="${solicitud.datos.foto}" alt="Foto de ${solicitud.nombre}" 
-                        style="width: 100%; max-height: 150px; object-fit: cover; border-radius: 8px; border: 1px solid #2A5A46;">
-                </div>
-            `;
-        }
-        
-        let descripcionHtml = '';
-        if (!esPublicacion && solicitud.tipo === 'adopcion') {
-            descripcionHtml = `
-                <details>
-                    <summary style="color: #93CFA7; cursor: pointer; font-size: 0.8rem; margin-top: 6px;">
-                        <i class="fa-solid fa-chevron-down"></i> Ver detalles de la solicitud
-                    </summary>
-                    <div style="margin-top: 8px; font-size: 0.85rem; color: #94a3b8; background: rgba(15, 23, 42, 0.5); padding: 10px; border-radius: 8px;">
-                        <p><strong><i class="fa-solid fa-user"></i> Adoptante:</strong> ${solicitud.adoptante}</p>
-                        ${solicitud.email ? `<p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> ${solicitud.email}</p>` : ''}
-                        ${solicitud.telefono ? `<p><strong><i class="fa-solid fa-phone"></i> Teléfono:</strong> ${solicitud.telefono}</p>` : ''}
-                        ${solicitud.provincia ? `<p><strong><i class="fa-solid fa-location-dot"></i> Provincia:</strong> ${solicitud.provincia}</p>` : ''}
-                        ${solicitud.motivo ? `
-                            <p style="margin-top: 8px;"><strong><i class="fa-solid fa-pen"></i> Motivo:</strong></p>
-                            <p style="margin: 4px 0 0 0; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; font-style: italic;">
-                                "${solicitud.motivo}"
-                            </p>
-                        ` : ''}
-                        <div class="detalle-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; margin-top: 8px;">
-                            ${solicitud.especie ? `<p><strong><i class="fa-solid fa-paw"></i> Especie:</strong> ${solicitud.especie}</p>` : ''}
-                            ${solicitud.sexo ? `<p><strong><i class="fa-solid fa-venus-mars"></i> Sexo:</strong> ${solicitud.sexo}</p>` : ''}
-                            ${solicitud.tiene_patio ? `<p><strong><i class="fa-solid fa-house"></i> Patio:</strong> ${solicitud.tiene_patio === 'si' ? '<i class="fa-solid fa-check" style="color:#2A5A46"></i> Sí' : '<i class="fa-solid fa-xmark" style="color:#d33"></i> No'}</p>` : ''}
-                            ${solicitud.otras_mascotas ? `<p><strong><i class="fa-solid fa-dog"></i> Otras mascotas:</strong> ${solicitud.otras_mascotas === 'si' ? '<i class="fa-solid fa-check" style="color:#2A5A46"></i> Sí' : '<i class="fa-solid fa-xmark" style="color:#d33"></i> No'}</p>` : ''}
-                        </div>
-                    </div>
-                </details>
-            `;
-        }
-        
-        let accionesHtml = '';
-        if (solicitud.estado === 'postulado' || solicitud.estado === 'publicado') {
-            accionesHtml = `
-                <div class="historial-card-actions">
-                    <button class="btn-aceptar" data-id="${solicitud.idUnico}">
-                        <i class="fa-solid fa-check"></i> Aceptar
-                    </button>
-                    <button class="btn-cancelar" data-id="${solicitud.idUnico}">
-                        <i class="fa-solid fa-xmark"></i> Cancelar
-                    </button>
-                </div>
-            `;
-        } else {
-            accionesHtml = `
-                <div class="historial-card-actions">
-                    <span class="estado-finalizado">${solicitud.estado === 'aceptado' ? '<i class="fa-solid fa-circle-check" style="color:#2A5A46"></i> Proceso completado' : '<i class="fa-solid fa-circle-xmark" style="color:#d33"></i> Cancelado'}</span>
-                </div>
-            `;
-        }
-        
-        return `
-            <div class="historial-card" data-id="${solicitud.idUnico}">
-                <div class="historial-card-header">
-                    <h3>${titulo}</h3>
-                    <span class="estado ${solicitud.estado}">${estadoTexto}</span>
-                </div>
-                <div class="historial-card-body">
-                    ${fotoHtml}
-                    <p><strong>ID:</strong> ${solicitud.id}</p>
-                    <p><strong>${esPublicacion ? 'Publicado por' : 'Adoptante'}:</strong> ${solicitud.adoptante}</p>
-                    <p><strong>Fecha:</strong> ${solicitud.fecha}</p>
-                    ${descripcionHtml}
-                    ${esPublicacion && solicitud.datos ? `
-                        <details>
-                            <summary style="color: #93CFA7; cursor: pointer; font-size: 0.8rem; margin-top: 6px;">
-                                <i class="fa-solid fa-chevron-down"></i> Ver detalles de publicación
-                            </summary>
-                            <div style="margin-top: 8px; font-size: 0.85rem; color: #94a3b8; background: rgba(15, 23, 42, 0.5); padding: 10px; border-radius: 8px;">
-                                <p><strong><i class="fa-solid fa-user"></i> Publicador:</strong> ${solicitud.datos.publicador}</p>
-                                <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> ${solicitud.datos.email}</p>
-                                <p><strong><i class="fa-solid fa-phone"></i> Teléfono:</strong> ${solicitud.datos.telefono}</p>
-                                <p><strong><i class="fa-solid fa-location-dot"></i> Provincia:</strong> ${solicitud.datos.provincia}</p>
-                                <p><strong><i class="fa-solid fa-paw"></i> Especie:</strong> ${solicitud.datos.especie}</p>
-                                <p><strong><i class="fa-solid fa-venus-mars"></i> Sexo:</strong> ${solicitud.datos.sexo}</p>
-                                <p><strong><i class="fa-solid fa-ruler"></i> Tamaño:</strong> ${solicitud.datos.tamanio}</p>
-                                <p><strong><i class="fa-solid fa-syringe"></i> Vacunado:</strong> ${solicitud.datos.esta_vacunado === 'si' ? '<i class="fa-solid fa-check" style="color:#2A5A46"></i> Sí' : '<i class="fa-solid fa-xmark" style="color:#d33"></i> No'}</p>
-                                <p><strong><i class="fa-solid fa-scissors"></i> Esterilizado:</strong> ${solicitud.datos.esta_esterilizado === 'si' ? '<i class="fa-solid fa-check" style="color:#2A5A46"></i> Sí' : '<i class="fa-solid fa-xmark" style="color:#d33"></i> No'}</p>
-                                ${solicitud.datos.descripcion ? `
-                                    <p style="margin-top: 8px;"><strong><i class="fa-solid fa-pen"></i> Descripción:</strong></p>
-                                    <p style="margin: 4px 0 0 0; padding: 8px; background: rgba(0,0,0,0.2); border-radius: 6px; font-style: italic;">
-                                        "${solicitud.datos.descripcion}"
-                                    </p>
-                                ` : ''}
-                            </div>
-                        </details>
-                    ` : ''}
-                </div>
-                ${accionesHtml}
-            </div>
-        `;
-    }).join('');
-
-    document.querySelectorAll('.btn-aceptar').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const id = parseInt(this.dataset.id);
-            manejarAceptar(id);
-        });
-    });
-
-    document.querySelectorAll('.btn-cancelar').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const id = parseInt(this.dataset.id);
-            manejarCancelar(id);
-        });
-    });
-}
 
 // Se elimina la mascota
 function manejarAceptar(id) {

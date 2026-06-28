@@ -2,6 +2,18 @@
 GENERAL
 ========================= */
 
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
+.form-column {
+    min-width: 0;
+    width: 100%;
+}
+
 .form-container {
     max-width: 1400px;
 
@@ -747,38 +759,6 @@ RESPONSIVE
 
         padding: 14px;
     }
-
-    .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.detalles-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    background: #0f172a;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-.historial-foto {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.nota-adicional {
-    margin-top: 10px;
-    padding: 10px;
-    border-left: 3px solid #2A5A46;
-    background: rgba(255,255,255,0.05);
-}
 }
 
 @media (max-width: 400px) {
@@ -836,6 +816,19 @@ RESPONSIVE
     }
     .btn-limpiar {
         display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .form-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 }
 

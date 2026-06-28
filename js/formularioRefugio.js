@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function guardarSolicitud(foto = null) {
             const datosMascota = {
-                id: 'PET' + String(Math.floor(Math.random() * 10000)).padStart(4, '0'),
-                nombre: nombreMascota,
+                id: generarIdMascota(),
+                nombre: nombreMascota.trim(),
                 especie: especie,
                 sexo: document.querySelector('input[name="sexo_refugio"]:checked')?.value || '',
                 edad: document.getElementById('edad-form-refugio').value,
@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
             renderizarHistorial();
 
             window.limpiarFormulario(form);
+            if (window.resetStepper) window.resetStepper('formRefugio');
             
             Swal.fire({
                 icon: 'success',

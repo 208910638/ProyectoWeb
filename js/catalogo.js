@@ -21,9 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const nuevasMascotas = mascotasLocal.filter(p => !idsExistentes.has(p.id));
                 
                 let todasMascotas = [...data, ...nuevasMascotas];
-                const postuladas = getMascotasPostuladas();
-                mascotas = todasMascotas.filter(p => !postuladas.includes(p.id));
+                const mascotasPostuladas = getMascotasPostuladas();
+                const mascotasDisponibles = todasMascotas.filter(mascota => 
+                    mascota.permanente || !mascotasPostuladas.includes(mascota.id)
+                );
                 
+                mascotas = mascotasDisponibles;
                 renderMascotas(mascotas);
             })
             .catch(error => console.error('Error cargando mascotas:', error));

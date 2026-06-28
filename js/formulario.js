@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     switchTab('postulacion');
+    
+    // Inicializar los steppers
+    setupStepper('formRefugio');
+    setupStepper('formPostulacion');
 
     window.limpiarFormulario = function(form) {
         // Limpiar inputs de texto y textareas
@@ -193,6 +197,24 @@ function setupStepper(formId) {
                 }
                 
                 if (formatoValido && input.value.trim()) {
+                    // Validación: edad y peso no pueden ser negativos
+                    const fieldId = input.id || '';
+                    if (fieldId.includes('edad') || fieldId.includes('peso')) {
+                        const numVal = parseFloat(input.value.replace(/[^0-9.\-]/g, ''));
+                        if (!isNaN(numVal) && numVal < 0) {
+                            formatoValido = false;
+                            valid = false;
+                            input.classList.add('input-error');
+                            if (errorMsg) {
+                                errorMsg.textContent = fieldId.includes('edad')
+                                    ? 'La edad no puede ser negativa'
+                                    : 'El peso no puede ser negativo';
+                            }
+                        }
+                    }
+                }
+
+                if (formatoValido && input.value.trim()) {
                     input.classList.remove('input-error');
                     if (errorMsg) {
                         errorMsg.textContent = '';
@@ -342,4 +364,17 @@ function setupStepper(formId) {
     }
 
     showStep(0);
+
+    // Exponer función para resetear desde otros archivos JS
+    form._resetStepper = function() {
+        showStep(0);
+    };
 }
+
+// Función global para resetear el stepper de un formulario por ID
+window.resetStepper = function(formId) {
+    const form = document.getElementById(formId);
+    if (form && typeof form._resetStepper === 'function') {
+        form._resetStepper();
+    }
+};

@@ -13,9 +13,11 @@ PANEL LATERAL DE HISTORIAL
 
     padding: 1.25rem;
 
-    height: fit-content;
-    position: sticky;
-    top: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    min-width: 0;
 }
 
 /* =========================
@@ -118,6 +120,8 @@ TARJETA DE SOLICITUD
     border-radius: 12px;
     padding: 12px 14px;
     transition: border-color 0.2s ease, transform 0.2s ease;
+    overflow: hidden;        
+    box-sizing: border-box;  
 }
 
 .historial-card:hover {
@@ -222,6 +226,32 @@ CUERPO DE TARJETA
 .historial-card-texto {
     min-width: 0;
     flex: 1;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+
+    flex: 1;
+    min-width: 0; 
+}
+
+.info-grid p {
+    margin: 0;
+
+    color: #94a3b8;
+    font-size: 0.78rem;
+    line-height: 1.4;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info-grid p strong {
+    color: #cbd5e1;
+    font-weight: 500;
 }
 
 .historial-titulo {
@@ -349,6 +379,15 @@ DETALLES EXPANDIBLES
     flex-shrink: 0;
 }
 
+.det-inner p .dato-truncado {
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .det-inner strong {
     color: #cbd5e1;
     font-weight: 500;
@@ -377,7 +416,7 @@ DETALLES EXPANDIBLES
 
 /* =========================
 ACCIONES: ACEPTAR / CANCELAR
-   ========================= */
+    ========================= */
 
 .historial-card-actions {
     display: flex;
@@ -408,9 +447,9 @@ ACCIONES: ACEPTAR / CANCELAR
     color: #cbd5e1;
 }
 
-
-
-/* --- Estado finalizado --- */
+/* =========================
+ESTADO FINALIZADO
+   ========================= */
 
 .estado-finalizado {
     display: flex;
@@ -470,16 +509,11 @@ VACIAR HISTORIAL
 RESPONSIVE
    ========================= */
 
-/* Box-sizing global fuera de las media queries */
 * {
     box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
-    .historial-sidebar {
-        position: static;
-    }
-
     .historial-grid {
         max-height: 480px;
     }
@@ -492,16 +526,19 @@ RESPONSIVE
     }
 
     .historial-grid {
-        max-height: 50vh; 
+        max-height: 60vh;
     }
 
     .historial-card {
         padding: 12px;
+        overflow: hidden;
     }
 
     .historial-card-body {
+        display: flex;
         align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
+        margin-bottom: 10px;
     }
 
     .historial-titulo {
@@ -520,8 +557,9 @@ RESPONSIVE
     }
 
     .historial-card details {
-        margin-left: 0; 
-        width: 100%;
+        margin-top: 8px;
+        margin-left: 60px;
+        max-width: 100%;
     }
 
     .historial-card-actions {
@@ -531,12 +569,31 @@ RESPONSIVE
     }
 
     .btn-historial {
-        min-height: 44px; 
+        min-height: 44px;
         padding: 8px 4px;
         font-size: 0.75rem;
     }
 
+    .det-inner {
+        margin-top: 8px;
+        background: rgba(2, 8, 23, 0.4);
+        border-left: 2px solid rgba(96, 165, 250, 0.4);
+        border-radius: 0 8px 8px 0;
+        padding: 10px 12px;
+        font-size: 0.78rem;
+        color: #94a3b8;
+
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
     .detalles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
         grid-template-columns: 1fr;
     }
 }

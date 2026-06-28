@@ -5,13 +5,13 @@
     "especie": "perro",
     "sexo": "hembra",
     "edad": "2 años",
-    "peso": "10 kg",
+    "peso": "25 kg",
     "raza": "Labrador",
     "tamanio": "mediano",
     "provincia": "Puntarenas",
     "descripcion": "Es super juguetona, cariñosa y se lleva increíble con niños pequeños y otros perritos. ¡Lista para llenar tu hogar de felicidad!",
     "imagen": "source/img/suki.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
   },
   {
     "id": "PET002",
@@ -19,27 +19,27 @@
     "especie": "gato",
     "sexo": "hembra",
     "edad": "2 años",
-    "peso": "4.5 kg",
+    "peso": "3.5 kg",
     "raza": "Mestizo",
     "tamanio": "mediano",
     "provincia": "Alajuela",
     "descripcion": "Es muy tranquila y curiosa. Le encanta ver por la ventana y dormir todo el día, ama los atunes de camarón y los juguetes.",
     "imagen": "source/img/haru.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
   },
   {
     "id": "PET003",
     "nombre": "Coco",
     "especie": "perro",
     "sexo": "macho",
-    "edad": "1 año",
-    "peso": "12 kg",
-    "raza": "Mestizo",
+    "edad": "3 años",
+    "peso": "3.2 kg",
+    "raza": "Yorkshire Terrier",
     "tamanio": "mediano",
     "provincia": "Heredia",
     "descripcion": "Coco es un perrito lleno de energía y alegría. Le encanta jugar a buscar la pelota en el parque y es muy sociable con otros perros",
     "imagen": "source/img/coco.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
   },
   {
     "id": "PET004",
@@ -53,7 +53,7 @@
     "provincia": "Alajuela",
     "descripcion": "Un gatito lleno de energía y muy juguetón. Es sumamente cariñoso y le encanta explorar cada rincón de la casa. ¡Está listo para encontrar a su familia humana definitiva!",
     "imagen": "source/img/blacky.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
   },
   {
     "id": "PET005",
@@ -61,13 +61,13 @@
     "especie": "perro",
     "sexo": "macho",
     "edad": "3 años",
-    "peso": "8 kg",
+    "peso": "6 kg",
     "raza": "Bichón Habanero",
     "tamanio": "pequeño",
     "provincia": "Alajuela",
     "descripcion": "Bruno es un perrito muy valiente y leal. Aunque es pequeño de tamaño, tiene un corazón enorme. Le encanta estar cerca de sus humanos y seguirte a todos lados. ¡Es el compañero perfecto para quienes buscan mucho cariño!",
     "imagen": "source/img/bruno.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
   },
   {
     "id": "PET006",
@@ -75,13 +75,13 @@
     "especie": "gato",
     "sexo": "macho",
     "edad": "1 año",
-    "peso": "4 kg",
+    "peso": "3 kg",
     "raza": "Mestizo",
     "tamanio": "mediano",
     "provincia": "Alajuela",
     "descripcion": "Oliver es un gato muy elegante y observador. Disfruta de la tranquilidad del hogar y es experto en encontrar los lugares más cómodos para dormir la siesta. ¡Un gran compañero para tardes de lectura!",
     "imagen": "source/img/Oliver.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
   },
   {
     "id": "PET007",
@@ -89,12 +89,54 @@
     "especie": "perro",
     "sexo": "hembra",
     "edad": "4 años",
-    "peso": "15 kg",
-    "raza": "Mestizo",
+    "peso": "20 kg",
+    "raza": "French Poodle",
     "tamanio": "mediano",
     "provincia": "Alajuela",
     "descripcion": "Bonnie es una perrita muy dulce y tranquila. Es muy obediente y le encanta pasear a un ritmo relajado. Se lleva de maravilla con adultos y otros perros. ¡Una compañera de vida excepcional!",
     "imagen": "source/img/Bonnie.jpeg",
-    "imagen_fallback": "https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=600"
+    "permanente": true
+  },
+  {
+    "id": "PET008",
+    "nombre": "Gori",
+    "especie": "perro",
+    "sexo": "macho",
+    "edad": "5 años",
+    "peso": "25 kg",
+    "raza": "Golden Mestizo",
+    "tamanio": "grande",
+    "provincia": "Limón",
+    "descripcion": "Gori es muy cariñoso, un poquito celoso con sus humanos favoritos, y le encanta dormir largas siestas. ¡Un gran oso de peluche!",
+    "imagen": "source/img/gori.jpeg",
+    "permanente": true
+  },
+  {
+    "id": "PET009",
+    "nombre": "Mindy",
+    "especie": "gato",
+    "sexo": "hembra",
+    "edad": "13 años",
+    "peso": "4.5 kg",
+    "raza": "Mestizo",
+    "tamanio": "pequeño",
+    "provincia": "San José",
+    "descripcion": "Mindy tiene mucho carácter: odia a la gente en la que no confía, pero si te ganas su corazón te amará. Le encanta comer helado, jugar en las zonas verdes y pasa sus días durmiendo y comiendo mucho.",
+    "imagen": "source/img/mindy.jpeg",
+    "permanente": true
+  },
+  {
+    "id": "PET010",
+    "nombre": "Naila",
+    "especie": "perro",
+    "sexo": "hembra",
+    "edad": "2 años y 7 meses",
+    "peso": "22 kg",
+    "raza": "Dalmata",
+    "tamanio": "mediano",
+    "provincia": "Alajuela",
+    "descripcion": "¡Pura energía, elegancia y lealtad en cuatro patas! A sus casi 3 años, es una perrita joven, súper inteligente y activa. Ya pasó la etapa de las travesuras de cachorrita, por lo que busca una familia que ame los paseos al aire libre y jugar a atrapar la pelota. ¡Te llenará de amor y manchas el corazón!",
+    "imagen": "source/img/naila.jpeg",
+    "permanente": true
   }
 ]
