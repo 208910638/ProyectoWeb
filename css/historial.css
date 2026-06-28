@@ -505,97 +505,75 @@ VACIAR HISTORIAL
     color: #fca5a5;
 }
 
-/* =========================
-RESPONSIVE
-   ========================= */
+/* Scroll en detalles*/
+.det-inner {
+    margin-top: 8px;
+    background: rgba(2, 8, 23, 0.4);
+    border-left: 2px solid rgba(96, 165, 250, 0.4);
+    border-radius: 0 8px 8px 0;
+    padding: 10px 12px;
+    font-size: 0.78rem;
+    color: #94a3b8;
+    
 
-* {
-    box-sizing: border-box;
+    max-height: 200px; /* Altura máximal */
+    overflow-y: auto;  /* Scroll vertical*/
+    overflow-x: auto;  /* Scroll horizontal*/
 }
 
-@media (max-width: 1024px) {
-    .historial-grid {
-        max-height: 480px;
-    }
+.det-inner::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
 }
 
-@media (max-width: 600px) {
+.det-inner::-webkit-scrollbar-thumb {
+    background-color: rgba(96, 165, 250, 0.2);
+    border-radius: 4px;
+}
+
+/* RESPOSNIVE */
+
+/* Mediano*/
+@media (max-width: 768px) {
     .historial-sidebar {
         padding: 1rem;
         border-radius: 12px;
     }
 
-    .historial-grid {
-        max-height: 60vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+    .info-grid {
+        grid-template-columns: 1fr; /* Colapsa a una sola columna */
+        gap: 6px;
+    }
+    
+    .historial-card details {
+        margin-left: 0; /* Centra los detalles */
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .historial-card-header {
+        flex-direction: column; /* Pasa a columna */
+        align-items: flex-start;
+        gap: 6px;
+    }
+
+    .historial-foto, 
+    .historial-foto-placeholder {
+        width: 36px; /* Ajuste para q se vea*/
+        height: 36px;
     }
 
     .historial-card {
-        padding: 12px;
-        overflow: hidden;
-    }
-
-    .historial-card-body {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 10px;
-    }
-
-    .historial-titulo {
-        white-space: normal;
-        line-height: 1.3;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-
-    .historial-card-header {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-
-    .historial-card details {
-        margin-top: 8px;
-        margin-left: 60px;
-        max-width: 100%;
-    }
-
-    .historial-card-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-    }
-
-    .btn-historial {
-        min-height: 44px;
-        padding: 8px 4px;
-        font-size: 0.75rem;
-    }
-
-    .det-inner {
-        margin-top: 8px;
-        background: rgba(2, 8, 23, 0.4);
-        border-left: 2px solid rgba(96, 165, 250, 0.4);
-        border-radius: 0 8px 8px 0;
-        padding: 10px 12px;
-        font-size: 0.78rem;
-        color: #94a3b8;
-
-        max-width: 100%;
-        box-sizing: border-box;
-        overflow-wrap: anywhere;
-        word-break: break-word;
+        padding: 10px;
     }
 
     .detalles-grid {
         grid-template-columns: 1fr;
     }
-
-    .info-grid {
-        grid-template-columns: 1fr;
+    
+    /* Evita que los textos rompan todas las tarjetitas*/
+    .historial-titulo, .historial-detalle {
+        max-width: 100%;
     }
 }
