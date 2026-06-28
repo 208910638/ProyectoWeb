@@ -459,6 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             window.validarMascota(idMascota, nombreMascota, especieMascota, sexoValue, edadMascota, pesoMascota)
                 .then(resultado => {
+                    Swal.close();
                     if (!resultado.valido) {
                         Swal.fire({
                             icon: resultado.icon || 'error',
@@ -494,6 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
                 .catch(error => {
                     console.error('Error en validación:', error);
+                    Swal.close();
                     Swal.fire({
                         icon: 'warning',
                         title: '<i class="fa-solid fa-triangle-exclamation"></i> Advertencia',

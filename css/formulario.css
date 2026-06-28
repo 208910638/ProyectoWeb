@@ -733,13 +733,13 @@ RESPONSIVE
 
 @media (max-width: 480px) {
     .form-container {
-        padding: 10px 30px 40px 30px;
+        padding: 10px 16px 40px 16px;
     }
     .form-group {
-        padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+        padding: 1.5rem 1.25rem 1.25rem 1.25rem;
     }
     .adoption-form {
-        padding: 2rem;
+        padding: 1.25rem;
         max-width: 100%;
         margin: 0 auto;
     }
