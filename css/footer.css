@@ -51,6 +51,7 @@ FOOTER
 RESPONSIVE - PANTALLAS GRANDES
 ========================= */
 
+/* Tablets y escritorio (≥768px) */
 @media (min-width: 768px) {
     #contacto {
         padding: 24px 40px;

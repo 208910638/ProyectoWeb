@@ -176,6 +176,7 @@ AJUSTE DEL PRIMER CONTENIDO
 RESPONSIVE
 ========================= */
 
+/* Tablets y escritorio pequeño (≥768px) */
 @media (min-width: 768px) {
     .header-mobile-actions {
         display: none;
@@ -257,6 +258,7 @@ RESPONSIVE
     }
 }
 
+/* Celulares pequeños (≤400px) */
 @media (max-width: 400px) {
     .site-header {
         padding: 10px 12px;

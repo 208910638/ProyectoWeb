@@ -20,33 +20,12 @@ NAVEGACIÓN POR PASOS
     box-sizing: border-box;
 }
 
-/* Contenedor wrapper para los botones */
-.step-buttons-wrapper {
-    display: flex;
-    gap: 10px;
-    flex-shrink: 0; 
-}
-
-/* En caso de pantallas muy estrechas, apilar*/
-@media (max-width: 480px) {
-    .step-navigation {
-        justify-content: center;
-        flex-direction: column;
-    }
-}
-
-.step-buttons {
-    display: flex;
-    gap: 10px;
-    flex-shrink: 0; /* Evita que los botones se encojan */
-}
-
 /* =========================
 CONTADOR DE PASOS
 ========================= */
 
 .step-counter {
-    color: #94a3b8;
+    color:#94a3b8;
     font-size: 0.85rem;
     font-weight: 600;
 
@@ -57,18 +36,15 @@ CONTADOR DE PASOS
     padding: 4px 14px;
 }
 
-.step-counter span {
-    color: #93CFA7;
-}
-
 /* =========================
 BOTONES DE NAVEGACIÓN
 ========================= */
 
 .step-buttons {
-    display: inline-block;
-    gap: 10px;
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
 }
 
 .btn-step {
@@ -122,6 +98,7 @@ BOTONES DE NAVEGACIÓN
 RESPONSIVE
 ========================= */
 
+/* Tablets y celulares grandes (≤768px) */
 @media (max-width: 768px) {
     .step-navigation {
         flex-direction: column;
@@ -137,6 +114,7 @@ RESPONSIVE
 
     .step-buttons {
         width: 100%;
+        gap: 14px;
         justify-content: center;
     }
 
@@ -151,6 +129,7 @@ RESPONSIVE
     }
 }
 
+/* Celulares medianos (≤500px) */
 @media (max-width: 500px) {
     .step-navigation {
         flex-direction: column;
@@ -159,6 +138,14 @@ RESPONSIVE
     
     .step-buttons {
         width: 100%;
-        justify-content: center; /* Centra los botones en móvil */
+        justify-content: center; 
+    }
+}
+
+/* Celulares (≤480px) */
+@media (max-width: 480px) {
+    .step-navigation {
+        justify-content: center;
+        flex-direction: column;
     }
 }

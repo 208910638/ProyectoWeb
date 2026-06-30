@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.limpiarFormulario = function(form) {
         // Limpiar inputs de texto y textareas
-        const inputs = form.querySelectorAll('input:not([type="radio"]):not([type="file"]), select, textarea');
+        const inputs = form.querySelectorAll('input:not([type="radio"]), select, textarea');
         inputs.forEach(input => {
             if (input.tagName === 'SELECT') {
                 input.selectedIndex = 0;
             } else {
                 input.value = '';
             }
-            input.classList.remove('input-error', 'input-warning', 'input-success');
+            input.classList.remove('input-error');
         });
 
         // Limpiar radio buttons
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         errores.forEach(error => {
             error.textContent = '';
         });
-
+        
         // Limpiar mensajes
         const msg = form.querySelector('.form-message');
         if (msg) {
@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         window.limpiarFormulario(form);
+                        window.resetStepper(form.id);
                         Swal.fire({
                             icon: 'info',
                             title: 'Formulario limpiado',

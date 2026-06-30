@@ -1,5 +1,5 @@
 /* =========================
-PANEL LATERAL DE HISTORIAL
+PANEL DE HISTORIAL
    ========================= */
 
 .historial-sidebar {
@@ -120,9 +120,8 @@ TARJETA DE SOLICITUD
     border-radius: 12px;
     padding: 12px 14px;
     
-    /* limite de altura */
     max-height: 350px; 
-    overflow-y: auto;  /* Esto activa el scroll (si esto no sirve voy a llorar)*/
+    overflow-y: auto;  
     
     transition: border-color 0.2s ease, transform 0.2s ease;
     box-sizing: border-box;
@@ -136,8 +135,6 @@ TARJETA DE SOLICITUD
 .historial-card.finalizada {
     opacity: 0.7;
 }
-
-/* --- Header de tarjeta --- */
 
 .historial-card-header {
     display: flex;
@@ -537,7 +534,6 @@ VACIAR HISTORIAL
     color: #fca5a5;
 }
 
-/* Scroll en detalles*/
 .det-inner {
     margin-top: 8px;
     background: rgba(2, 8, 23, 0.4);
@@ -548,9 +544,9 @@ VACIAR HISTORIAL
     color: #94a3b8;
     
 
-    max-height: 200px; /* Altura máxima */
-    overflow-y: auto;  /* Scroll vertical*/
-    overflow-x: auto;  /* Scroll horizontal*/
+    max-height: 200px; 
+    overflow-y: auto;  
+    overflow-x: auto;  
 }
 
 .historial-card::-webkit-scrollbar {
@@ -563,9 +559,11 @@ VACIAR HISTORIAL
     border-radius: 10px;
 }
 
-/* RESPONSIVE */
+/* =========================
+RESPONSIVE
+   ========================= */
 
-/* Mediano*/
+/* Tablets y celulares grandes (≤768px) */
 @media (max-width: 768px) {
     .historial-sidebar {
         padding: 1rem;
@@ -573,19 +571,19 @@ VACIAR HISTORIAL
     }
 
     .info-grid {
-        grid-template-columns: 1fr; /* Colapsa a una sola columna */
+        grid-template-columns: 1fr; 
         gap: 6px;
     }
     
     .historial-card details {
-        margin-left: 0; /* Centra los detalles */
+        margin-left: 0; 
     }
 }
 
-/* Celulares pequeños */
+/* Celulares (≤480px) */
 @media (max-width: 480px) {
     .historial-card-header {
-        flex-direction: column; /* Pasa a columna */
+        flex-direction: column; 
         align-items: flex-start;
         gap: 6px;
     }

@@ -186,18 +186,6 @@ FIELDSETS Y FORMULARIO
     box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.16);
 }
 
-.adoption-form select {
-    appearance: none;
-
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2393CFA7' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1.5rem center;
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
-
-    padding-right: 3.5rem;
-}
-
 .adoption-form textarea {
     min-height: 140px;
     resize: vertical;
@@ -215,20 +203,6 @@ FIELDSETS Y FORMULARIO
     color: #f8fafc !important;
 
     padding-right: 3.5rem;
-}
-
-.adoption-form select.input-error,
-.adoption-form select.input-error:invalid,
-.adoption-form select.input-error:valid {
-    background-color: rgba(248, 113, 113, 0.06) !important;
-    color: #f8fafc !important;
-}
-
-.adoption-form select.input-success,
-.adoption-form select.input-success:invalid,
-.adoption-form select.input-success:valid {
-    background-color: #0f172a !important;
-    color: #f8fafc !important;
 }
 
 .adoption-form select option {
@@ -328,7 +302,7 @@ RADIO BUTTONS
 }
 
 .radio-group .subgroup > label {
-    color: #94a3b8;
+    color:  #94a3b8;
     font-size: 0.95rem;
     font-weight: 600;
 
@@ -354,7 +328,6 @@ RADIO BUTTONS
     font-weight: 500;
 
     padding: 12px 20px;
-    border-radius: 10px;
     margin-bottom: 0;
 
     cursor: pointer;
@@ -363,7 +336,7 @@ RADIO BUTTONS
 }
 
 .radio-group input[type="radio"] {
-    accent-color: #93CFA7;
+    accent-color:  #93CFA7;
 
     width: 18px;
     height: 18px;
@@ -456,46 +429,6 @@ BOTÓN LIMPIAR
 }
 
 /* =========================
-BOTONES PERSONALIZADOS DE SWEETALERT
-========================= */
-
-.swal2-popup .btn-success {
-    background-color: #2A5A46 !important;
-    border: 2px solid #93CFA7 !important;
-    border-radius: 8px;
-
-    color: white !important;
-    font-weight: 700;
-
-    padding: 10px 20px;
-
-    transition: all 0.3s ease;
-}
-
-.swal2-popup .btn-success:hover {
-    background-color: #93CFA7 !important;
-    color: #0f172a !important;
-}
-
-.swal2-popup .btn-danger {
-    background-color: #5f1e1e !important;
-    border: 2px solid #f87171 !important;
-    border-radius: 8px;
-
-    color: white !important;
-    font-weight: 700;
-
-    padding: 10px 20px;
-
-    transition: all 0.3s ease;
-}
-
-.swal2-popup .btn-danger:hover {
-    background-color: #f87171 !important;
-    color: #0f172a !important;
-}
-
-/* =========================
 MENSAJES Y VALIDACIÓN
 ========================= */
 
@@ -515,12 +448,6 @@ MENSAJES Y VALIDACIÓN
     display: none;
 }
 
-.form-message--success {
-    background: rgba(147, 207, 167, 0.12);
-    border-left-color: #93CFA7;
-    color: #d7f3e2;
-}
-
 .form-message--error {
     background: rgba(248, 113, 113, 0.12);
     border-left-color: #f87171;
@@ -533,13 +460,6 @@ MENSAJES Y VALIDACIÓN
     border-color: #f87171 !important;
     background-color: rgba(248, 113, 113, 0.06) !important;
     box-shadow: 0 0 0 4px rgba(248, 113, 113, 0.12);
-}
-
-.input-box input.input-success,
-.input-box select.input-success,
-.input-box textarea.input-success {
-    border-color: #93CFA7 !important;
-    box-shadow: 0 0 0 4px rgba(147, 207, 167, 0.12);
 }
 
 .form-error {
@@ -561,22 +481,10 @@ ERRORES EN RADIO BUTTONS
 .grupo-error .options,
 .radio-group.grupo-error .options,
 .subgroup.grupo-error .options,
-.input-box.radio-group.grupo-error .options {
+.input-box.radio-group.grupo-error .options{
     background: rgba(248, 113, 113, 0.04);
     border-radius: 10px;
     outline: 2px solid #f87171;
-    outline-offset: 5px;
-
-    padding: 4px;
-}
-
-.grupo-success .options,
-.radio-group.grupo-success .options,
-.subgroup.grupo-success .options,
-.input-box.radio-group.grupo-success .options {
-    background: rgba(147, 207, 167, 0.04);
-    border-radius: 10px;
-    outline: 2px solid #93CFA7;
     outline-offset: 5px;
 
     padding: 4px;
@@ -663,21 +571,10 @@ BANNER: MASCOTA SELECCIONADA
 }
 
 /* =========================
-CAMPOS BLOQUEADOS (precargados, no editables)
-========================= */
-
-.adoption-form input.campo-bloqueado,
-.adoption-form select.campo-bloqueado {
-    background-color: rgba(147, 207, 167, 0.05) !important;
-    color: #93CFA7 !important;
-    border-color: rgba(147, 207, 167, 0.3) !important;
-    cursor: not-allowed;
-}
-
-/* =========================
 RESPONSIVE
 ========================= */
 
+/* Escritorio pequeño (≥769px) */
 @media (min-width: 769px) {
     .btn-enviar {
         width: auto;
@@ -690,6 +587,7 @@ RESPONSIVE
     }
 }
 
+/* Tablets y celulares grandes (≤768px) */
 @media (max-width: 768px) {
     .form-container {
         padding-top: 25px;
@@ -731,15 +629,16 @@ RESPONSIVE
     }
 }
 
+/* Celulares (≤480px) */
 @media (max-width: 480px) {
     .form-container {
-        padding: 10px 16px 40px 16px;
+        padding: 10px 0 40px 0;
     }
     .form-group {
-        padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+        padding: 1.5rem 1rem 1.25rem 1rem;
     }
     .adoption-form {
-        padding: 1.25rem;
+        padding: 16px;
         max-width: 100%;
         margin: 0 auto;
     }
@@ -756,20 +655,25 @@ RESPONSIVE
     .mascota-seleccionada-banner {
         flex-direction: column;
         text-align: center;
+        padding: 16px;
+    }
 
-        padding: 14px;
+    .btn-cancelar-seleccion {
+        width: 100%;
+        justify-content: center;
     }
 }
 
+/* Celulares pequeños (≤400px) */
 @media (max-width: 400px) {
     .form-container {
-        padding: 10px 25px 40px 25px;
+        padding: 10px 0 40px 0;
     }
     .form-group {
-        padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+        padding: 1.5rem 1rem 1.25rem 1rem;
     }
     .adoption-form {
-        padding: 1.8rem;
+        padding: 16px;
         max-width: 100%;
     }
     .form-header h1 {
@@ -817,26 +721,28 @@ RESPONSIVE
     .btn-limpiar {
         display: none;
     }
+    input[type="file"] {
+        padding: 8px;
+        font-size: 0.75rem;
+        word-break: break-word;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
+/* Tablets en horizontal (≤1024px) */
 @media (max-width: 1024px) {
     .form-wrapper {
         grid-template-columns: 1fr;
     }
 }
 
+/* Tablets y celulares grandes (≤768px) */
 @media (max-width: 768px) {
     .form-wrapper {
         grid-template-columns: 1fr;
         gap: 16px;
     }
-}
-
-/* =========================
-RESPONSIVE PARA EL BANNER
-========================= */
-
-@media (max-width: 768px) {
     .mascota-seleccionada-banner {
         flex-wrap: wrap;
         gap: 12px;
@@ -853,18 +759,5 @@ RESPONSIVE PARA EL BANNER
 
     .mascota-seleccionada-banner .mascota-seleccionada-titulo {
         font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .mascota-seleccionada-banner {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px;
-    }
-
-    .btn-cancelar-seleccion {
-        width: 100%;
-        justify-content: center;
     }
 }

@@ -2,7 +2,6 @@
 FONDO GENERAL
 ========================= */
 
-/* Ajusta el valor según la altura, para que se vea sobre nosotros alineado */
 section {
     scroll-margin-top: 80px; 
 }
@@ -369,12 +368,14 @@ SECCIÓN PET (video de fondo)
 RESPONSIVE
 ========================= */
 
+/* Tablets y escritorio pequeño (≥768px) */
 @media (min-width: 768px) {
     .inicio-content {
         padding: 90px 90px 120px;
     }
 }
 
+/* Tablets y celulares grandes (≤768px) */
 @media (max-width: 768px) {
     .bg-video {
         display: none !important;
@@ -414,10 +415,12 @@ RESPONSIVE
         box-sizing: border-box;
     }
 }
+
 /* =========================
-FONDO VETERINARIA (MÓVIL)
+FONDO VETERINARIA (CELULAR)
 ========================= */
 
+/* Celulares (≤768px) */
 @media (max-width: 768px) {
     body {
         background-image: url('https://i.pinimg.com/736x/af/4a/bc/af4abc12c4b00ef60dd1b68526f5e683.jpg');
@@ -434,8 +437,7 @@ FONDO VETERINARIA (MÓVIL)
     .adopcion-responsable{
         background-color: #0d152a00;
     }
-
-    /* Capa de opacidad para asegurar que el texto sea legible */
+    
     body::before {
         content: "";
         position: fixed;

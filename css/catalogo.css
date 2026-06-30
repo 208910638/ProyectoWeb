@@ -380,6 +380,7 @@ BOTÓN DE ADOPCIÓN
 RESPONSIVE
 ========================= */
 
+/* Móviles pequeños (≤400px) */
 @media (max-width: 400px) {
     .catalog-title {
         font-size: 1.6rem;

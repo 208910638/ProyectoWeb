@@ -8,6 +8,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let mascotas = []; 
 
+    function formatearEdad(edadStr) {
+        if (!edadStr) return 'Edad no especificada';
+        const str = edadStr.toString().toLowerCase().trim();
+        let totalMeses = 0;
+
+        const yearsMatch = str.match(/(\d+)\s*(año|a)/);
+        if (yearsMatch) totalMeses += parseInt(yearsMatch[1]) * 12;
+
+        const monthsMatch = str.match(/(\d+)\s*(mes|m)/);
+        if (monthsMatch) totalMeses += parseInt(monthsMatch[1]);
+
+        if (totalMeses > 0) {
+            const añosExacto = totalMeses / 12;
+            const años = parseFloat(añosExacto.toFixed(1)); // redondea a 2 decimales
+            const esEntero = años % 1 === 0;
+            const añosMostrar = esEntero ? años : años.toFixed(1); // sin decimales si es entero
+            return añosMostrar + (años === 1 ? ' año' : ' años');
+        }
+
+        // si no hay palabras, intenta interpretar como número (asume años)
+        const num = parseFloat(str);
+        if (!isNaN(num)) return num + (num === 1 ? ' año' : ' años');
+
+        return edadStr;
+    }
+
+    function formatearPeso(pesoStr) {
+        if (!pesoStr) return 'Peso no especificado';
+        const num = parseFloat(pesoStr);
+        if (isNaN(num)) return pesoStr.toString();
+        return num + ' kg';
+    }
+
     function normalizar(texto) {
         return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s/g, '');
     }
@@ -63,8 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h2 class="pet-name">${pet.nombre} ${sexoIcon}</h2>
                     <p class="pet-breed"><i class="fa-solid fa-paw"></i> ${pet.raza || 'Raza no especificada'}</p>
                     <ul class="pet-details-list">
-                        <li><i class="fa-solid fa-cake-candles"></i> ${pet.edad || 'Edad no especificada'}</li>
-                        <li><i class="fa-solid fa-weight-scale"></i> ${pet.peso || 'Peso no especificado'}</li>
+                        <li><i class="fa-solid fa-cake-candles"></i> ${formatearEdad(pet.edad)}</li>
+                        <li><i class="fa-solid fa-weight-scale"></i> ${formatearPeso(pet.peso)}</li>
                         <li><i class="fa-solid fa-location-dot"></i> ${pet.provincia || 'Ubicación no especificada'}</li>
                     </ul>
                     <p class="pet-description">${pet.descripcion || 'Mascota en busca de un hogar lleno de amor.'}</p>
@@ -83,12 +116,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const tamanio = tamanioSelect ? tamanioSelect.value : 'todos';
 
         const filtradas = mascotas.filter(pet => {
-            const nombre = pet.nombre.toLowerCase();
+            const textoCompleto = (pet.nombre + ' ' + (pet.raza || '') + ' ' + (pet.descripcion || '')).toLowerCase();
             const esp = pet.especie;
             const prov = normalizar(pet.provincia || '');
             const tam = pet.tamanio;
 
-            return nombre.includes(busqueda) && 
+            return textoCompleto.includes(busqueda) && 
                 (especie === 'todos' || esp === especie) && 
                 (provincia === 'todas' || prov === provinciaNormalizada) && 
                 (tamanio === 'todos' || tam === tamanio);
