@@ -678,8 +678,6 @@ function renderizarHistorial() {
     document.querySelectorAll('.btn-cancelar').forEach(b => b.onclick = (e) => manejarCancelar(parseInt(e.currentTarget.dataset.id)));
 }
 
-
-
 function manejarCancelar(id) {
     Swal.fire({
         title: '¿Cancelar solicitud?',

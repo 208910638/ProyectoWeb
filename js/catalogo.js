@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             card.innerHTML = `
                 <div class="pet-badge">ID: ${pet.id}</div>
-                <img src="${imagenSrc}" alt="Foto de ${pet.nombre}" class="pet-image" onerror="this.src='${pet.imagen_fallback || 'img/default.jpg'}'">
+                <img src="${imagenSrc}" alt="${pet.alt || 'Foto de ' + pet.nombre}"  class="pet-image" onerror="this.src='${pet.imagen_fallback || 'img/default.jpg'}'">
                 <div class="pet-info">
                     <h2 class="pet-name">${pet.nombre} ${sexoIcon}</h2>
                     <p class="pet-breed"><i class="fa-solid fa-paw"></i> ${pet.raza || 'Raza no especificada'}</p>

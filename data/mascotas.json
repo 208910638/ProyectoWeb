@@ -11,7 +11,9 @@
     "provincia": "Puntarenas",
     "descripcion": "Es super juguetona, cariñosa y se lleva increíble con niños pequeños y otros perritos. ¡Lista para llenar tu hogar de felicidad!",
     "imagen": "source/img/suki.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg",
+    "alt": "Suki",
+    "permanente": true
   },
   {
     "id": "PET002",
@@ -25,7 +27,9 @@
     "provincia": "Alajuela",
     "descripcion": "Es muy tranquila y curiosa. Le encanta ver por la ventana y dormir todo el día, ama los atunes de camarón y los juguetes.",
     "imagen": "source/img/haru.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://cataas.com/cat?width=500&height=400",
+    "alt": "Haru",
+    "permanente": true
   },
   {
     "id": "PET003",
@@ -39,7 +43,9 @@
     "provincia": "Heredia",
     "descripcion": "Coco es un perrito lleno de energía y alegría. Le encanta jugar a buscar la pelota en el parque y es muy sociable con otros perros",
     "imagen": "source/img/coco.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg",
+    "alt": "Coco",
+    "permanente": true
   },
   {
     "id": "PET004",
@@ -53,7 +59,9 @@
     "provincia": "Alajuela",
     "descripcion": "Un gatito lleno de energía y muy juguetón. Es sumamente cariñoso y le encanta explorar cada rincón de la casa. ¡Está listo para encontrar a su familia humana definitiva!",
     "imagen": "source/img/blacky.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://cataas.com/cat?width=500&height=400",
+    "alt": "Blacky",
+    "permanente": true
   },
   {
     "id": "PET005",
@@ -67,7 +75,9 @@
     "provincia": "Cartago",
     "descripcion": "Bruno es un perrito muy valiente y leal. Aunque es pequeño de tamaño, tiene un corazón enorme. Le encanta estar cerca de sus humanos y seguirte a todos lados. ¡Es el compañero perfecto para quienes buscan mucho cariño!",
     "imagen": "source/img/bruno.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg",
+    "alt": "Bruno",
+    "permanente": true
   },
   {
     "id": "PET006",
@@ -81,7 +91,9 @@
     "provincia": "Alajuela",
     "descripcion": "Oliver es un gato muy elegante y observador. Disfruta de la tranquilidad del hogar y es experto en encontrar los lugares más cómodos para dormir la siesta. ¡Un gran compañero para tardes de lectura!",
     "imagen": "source/img/Oliver.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://cataas.com/cat?width=500&height=400",
+    "alt": "Oliver",
+    "permanente": true
   },
   {
     "id": "PET007",
@@ -95,7 +107,9 @@
     "provincia": "Alajuela",
     "descripcion": "Bonnie es una perrita muy dulce y tranquila. Es muy obediente y le encanta pasear a un ritmo relajado. Se lleva de maravilla con adultos y otros perros. ¡Una compañera de vida excepcional!",
     "imagen": "source/img/Bonnie.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg",
+    "alt": "Bonnie",
+    "permanente": true
   },
   {
     "id": "PET008",
@@ -109,7 +123,9 @@
     "provincia": "Limón",
     "descripcion": "Gori es muy cariñoso, un poquito celoso con sus humanos favoritos, y le encanta dormir largas siestas. ¡Un gran oso de peluche!",
     "imagen": "source/img/gori.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg",
+    "alt": "Gori",
+    "permanente": true
   },
   {
     "id": "PET009",
@@ -123,7 +139,9 @@
     "provincia": "San José",
     "descripcion": "Mindy tiene mucho carácter: odia a la gente en la que no confía, pero si te ganas su corazón te amará. Le encanta comer helado, jugar en las zonas verdes y pasa sus días durmiendo y comiendo mucho.",
     "imagen": "source/img/mindy.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://cataas.com/cat?width=500&height=400",
+    "alt": "Mindy",
+    "permanente": true
   },
   {
     "id": "PET010",
@@ -137,6 +155,8 @@
     "provincia": "Alajuela",
     "descripcion": "¡Pura energía, elegancia y lealtad en cuatro patas! A sus casi 3 años, es una perrita joven, súper inteligente y activa. Ya pasó la etapa de las travesuras de cachorrita, por lo que busca una familia que ame los paseos al aire libre y jugar a atrapar la pelota. ¡Te llenará de amor y manchas el corazón!",
     "imagen": "source/img/naila.jpeg",
-    "permanente": false
+    "imagen_fallback": "https://images.dog.ceo/breeds/retriever-golden/n02099601_100.jpg",
+    "alt": "Naila",
+    "permanente": true
   }
 ]
