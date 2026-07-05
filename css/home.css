@@ -423,13 +423,11 @@ FONDO VETERINARIA (CELULAR)
 /* Celulares (≤768px) */
 @media (max-width: 768px) {
     body {
-        background-image: url('https://i.pinimg.com/736x/af/4a/bc/af4abc12c4b00ef60dd1b68526f5e683.jpg');
-        background-repeat: repeat;
-        background-size: 150px; 
-        background-attachment: fixed;
+        background: url('https://images.pexels.com/photos/37375773/pexels-photo-37375773.png') no-repeat center center fixed;
+        background-size: cover; /* Ajusta la imagen para cubrir toda el área */
         background-color: #0f172a29; 
     }
-
+}
     .pet-section{
         background-color: #0d152a00;
     }
@@ -449,4 +447,3 @@ FONDO VETERINARIA (CELULAR)
         z-index: -1;
         pointer-events: none;
     }
-}
